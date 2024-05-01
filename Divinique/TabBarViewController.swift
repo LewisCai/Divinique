@@ -1,5 +1,5 @@
 //
-//  HomePageViewController.swift
+//  TabBarViewController.swift
 //  Divinique
 //
 //  Created by LinjunCai on 1/5/2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController {
+class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

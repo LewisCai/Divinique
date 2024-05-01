@@ -45,7 +45,7 @@ class NewUserPageViewController: UIViewController {
             }
         }
         
-        performSegue(withIdentifier: "newUserToHome", sender: Self.self)
+        performSegue(withIdentifier: "newUserToMain", sender: Self.self)
     }
     
     override func viewDidLoad() {
