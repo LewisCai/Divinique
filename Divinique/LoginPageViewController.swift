@@ -47,8 +47,21 @@ class LoginPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.titleTextAttributes = [
+                .font: UIFont(name: "HelveticaNeue-Bold", size: 20)!,
+                .foregroundColor: UIColor.white
+            ]
 
-        // Do any additional setup after loading the view.
+        // Create the image view
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "LoginBackground")  
+        
+        // Set the content mode
+        backgroundImage.contentMode = .scaleAspectFill  // This will cover the entire screen without distorting the aspect ratio
+        
+        // Add the image view to the view and send it to the back
+        view.addSubview(backgroundImage)
+        view.sendSubviewToBack(backgroundImage)
     }
     
     func displayMessage(title: String, message: String){
