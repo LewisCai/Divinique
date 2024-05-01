@@ -30,18 +30,19 @@ class SignUpPageViewController: UIViewController {
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty,
               let confirmPassword = passwordTextField2.text, !confirmPassword.isEmpty else {
-            print("Please fill in all fields")
+            displayMessage(title: "Empty Textfield", message: "Please fill email and password")
             return
         }
         
         guard password == confirmPassword else {
-            print("Passwords do not match")
+            displayMessage(title: "Password not match", message: "Please make sure you have entered the same password")
             return
         }
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("Error signing up: \(error.localizedDescription)")
+                self.displayMessage(title: "Error signing up", message: error.localizedDescription)
                 return
             }
             // Here you can handle post-signup operations, like saving user profile data if needed
@@ -52,11 +53,17 @@ class SignUpPageViewController: UIViewController {
     private func handlePostSignUp() {
         // Optionally perform segue or update UI
         print("User signed up successfully")
-        performSegue(withIdentifier: "signupToHomeSegue", sender: self)
+        performSegue(withIdentifier: "newUserPage", sender: self)
     }
     
 
-    
+    func displayMessage(title: String, message: String){
+            let alertController = UIAlertController(title: title, message: message,
+             preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default,
+             handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
     /*
     // MARK: - Navigation
 

@@ -17,11 +17,22 @@ class LoginPageViewController: UIViewController {
     
 
     @IBAction func LoginButton(_ sender: Any) {
+        guard let email = UsernameEmailTextField.text, !email.isEmpty else {
+                displayMessage(title: "Login Error", message: "Please enter your email.")
+                return
+            }
+            
+        guard let password = PasswordTextField.text, !password.isEmpty else {
+                displayMessage(title: "Login Error", message: "Please enter your password.")
+                return
+            }
+        
         guard let email = UsernameEmailTextField.text, let password = PasswordTextField.text else { return }
             
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
                 if let error = error {
                     print("Login error: \(error.localizedDescription)")
+                    self?.displayMessage(title: "Login Error", message: error.localizedDescription)
                     return
                 }
                 // Navigate to the main part of your app here
@@ -40,6 +51,13 @@ class LoginPageViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func displayMessage(title: String, message: String){
+            let alertController = UIAlertController(title: title, message: message,
+             preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default,
+             handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

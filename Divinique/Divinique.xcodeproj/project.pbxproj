@@ -19,6 +19,8 @@
 		F6D306852BE204C900B0A096 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F6D306842BE204C900B0A096 /* FirebaseFirestoreSwift */; };
 		F6D3069A2BE206E800B0A096 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6D306992BE206E800B0A096 /* GoogleService-Info.plist */; };
 		F6D3069C2BE209E700B0A096 /* SignUpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3069B2BE209E700B0A096 /* SignUpPageViewController.swift */; };
+		F6D3069E2BE2100300B0A096 /* NewUserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3069D2BE2100300B0A096 /* NewUserPageViewController.swift */; };
+		F6D306A02BE2125200B0A096 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3069F2BE2125200B0A096 /* HomePageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		F6D3067D2BE1388100B0A096 /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		F6D306992BE206E800B0A096 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Divinique/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6D3069B2BE209E700B0A096 /* SignUpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageViewController.swift; sourceTree = "<group>"; };
+		F6D3069D2BE2100300B0A096 /* NewUserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserPageViewController.swift; sourceTree = "<group>"; };
+		F6D3069F2BE2125200B0A096 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,9 @@
 		F6D3065D2BE134CA00B0A096 = {
 			isa = PBXGroup;
 			children = (
+				F6D3069F2BE2125200B0A096 /* HomePageViewController.swift */,
+				F6D3069B2BE209E700B0A096 /* SignUpPageViewController.swift */,
+				F6D3069D2BE2100300B0A096 /* NewUserPageViewController.swift */,
 				F6D306992BE206E800B0A096 /* GoogleService-Info.plist */,
 				F6D3067D2BE1388100B0A096 /* LoginPageViewController.swift */,
 				F6D306682BE134CA00B0A096 /* Divinique */,
@@ -77,7 +84,6 @@
 				F6D306722BE134CC00B0A096 /* Assets.xcassets */,
 				F6D306742BE134CC00B0A096 /* LaunchScreen.storyboard */,
 				F6D306772BE134CC00B0A096 /* Info.plist */,
-				F6D3069B2BE209E700B0A096 /* SignUpPageViewController.swift */,
 			);
 			path = Divinique;
 			sourceTree = "<group>";
@@ -163,10 +169,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6D3066E2BE134CA00B0A096 /* ViewController.swift in Sources */,
+				F6D306A02BE2125200B0A096 /* HomePageViewController.swift in Sources */,
 				F6D3067E2BE1388100B0A096 /* LoginPageViewController.swift in Sources */,
 				F6D3066A2BE134CA00B0A096 /* AppDelegate.swift in Sources */,
 				F6D3066C2BE134CA00B0A096 /* SceneDelegate.swift in Sources */,
 				F6D3069C2BE209E700B0A096 /* SignUpPageViewController.swift in Sources */,
+				F6D3069E2BE2100300B0A096 /* NewUserPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
