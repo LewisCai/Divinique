@@ -83,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="1053" y="-20"/>
         </scene>
-        <!--Item 2-->
+        <!--Reading-->
         <scene sceneID="GLl-WU-c4s">
             <objects>
                 <viewController id="w8d-cu-nHw" sceneMemberID="viewController">
@@ -93,13 +93,13 @@
                         <viewLayoutGuide key="safeArea" id="B5k-ak-WHE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="8Y7-i1-ZW5"/>
+                    <tabBarItem key="tabBarItem" title="Reading" image="book.closed.fill" catalog="system" id="8Y7-i1-ZW5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lS1-ie-43I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5795" y="256"/>
+            <point key="canvasLocation" x="5795" y="-161"/>
         </scene>
-        <!--Item-->
+        <!--Decision-->
         <scene sceneID="pPL-XR-FFL">
             <objects>
                 <viewController id="G6b-Ra-TXu" sceneMemberID="viewController">
@@ -109,27 +109,68 @@
                         <viewLayoutGuide key="safeArea" id="83G-lV-rMY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6oV-YO-JOc"/>
+                    <tabBarItem key="tabBarItem" title="Decision" image="pencil" catalog="system" id="6oV-YO-JOc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7je-8w-gSM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4691" y="937"/>
+            <point key="canvasLocation" x="5795" y="592"/>
         </scene>
-        <!--Item 1-->
+        <!--Soul Mate-->
+        <scene sceneID="aIw-vB-2OJ">
+            <objects>
+                <viewController id="YGr-dU-cj5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zfP-Il-jAZ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eGv-nY-gVa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Soul Mate" image="person.2.fill" catalog="system" id="ISC-ZU-VYl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QSx-Ci-PPD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5795" y="1266"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="wYT-Uo-6Q1">
+            <objects>
+                <viewController id="moy-J5-7ZZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YrE-m1-zf2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nFn-Ss-1cE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Setting" image="gearshape" catalog="system" id="Y6A-wX-WD3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Vr-1q-Nxg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5795" y="1978"/>
+        </scene>
+        <!--Horoscope-->
         <scene sceneID="Y4H-KX-llv">
             <objects>
                 <viewController id="EBI-Vr-dQj" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7FB-Oi-TeG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqC-zq-d20">
+                                <rect key="frame" x="175" y="392" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gN8-Ol-LDZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Hxf-gf-myK"/>
+                    <tabBarItem key="tabBarItem" title="Horoscope" image="moon.stars" catalog="system" id="Hxf-gf-myK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vvt-HE-QnS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5795" y="-430"/>
+            <point key="canvasLocation" x="5795" y="-859"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="s96-gF-RUJ">
@@ -145,6 +186,8 @@
                         <segue destination="EBI-Vr-dQj" kind="relationship" relationship="viewControllers" id="sqr-th-7Ch"/>
                         <segue destination="w8d-cu-nHw" kind="relationship" relationship="viewControllers" id="aTU-3v-a27"/>
                         <segue destination="G6b-Ra-TXu" kind="relationship" relationship="viewControllers" id="SSq-ap-4hz"/>
+                        <segue destination="YGr-dU-cj5" kind="relationship" relationship="viewControllers" id="0a8-9y-bFV"/>
+                        <segue destination="moy-J5-7ZZ" kind="relationship" relationship="viewControllers" id="8NV-9C-rKI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVa-ih-eFm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -336,6 +379,11 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Icon" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="book.closed.fill" catalog="system" width="115" height="128"/>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="moon.stars" catalog="system" width="125" height="128"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="person.2.fill" catalog="system" width="128" height="86"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
