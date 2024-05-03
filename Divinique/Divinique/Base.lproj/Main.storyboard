@@ -81,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053" y="-20"/>
+            <point key="canvasLocation" x="1048" y="-180"/>
         </scene>
         <!--Reading-->
         <scene sceneID="GLl-WU-c4s">
@@ -141,7 +141,7 @@
                         <viewLayoutGuide key="safeArea" id="nFn-Ss-1cE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Setting" image="gearshape" catalog="system" id="Y6A-wX-WD3"/>
+                    <tabBarItem key="tabBarItem" title="Setting" image="gearshape.fill" catalog="system" id="Y6A-wX-WD3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Vr-1q-Nxg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,14 +150,39 @@
         <!--Horoscope-->
         <scene sceneID="Y4H-KX-llv">
             <objects>
-                <viewController id="EBI-Vr-dQj" sceneMemberID="viewController">
+                <viewController id="EBI-Vr-dQj" customClass="HoroscopeViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7FB-Oi-TeG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqC-zq-d20">
-                                <rect key="frame" x="175" y="392" width="46" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eJ-c2-FNe">
+                                <rect key="frame" x="70" y="143" width="253" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="50E-ON-a9k"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="Jwh-rJ-VrT"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="bYi-bh-GQs"/>
+                                    <constraint firstAttribute="height" constant="250" id="v2P-db-fzv"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="" buttonSize="medium"/>
+                                <connections>
+                                    <action selector="chineseZodiacButton:" destination="EBI-Vr-dQj" eventType="touchUpInside" id="bFz-ox-DW2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJh-NQ-sED">
+                                <rect key="frame" x="70" y="458" width="253" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="WYZ-St-FMt"/>
+                                    <constraint firstAttribute="height" constant="250" id="tRd-FE-wKw"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                                <connections>
+                                    <action selector="zodiacButton:" destination="EBI-Vr-dQj" eventType="touchUpInside" id="OlT-61-ZrR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chinese Zodiac Sign" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiT-K6-nWG">
+                                <rect key="frame" x="110" y="113" width="173" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -165,12 +190,26 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gN8-Ol-LDZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uiT-K6-nWG" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="110" id="2gY-XU-PQY"/>
+                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="uiT-K6-nWG" secondAttribute="trailing" constant="110" id="Wqj-M1-eVk"/>
+                            <constraint firstItem="5eJ-c2-FNe" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="70" id="Ykb-TY-RJT"/>
+                            <constraint firstItem="TJh-NQ-sED" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="70" id="cdo-zN-Alv"/>
+                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="5eJ-c2-FNe" secondAttribute="trailing" constant="70" id="cgD-KL-KeV"/>
+                            <constraint firstItem="TJh-NQ-sED" firstAttribute="top" secondItem="5eJ-c2-FNe" secondAttribute="bottom" constant="65" id="dmY-30-KB5"/>
+                            <constraint firstItem="uiT-K6-nWG" firstAttribute="top" secondItem="gN8-Ol-LDZ" secondAttribute="top" constant="10" id="eUh-xa-GPp"/>
+                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="TJh-NQ-sED" secondAttribute="trailing" constant="70" id="vrW-BJ-e6f"/>
+                            <constraint firstItem="5eJ-c2-FNe" firstAttribute="top" secondItem="gN8-Ol-LDZ" secondAttribute="top" constant="40" id="wgC-kG-cNt"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Horoscope" image="moon.stars" catalog="system" id="Hxf-gf-myK"/>
+                    <tabBarItem key="tabBarItem" title="Horoscope" image="moon.stars.fill" catalog="system" id="Hxf-gf-myK"/>
+                    <connections>
+                        <outlet property="chineseZodiacBtn" destination="5eJ-c2-FNe" id="YKR-EY-i4y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vvt-HE-QnS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5795" y="-859"/>
+            <point key="canvasLocation" x="5794.6564885496182" y="-859.15492957746483"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="s96-gF-RUJ">
@@ -371,17 +410,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlG-01-GuA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="-20"/>
+            <point key="canvasLocation" x="10" y="-180"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="shH-bj-cwI"/>
+        <segue reference="mat-GB-COX"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Icon" width="341.33334350585938" height="341.33334350585938"/>
         <image name="book.closed.fill" catalog="system" width="115" height="128"/>
-        <image name="gearshape" catalog="system" width="128" height="123"/>
-        <image name="moon.stars" catalog="system" width="125" height="128"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="moon.stars.fill" catalog="system" width="125" height="128"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.2.fill" catalog="system" width="128" height="86"/>
         <systemColor name="groupTableViewBackgroundColor">
