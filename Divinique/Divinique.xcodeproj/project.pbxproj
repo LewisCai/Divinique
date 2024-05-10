@@ -25,6 +25,8 @@
 		F6D306A92BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D306A82BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift */; };
 		F6D306AB2BE4D6A200B0A096 /* ZodiacSignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D306AA2BE4D6A200B0A096 /* ZodiacSignViewController.swift */; };
 		F6D5582D2BEDD68700021394 /* Horoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5582C2BEDD68700021394 /* Horoscope.swift */; };
+		F6D558322BEDE66700021394 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D558312BEDE66700021394 /* ReadingViewController.swift */; };
+		F6D558342BEDE76900021394 /* TarotCardReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D558332BEDE76900021394 /* TarotCardReadingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		F6D306A82BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseZodiacSignViewController.swift; sourceTree = "<group>"; };
 		F6D306AA2BE4D6A200B0A096 /* ZodiacSignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacSignViewController.swift; sourceTree = "<group>"; };
 		F6D5582C2BEDD68700021394 /* Horoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horoscope.swift; sourceTree = "<group>"; };
+		F6D558312BEDE66700021394 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
+		F6D558332BEDE76900021394 /* TarotCardReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotCardReadingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 		F6D3065D2BE134CA00B0A096 = {
 			isa = PBXGroup;
 			children = (
+				F6D5582E2BEDE4A200021394 /* Reading */,
 				F6D306A72BE4D0F300B0A096 /* Horoscope */,
 				F6D306A32BE23FCE00B0A096 /* TabBarViewController.swift */,
 				F6D3069B2BE209E700B0A096 /* SignUpPageViewController.swift */,
@@ -106,6 +111,15 @@
 				F6D5582C2BEDD68700021394 /* Horoscope.swift */,
 			);
 			path = Horoscope;
+			sourceTree = "<group>";
+		};
+		F6D5582E2BEDE4A200021394 /* Reading */ = {
+			isa = PBXGroup;
+			children = (
+				F6D558312BEDE66700021394 /* ReadingViewController.swift */,
+				F6D558332BEDE76900021394 /* TarotCardReadingViewController.swift */,
+			);
+			path = Reading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +211,9 @@
 				F6D3066A2BE134CA00B0A096 /* AppDelegate.swift in Sources */,
 				F6D3066C2BE134CA00B0A096 /* SceneDelegate.swift in Sources */,
 				F6D306A42BE23FCE00B0A096 /* TabBarViewController.swift in Sources */,
+				F6D558322BEDE66700021394 /* ReadingViewController.swift in Sources */,
 				F6D3069C2BE209E700B0A096 /* SignUpPageViewController.swift in Sources */,
+				F6D558342BEDE76900021394 /* TarotCardReadingViewController.swift in Sources */,
 				F6D3069E2BE2100300B0A096 /* NewUserPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

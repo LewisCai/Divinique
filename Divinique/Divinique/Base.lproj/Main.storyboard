@@ -86,18 +86,114 @@
         <!--Reading-->
         <scene sceneID="GLl-WU-c4s">
             <objects>
-                <viewController id="w8d-cu-nHw" sceneMemberID="viewController">
+                <viewController id="w8d-cu-nHw" customClass="ReadingViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E8x-dw-AVC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfA-rg-sgT">
+                                <rect key="frame" x="100" y="303" width="193" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="3 Cards"/>
+                                <connections>
+                                    <action selector="threeCardsButton:" destination="w8d-cu-nHw" eventType="touchUpInside" id="Qce-cH-4PZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kt4-Os-IeA">
+                                <rect key="frame" x="100" y="453" width="193" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Daily Tarot"/>
+                                <connections>
+                                    <action selector="dailyTarotButton:" destination="w8d-cu-nHw" eventType="touchUpInside" id="pk2-mi-eok"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKv-9k-8dM">
+                                <rect key="frame" x="100" y="378" width="193" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="6 Cards"/>
+                                <connections>
+                                    <action selector="sixCardsButton:" destination="w8d-cu-nHw" eventType="touchUpInside" id="hwn-Cs-tqy"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="B5k-ak-WHE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZfA-rg-sgT" firstAttribute="top" secondItem="B5k-ak-WHE" secondAttribute="top" constant="200" id="1hy-zM-eFt"/>
+                            <constraint firstItem="AKv-9k-8dM" firstAttribute="leading" secondItem="B5k-ak-WHE" secondAttribute="leading" constant="100" id="KgV-xr-swt"/>
+                            <constraint firstItem="ZfA-rg-sgT" firstAttribute="leading" secondItem="B5k-ak-WHE" secondAttribute="leading" constant="100" id="MY8-M8-Oh0"/>
+                            <constraint firstItem="kt4-Os-IeA" firstAttribute="top" secondItem="AKv-9k-8dM" secondAttribute="bottom" constant="40" id="mVw-sC-2sY"/>
+                            <constraint firstItem="B5k-ak-WHE" firstAttribute="trailing" secondItem="ZfA-rg-sgT" secondAttribute="trailing" constant="100" id="puz-e0-4VZ"/>
+                            <constraint firstItem="B5k-ak-WHE" firstAttribute="trailing" secondItem="AKv-9k-8dM" secondAttribute="trailing" constant="100" id="rGF-Mc-ebF"/>
+                            <constraint firstItem="kt4-Os-IeA" firstAttribute="leading" secondItem="B5k-ak-WHE" secondAttribute="leading" constant="100" id="t8E-St-evy"/>
+                            <constraint firstItem="AKv-9k-8dM" firstAttribute="top" secondItem="ZfA-rg-sgT" secondAttribute="bottom" constant="40" id="yYN-R2-Ua8"/>
+                            <constraint firstItem="B5k-ak-WHE" firstAttribute="trailing" secondItem="kt4-Os-IeA" secondAttribute="trailing" constant="100" id="zVq-iI-Ggg"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Reading" image="book.closed.fill" catalog="system" id="8Y7-i1-ZW5"/>
+                    <connections>
+                        <segue destination="cX1-re-kfI" kind="show" identifier="tarotReadSegue" id="eC5-W1-EfC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lS1-ie-43I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5795" y="-161"/>
+        </scene>
+        <!--Tarot Card Reading View Controller-->
+        <scene sceneID="7ul-wM-A9g">
+            <objects>
+                <viewController id="cX1-re-kfI" customClass="TarotCardReadingViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GE8-Ul-h34">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akt-yt-e3w">
+                                <rect key="frame" x="90" y="498" width="24" height="230"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="fas-AI-oxA"/>
+                                    <constraint firstAttribute="width" constant="230" id="mZe-eW-XXU"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <connections>
+                                    <action selector="spinWheel:" destination="cX1-re-kfI" eventType="touchUpInside" id="WoX-FR-xFV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YD-eJ-mUr">
+                                <rect key="frame" x="110" y="350" width="173" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hB-rp-Wfj">
+                                <rect key="frame" x="16" y="118" width="114" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vFR-O2-6HY">
+                                <rect key="frame" x="139" y="118" width="114" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tC0-Mv-VNg">
+                                <rect key="frame" x="261" y="118" width="114" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OGZ-7P-O3U"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Akt-yt-e3w" firstAttribute="leading" secondItem="OGZ-7P-O3U" secondAttribute="leading" constant="90" id="3Uv-CL-yxJ"/>
+                            <constraint firstItem="OGZ-7P-O3U" firstAttribute="trailing" secondItem="Akt-yt-e3w" secondAttribute="trailing" constant="90" id="f5M-ot-oDl"/>
+                            <constraint firstItem="OGZ-7P-O3U" firstAttribute="bottom" secondItem="Akt-yt-e3w" secondAttribute="bottom" constant="90" id="hyP-il-Qba"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CcD-NT-MNd"/>
+                    <connections>
+                        <outlet property="spinWheelBtn" destination="Akt-yt-e3w" id="lxP-4g-NWW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HUk-wG-Vdk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6919.8473282442746" y="-161.26760563380282"/>
         </scene>
         <!--Decision-->
         <scene sceneID="pPL-XR-FFL">
@@ -289,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qjs-nv-Ba4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6922" y="-535"/>
+            <point key="canvasLocation" x="6920" y="-975"/>
         </scene>
         <!--Chinese Zodiac Sign View Controller-->
         <scene sceneID="5UK-J0-AvM">
@@ -305,7 +401,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOF-aG-ORe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6905" y="-1201"/>
+            <point key="canvasLocation" x="6921" y="-1646"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="s96-gF-RUJ">
