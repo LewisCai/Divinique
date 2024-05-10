@@ -176,7 +176,7 @@
                                     <constraint firstAttribute="height" constant="250" id="tRd-FE-wKw"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
                                     <action selector="zodiacButton:" destination="EBI-Vr-dQj" eventType="touchUpInside" id="OlT-61-ZrR"/>
                                 </connections>
@@ -187,17 +187,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zodiac Sign" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOV-0P-0vG">
+                                <rect key="frame" x="150" y="429" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gN8-Ol-LDZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uiT-K6-nWG" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="110" id="2gY-XU-PQY"/>
+                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="cOV-0P-0vG" secondAttribute="trailing" constant="150" id="Gjz-ui-wSF"/>
                             <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="uiT-K6-nWG" secondAttribute="trailing" constant="110" id="Wqj-M1-eVk"/>
                             <constraint firstItem="5eJ-c2-FNe" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="70" id="Ykb-TY-RJT"/>
                             <constraint firstItem="TJh-NQ-sED" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="70" id="cdo-zN-Alv"/>
                             <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="5eJ-c2-FNe" secondAttribute="trailing" constant="70" id="cgD-KL-KeV"/>
                             <constraint firstItem="TJh-NQ-sED" firstAttribute="top" secondItem="5eJ-c2-FNe" secondAttribute="bottom" constant="65" id="dmY-30-KB5"/>
                             <constraint firstItem="uiT-K6-nWG" firstAttribute="top" secondItem="gN8-Ol-LDZ" secondAttribute="top" constant="10" id="eUh-xa-GPp"/>
+                            <constraint firstItem="cOV-0P-0vG" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="150" id="gc3-Ht-dBs"/>
+                            <constraint firstItem="cOV-0P-0vG" firstAttribute="top" secondItem="5eJ-c2-FNe" secondAttribute="bottom" constant="36" id="hYb-lb-o8W"/>
                             <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="TJh-NQ-sED" secondAttribute="trailing" constant="70" id="vrW-BJ-e6f"/>
                             <constraint firstItem="5eJ-c2-FNe" firstAttribute="top" secondItem="gN8-Ol-LDZ" secondAttribute="top" constant="40" id="wgC-kG-cNt"/>
                         </constraints>
@@ -205,11 +214,98 @@
                     <tabBarItem key="tabBarItem" title="Horoscope" image="moon.stars.fill" catalog="system" id="Hxf-gf-myK"/>
                     <connections>
                         <outlet property="chineseZodiacBtn" destination="5eJ-c2-FNe" id="YKR-EY-i4y"/>
+                        <outlet property="zodiacBtn" destination="TJh-NQ-sED" id="Jl8-Xz-V5e"/>
+                        <segue destination="oG0-Hr-2E2" kind="show" identifier="chineseZodiacSegue" id="aS3-xe-a1I"/>
+                        <segue destination="NVQ-LM-ey4" kind="show" identifier="zodiacSegue" id="1JZ-kh-wU9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vvt-HE-QnS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5794.6564885496182" y="-859.15492957746483"/>
+        </scene>
+        <!--Zodiac Sign View Controller-->
+        <scene sceneID="ifg-8L-cn1">
+            <objects>
+                <viewController id="NVQ-LM-ey4" customClass="ZodiacSignViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yC4-a4-GyM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Co-eb-J46">
+                                <rect key="frame" x="75" y="414.33333333333326" width="243" height="393.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pao-zJ-Pa4">
+                                <rect key="frame" x="75" y="264.33333333333331" width="243" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="WTD-Wo-l3G"/>
+                                    <constraint firstAttribute="width" constant="100" id="lmg-vI-Jkc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pB-lz-YZV">
+                                <rect key="frame" x="100" y="224" width="193" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73A-oE-1HK">
+                                <rect key="frame" x="175" y="193" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="F8n-Rh-Dzs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="F8n-Rh-Dzs" firstAttribute="trailing" secondItem="2pB-lz-YZV" secondAttribute="trailing" constant="100" id="7Zc-xI-sYw"/>
+                            <constraint firstItem="2pB-lz-YZV" firstAttribute="top" secondItem="73A-oE-1HK" secondAttribute="bottom" constant="10" id="DYx-w5-o5n"/>
+                            <constraint firstItem="F8n-Rh-Dzs" firstAttribute="trailing" secondItem="Pao-zJ-Pa4" secondAttribute="trailing" constant="75" id="Fdu-oa-rNk"/>
+                            <constraint firstItem="5Co-eb-J46" firstAttribute="leading" secondItem="F8n-Rh-Dzs" secondAttribute="leading" constant="75" id="Hc5-fN-gNA"/>
+                            <constraint firstItem="73A-oE-1HK" firstAttribute="top" secondItem="F8n-Rh-Dzs" secondAttribute="top" constant="90" id="MKY-vk-QGK"/>
+                            <constraint firstItem="Pao-zJ-Pa4" firstAttribute="leading" secondItem="F8n-Rh-Dzs" secondAttribute="leading" constant="75" id="PGh-MH-le0"/>
+                            <constraint firstItem="F8n-Rh-Dzs" firstAttribute="trailing" secondItem="5Co-eb-J46" secondAttribute="trailing" constant="75" id="SiD-pv-DZF"/>
+                            <constraint firstItem="2pB-lz-YZV" firstAttribute="leading" secondItem="F8n-Rh-Dzs" secondAttribute="leading" constant="100" id="X6D-5J-Ji1"/>
+                            <constraint firstItem="F8n-Rh-Dzs" firstAttribute="trailing" secondItem="73A-oE-1HK" secondAttribute="trailing" constant="175" id="ehF-i8-obA"/>
+                            <constraint firstItem="73A-oE-1HK" firstAttribute="leading" secondItem="F8n-Rh-Dzs" secondAttribute="leading" constant="175" id="fPZ-V8-jkk"/>
+                            <constraint firstItem="Pao-zJ-Pa4" firstAttribute="top" secondItem="2pB-lz-YZV" secondAttribute="bottom" constant="20" id="fku-t6-jo2"/>
+                            <constraint firstItem="F8n-Rh-Dzs" firstAttribute="bottom" secondItem="5Co-eb-J46" secondAttribute="bottom" constant="10" id="pOm-NE-gsd"/>
+                            <constraint firstItem="5Co-eb-J46" firstAttribute="top" secondItem="Pao-zJ-Pa4" secondAttribute="bottom" constant="50" id="uM8-zJ-UJe"/>
+                            <constraint firstItem="F8n-Rh-Dzs" firstAttribute="trailing" secondItem="Pao-zJ-Pa4" secondAttribute="trailing" constant="75" id="x8i-Js-Td3"/>
+                            <constraint firstItem="Pao-zJ-Pa4" firstAttribute="leading" secondItem="F8n-Rh-Dzs" secondAttribute="leading" constant="75" id="xmk-d1-009"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tLp-d6-dmT"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="2pB-lz-YZV" id="x2X-qe-0FE"/>
+                        <outlet property="horoscope" destination="5Co-eb-J46" id="Z5W-Lh-qOQ"/>
+                        <outlet property="icon" destination="Pao-zJ-Pa4" id="COw-cH-YLb"/>
+                        <outlet property="signLabel" destination="73A-oE-1HK" id="W03-Oc-7Xu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qjs-nv-Ba4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6922" y="-535"/>
+        </scene>
+        <!--Chinese Zodiac Sign View Controller-->
+        <scene sceneID="5UK-J0-AvM">
+            <objects>
+                <viewController id="oG0-Hr-2E2" customClass="ChineseZodiacSignViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yEn-PU-TsS">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZTS-f3-WJN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZBI-FJ-Vks"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOF-aG-ORe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6905" y="-1201"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="s96-gF-RUJ">
@@ -418,13 +514,16 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Icon" width="341.33334350585938" height="341.33334350585938"/>
-        <image name="book.closed.fill" catalog="system" width="115" height="128"/>
+        <image name="book.closed.fill" catalog="system" width="32" height="32"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="moon.stars.fill" catalog="system" width="125" height="128"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="pencil" catalog="system" width="32" height="32"/>
         <image name="person.2.fill" catalog="system" width="128" height="86"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

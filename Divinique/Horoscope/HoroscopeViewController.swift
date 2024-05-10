@@ -11,11 +11,15 @@ class HoroscopeViewController: UIViewController {
     
     @IBOutlet weak var chineseZodiacBtn: UIButton!
     
+    @IBOutlet weak var zodiacBtn: UIButton!
+    
     @IBAction func chineseZodiacButton(_ sender: Any) {
+        performSegue(withIdentifier: "chineseZodiacSegue", sender: UIButton())
     }
     
     
     @IBAction func zodiacButton(_ sender: Any) {
+        performSegue(withIdentifier: "zodiacSegue", sender: UIButton())
     }
     
     override func viewDidLoad() {
@@ -28,6 +32,12 @@ class HoroscopeViewController: UIViewController {
         // Attach actions for touch down and touch up inside
         chineseZodiacBtn.addTarget(self, action: #selector(buttonDown(_:)), for: .touchDown)
         chineseZodiacBtn.addTarget(self, action: #selector(buttonUp(_:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
+        
+        let image2 = UIImage(named: "zodiac.png")
+        zodiacBtn.setImage(image2, for: .normal)
+        
+        zodiacBtn.addTarget(self, action: #selector(buttonDown(_:)), for: .touchDown)
+        zodiacBtn.addTarget(self, action: #selector(buttonUp(_:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
         
     }
     

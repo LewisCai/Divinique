@@ -22,6 +22,9 @@
 		F6D3069E2BE2100300B0A096 /* NewUserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3069D2BE2100300B0A096 /* NewUserPageViewController.swift */; };
 		F6D306A42BE23FCE00B0A096 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D306A32BE23FCE00B0A096 /* TabBarViewController.swift */; };
 		F6D306A62BE392E400B0A096 /* HoroscopeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D306A52BE392E400B0A096 /* HoroscopeViewController.swift */; };
+		F6D306A92BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D306A82BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift */; };
+		F6D306AB2BE4D6A200B0A096 /* ZodiacSignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D306AA2BE4D6A200B0A096 /* ZodiacSignViewController.swift */; };
+		F6D5582D2BEDD68700021394 /* Horoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5582C2BEDD68700021394 /* Horoscope.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		F6D3069D2BE2100300B0A096 /* NewUserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserPageViewController.swift; sourceTree = "<group>"; };
 		F6D306A32BE23FCE00B0A096 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F6D306A52BE392E400B0A096 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
+		F6D306A82BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChineseZodiacSignViewController.swift; sourceTree = "<group>"; };
+		F6D306AA2BE4D6A200B0A096 /* ZodiacSignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacSignViewController.swift; sourceTree = "<group>"; };
+		F6D5582C2BEDD68700021394 /* Horoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horoscope.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +64,7 @@
 		F6D3065D2BE134CA00B0A096 = {
 			isa = PBXGroup;
 			children = (
-				F6D306A52BE392E400B0A096 /* HoroscopeViewController.swift */,
+				F6D306A72BE4D0F300B0A096 /* Horoscope */,
 				F6D306A32BE23FCE00B0A096 /* TabBarViewController.swift */,
 				F6D3069B2BE209E700B0A096 /* SignUpPageViewController.swift */,
 				F6D3069D2BE2100300B0A096 /* NewUserPageViewController.swift */,
@@ -89,6 +95,17 @@
 				F6D306772BE134CC00B0A096 /* Info.plist */,
 			);
 			path = Divinique;
+			sourceTree = "<group>";
+		};
+		F6D306A72BE4D0F300B0A096 /* Horoscope */ = {
+			isa = PBXGroup;
+			children = (
+				F6D306A52BE392E400B0A096 /* HoroscopeViewController.swift */,
+				F6D306A82BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift */,
+				F6D306AA2BE4D6A200B0A096 /* ZodiacSignViewController.swift */,
+				F6D5582C2BEDD68700021394 /* Horoscope.swift */,
+			);
+			path = Horoscope;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,9 +188,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6D306A92BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift in Sources */,
 				F6D3066E2BE134CA00B0A096 /* ViewController.swift in Sources */,
 				F6D306A62BE392E400B0A096 /* HoroscopeViewController.swift in Sources */,
+				F6D306AB2BE4D6A200B0A096 /* ZodiacSignViewController.swift in Sources */,
 				F6D3067E2BE1388100B0A096 /* LoginPageViewController.swift in Sources */,
+				F6D5582D2BEDD68700021394 /* Horoscope.swift in Sources */,
 				F6D3066A2BE134CA00B0A096 /* AppDelegate.swift in Sources */,
 				F6D3066C2BE134CA00B0A096 /* SceneDelegate.swift in Sources */,
 				F6D306A42BE23FCE00B0A096 /* TabBarViewController.swift in Sources */,

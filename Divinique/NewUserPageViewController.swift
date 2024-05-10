@@ -27,6 +27,8 @@ class NewUserPageViewController: UIViewController {
         
         let date = datePicker.date
         
+        let sign = astrologicalSign(from: date)
+        
         // Format the date as needed
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -34,9 +36,12 @@ class NewUserPageViewController: UIViewController {
         
         // Add user data to Firestore
         let db = Firestore.firestore()
+        let userID = Auth.auth().currentUser!.uid
         db.collection("users").addDocument(data: [
             "name": name,
-            "date": dateString
+            "date": dateString,
+            "userId": userID,
+            "sign": sign
         ]) { error in
             if let error = error {
                 self.displayMessage(title: "Error", message: "Something went wrong with database, try again later")
@@ -59,6 +64,33 @@ class NewUserPageViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default,
              handler: nil))
             self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func astrologicalSign(from date: Date) -> String {
+        let zodiacSigns = [
+            "capricorn", "aquarius", "pisces", "aries", "taurus", "gemini",
+            "cancer", "leo", "virgo", "libra", "scorpio", "sagittarius"
+        ]
+        
+        let cutoffDates = [
+            (month: 1, day: 20), (month: 2, day: 19), (month: 3, day: 20),
+            (month: 4, day: 20), (month: 5, day: 21), (month: 6, day: 21),
+            (month: 7, day: 23), (month: 8, day: 23), (month: 9, day: 23),
+            (month: 10, day: 23), (month: 11, day: 22), (month: 12, day: 21)
+        ]
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.month, .day], from: date)
+        
+        let month = components.month!
+        let day = components.day!
+        
+        var index = month - 1
+        if day < cutoffDates[index].day {
+            index = index == 0 ? 11 : index - 1
+        }
+        
+        return zodiacSigns[index]
     }
     
     /*
