@@ -15,7 +15,7 @@ class MagicBallViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        magicOrbImage.image = UIImage(named: "magicOrb") // Replace 'initialImage' with your initial image name
+        magicOrbImage.image = UIImage(named: "magicOrbDark") // Replace 'initialImage' with your initial image name
         magicOrbImage.isUserInteractionEnabled = true // Important: UIImageView by default is not interactive
         addLongPressGesture()
 

@@ -262,16 +262,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyJ-qg-7bs">
-                                <rect key="frame" x="30" y="530" width="24" height="177"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title=""/>
-                                <connections>
-                                    <action selector="magicBallAction:" destination="G6b-Ra-TXu" eventType="touchUpInside" id="2E0-pS-saH"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bX-hT-cZJ">
-                                <rect key="frame" x="339" y="530" width="24" height="177"/>
+                                <rect key="frame" x="213" y="530" width="150" height="177"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title=""/>
                             </button>
@@ -287,6 +279,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x3H-aE-cK8">
+                                <rect key="frame" x="30" y="530" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="1Si-3I-1j5"/>
+                                    <constraint firstAttribute="height" constant="150" id="fgn-FX-VHj"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="83G-lV-rMY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -296,11 +295,10 @@
                             <constraint firstItem="s2J-8Q-gnZ" firstAttribute="top" secondItem="83G-lV-rMY" secondAttribute="top" constant="100" id="8aC-ca-Psb"/>
                             <constraint firstItem="ugh-vM-E5O" firstAttribute="top" secondItem="No0-j8-mhT" secondAttribute="bottom" constant="70" id="8yU-2T-3ib"/>
                             <constraint firstItem="No0-j8-mhT" firstAttribute="top" secondItem="s2J-8Q-gnZ" secondAttribute="bottom" constant="20" id="C75-sb-MVK"/>
-                            <constraint firstItem="pyJ-qg-7bs" firstAttribute="top" secondItem="ugh-vM-E5O" secondAttribute="bottom" constant="20" id="Dh2-TW-1wf"/>
-                            <constraint firstItem="pyJ-qg-7bs" firstAttribute="leading" secondItem="83G-lV-rMY" secondAttribute="leading" constant="30" id="Gs1-DI-Qit"/>
                             <constraint firstItem="83G-lV-rMY" firstAttribute="trailing" secondItem="Vyn-kU-d9k" secondAttribute="trailing" constant="30" id="MW3-0O-aQd"/>
                             <constraint firstItem="ugh-vM-E5O" firstAttribute="leading" secondItem="83G-lV-rMY" secondAttribute="leading" constant="30" id="P6e-7s-b76"/>
                             <constraint firstItem="Vyn-kU-d9k" firstAttribute="top" secondItem="r8l-33-Wtu" secondAttribute="bottom" constant="20" id="TfT-rN-XYu"/>
+                            <constraint firstItem="x3H-aE-cK8" firstAttribute="top" secondItem="ugh-vM-E5O" secondAttribute="bottom" constant="20" id="Uxo-r7-eL8"/>
                             <constraint firstItem="s2J-8Q-gnZ" firstAttribute="leading" secondItem="83G-lV-rMY" secondAttribute="leading" constant="30" id="aSz-Nn-4yV"/>
                             <constraint firstAttribute="trailing" secondItem="zno-hO-Qha" secondAttribute="trailing" constant="20" id="gQe-ds-41Q"/>
                             <constraint firstItem="83G-lV-rMY" firstAttribute="trailing" secondItem="r8l-33-Wtu" secondAttribute="trailing" constant="30" id="hVs-Yw-BaM"/>
@@ -310,11 +308,12 @@
                             <constraint firstItem="9bX-hT-cZJ" firstAttribute="top" secondItem="yLm-Oi-waA" secondAttribute="bottom" constant="20" id="tAu-Ml-gDZ"/>
                             <constraint firstItem="zno-hO-Qha" firstAttribute="leading" secondItem="eXE-3Y-rhp" secondAttribute="leading" constant="20" id="uQ6-yd-bbX"/>
                             <constraint firstItem="83G-lV-rMY" firstAttribute="trailing" secondItem="9bX-hT-cZJ" secondAttribute="trailing" constant="30" id="yNR-4p-62m"/>
+                            <constraint firstItem="x3H-aE-cK8" firstAttribute="leading" secondItem="83G-lV-rMY" secondAttribute="leading" constant="30" id="zxy-Fe-wod"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Decision" image="pencil" catalog="system" id="6oV-YO-JOc"/>
                     <connections>
-                        <outlet property="magicBallButton" destination="pyJ-qg-7bs" id="e0t-Vo-VMn"/>
+                        <outlet property="magicOrbImage" destination="x3H-aE-cK8" id="Jdt-JS-czY"/>
                         <segue destination="G7O-Hl-yy7" kind="show" identifier="magicBallSegue" id="yJa-Xi-zqD"/>
                     </connections>
                 </viewController>
@@ -331,43 +330,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wVu-HV-gzm">
-                                <rect key="frame" x="70" y="231" width="253" height="227"/>
+                                <rect key="frame" x="60" y="221" width="273" height="239"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magic Orb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFO-fx-TCv">
-                                <rect key="frame" x="100" y="193" width="193" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Magic Orb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="el9-da-hfJ">
+                                <rect key="frame" x="100" y="173" width="193" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p48-bG-ySS">
-                                <rect key="frame" x="70" y="503" width="253" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="Touch the orb for 2 seconds to get an answer" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofq-fB-Fsg">
+                                <rect key="frame" x="10" y="491" width="373" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="jfn-pc-TVT"/>
-                                    <constraint firstAttribute="height" constant="50" id="rwu-es-Cc6"/>
+                                    <constraint firstAttribute="height" constant="100" id="Q3h-Fu-0mA"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b6z-ib-98y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YFO-fx-TCv" firstAttribute="leading" secondItem="b6z-ib-98y" secondAttribute="leading" constant="100" id="B74-At-S45"/>
-                            <constraint firstItem="p48-bG-ySS" firstAttribute="top" secondItem="wVu-HV-gzm" secondAttribute="bottom" constant="40" id="JD7-at-SEm"/>
-                            <constraint firstItem="b6z-ib-98y" firstAttribute="trailing" secondItem="wVu-HV-gzm" secondAttribute="trailing" constant="70" id="Lri-GV-XeL"/>
-                            <constraint firstItem="YFO-fx-TCv" firstAttribute="top" secondItem="b6z-ib-98y" secondAttribute="top" constant="90" id="Rg2-Hl-vXn"/>
-                            <constraint firstItem="wVu-HV-gzm" firstAttribute="top" secondItem="YFO-fx-TCv" secondAttribute="bottom" constant="10" id="dXA-Gt-B7i"/>
-                            <constraint firstItem="b6z-ib-98y" firstAttribute="trailing" secondItem="YFO-fx-TCv" secondAttribute="trailing" constant="100" id="lZ5-xE-gy7"/>
-                            <constraint firstItem="b6z-ib-98y" firstAttribute="trailing" secondItem="p48-bG-ySS" secondAttribute="trailing" constant="70" id="lge-5b-Xnm"/>
-                            <constraint firstItem="p48-bG-ySS" firstAttribute="leading" secondItem="b6z-ib-98y" secondAttribute="leading" constant="70" id="vaQ-gQ-4s4"/>
-                            <constraint firstItem="wVu-HV-gzm" firstAttribute="leading" secondItem="b6z-ib-98y" secondAttribute="leading" constant="70" id="zM8-tC-mnH"/>
+                            <constraint firstItem="wVu-HV-gzm" firstAttribute="leading" secondItem="b6z-ib-98y" secondAttribute="leading" constant="60" id="56Q-Zy-CtT"/>
+                            <constraint firstItem="b6z-ib-98y" firstAttribute="trailing" secondItem="ofq-fB-Fsg" secondAttribute="trailing" constant="10" id="7cX-dY-WFn"/>
+                            <constraint firstItem="ofq-fB-Fsg" firstAttribute="leading" secondItem="b6z-ib-98y" secondAttribute="leading" constant="10" id="HVa-US-dZm"/>
+                            <constraint firstItem="el9-da-hfJ" firstAttribute="top" secondItem="b6z-ib-98y" secondAttribute="top" constant="70" id="UvV-Tg-uF4"/>
+                            <constraint firstItem="wVu-HV-gzm" firstAttribute="top" secondItem="el9-da-hfJ" secondAttribute="bottom" constant="20" id="Y2p-TR-hJq"/>
+                            <constraint firstItem="b6z-ib-98y" firstAttribute="trailing" secondItem="el9-da-hfJ" secondAttribute="trailing" constant="100" id="Ydb-v5-tFG"/>
+                            <constraint firstItem="b6z-ib-98y" firstAttribute="trailing" secondItem="wVu-HV-gzm" secondAttribute="trailing" constant="60" id="fmI-iv-OcV"/>
+                            <constraint firstItem="ofq-fB-Fsg" firstAttribute="top" secondItem="wVu-HV-gzm" secondAttribute="bottom" constant="10" id="keH-7f-Cl3"/>
+                            <constraint firstItem="el9-da-hfJ" firstAttribute="leading" secondItem="b6z-ib-98y" secondAttribute="leading" constant="100" id="sA3-cf-UAn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K2O-xq-lnU"/>
                     <connections>
-                        <outlet property="answerText" destination="p48-bG-ySS" id="Ijy-uV-k2J"/>
+                        <outlet property="answerText" destination="ofq-fB-Fsg" id="H5B-ed-lvX"/>
                         <outlet property="magicOrbImage" destination="wVu-HV-gzm" id="9XX-jV-Owj"/>
                     </connections>
                 </viewController>
