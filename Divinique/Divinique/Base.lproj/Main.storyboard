@@ -213,12 +213,81 @@
                         <outlet property="image1" destination="Atr-rE-FlO" id="a6M-m5-wtP"/>
                         <outlet property="image2" destination="fzr-2T-BT2" id="2sh-FT-6sO"/>
                         <outlet property="image3" destination="e9x-AT-zSE" id="ym9-tN-XXV"/>
-                        <outlet property="spinWheelBtn" destination="Akt-yt-e3w" id="lxP-4g-NWW"/>
+                        <outlet property="spinWheelBtn" destination="Akt-yt-e3w" id="Ohv-ij-B4q"/>
+                        <segue destination="fGG-nl-QKk" kind="show" identifier="threeCardResultSegue" id="hcg-yp-7N4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUk-wG-Vdk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6919.8473282442746" y="-161.26760563380282"/>
+        </scene>
+        <!--Tarot Card Result Table View Controller-->
+        <scene sceneID="chc-3h-arn">
+            <objects>
+                <tableViewController id="fGG-nl-QKk" customClass="TarotCardResultTableViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="425" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="S4n-10-77z">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tarotCardResultCell" rowHeight="600" id="1Tx-O2-OrB" customClass="TarotCardResultTableViewCell" customModule="Divinique" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="600"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Tx-O2-OrB" id="5Rj-2o-FHs">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="600"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Pp-eB-taB">
+                                            <rect key="frame" x="70" y="11" width="253" height="128"/>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mi4-VW-6FL">
+                                            <rect key="frame" x="70" y="201" width="253" height="213"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <color key="textColor" systemColor="labelColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Card Label:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziu-UY-KTR">
+                                            <rect key="frame" x="120" y="149" width="153" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Mi4-VW-6FL" firstAttribute="leading" secondItem="5Rj-2o-FHs" secondAttribute="leadingMargin" constant="50" id="7Jj-aZ-KFt"/>
+                                        <constraint firstItem="Mi4-VW-6FL" firstAttribute="top" secondItem="ziu-UY-KTR" secondAttribute="bottom" constant="10" id="J4b-Dc-nCz"/>
+                                        <constraint firstItem="Mi4-VW-6FL" firstAttribute="bottom" secondItem="5Rj-2o-FHs" secondAttribute="bottomMargin" id="JS2-QB-szX"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ziu-UY-KTR" secondAttribute="trailing" constant="100" id="O1E-q6-nAD"/>
+                                        <constraint firstItem="ziu-UY-KTR" firstAttribute="top" secondItem="4Pp-eB-taB" secondAttribute="bottom" constant="10" id="ZOP-FJ-RRV"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Mi4-VW-6FL" secondAttribute="trailing" constant="50" id="ZQH-Rp-XLc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="4Pp-eB-taB" secondAttribute="trailing" constant="50" id="ewP-Al-6Wa"/>
+                                        <constraint firstItem="4Pp-eB-taB" firstAttribute="top" secondItem="5Rj-2o-FHs" secondAttribute="topMargin" id="gzV-B6-xg7"/>
+                                        <constraint firstItem="4Pp-eB-taB" firstAttribute="leading" secondItem="5Rj-2o-FHs" secondAttribute="leadingMargin" constant="50" id="iN5-Ba-Ysu"/>
+                                        <constraint firstItem="ziu-UY-KTR" firstAttribute="leading" secondItem="5Rj-2o-FHs" secondAttribute="leadingMargin" constant="100" id="tq1-Rd-WBv"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <connections>
+                                    <outlet property="tarotCardImage" destination="4Pp-eB-taB" id="SqR-tx-rsJ"/>
+                                    <outlet property="tarotCardLabel" destination="ziu-UY-KTR" id="cFk-8f-9VM"/>
+                                    <outlet property="tarotCardReading" destination="Mi4-VW-6FL" id="SIK-wk-ASb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fGG-nl-QKk" id="UX2-jU-HWd"/>
+                            <outlet property="delegate" destination="fGG-nl-QKk" id="pEi-HA-7Ks"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="NYl-P0-2LN"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eLy-OB-mv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7803.8167938931292" y="-161.26760563380282"/>
         </scene>
         <!--Decision-->
         <scene sceneID="pPL-XR-FFL">

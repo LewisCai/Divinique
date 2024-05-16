@@ -29,6 +29,9 @@
 		F6D558342BEDE76900021394 /* TarotCardReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D558332BEDE76900021394 /* TarotCardReadingViewController.swift */; };
 		F6D558372BEE070F00021394 /* DecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D558362BEE070F00021394 /* DecisionViewController.swift */; };
 		F6D5583D2BEE0B9800021394 /* MagicBallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5583C2BEE0B9800021394 /* MagicBallViewController.swift */; };
+		F6D5583F2BF5D26800021394 /* TarotCardSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5583E2BF5D26800021394 /* TarotCardSelectionDelegate.swift */; };
+		F6D558432BF5DC8000021394 /* TarotCardResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D558422BF5DC8000021394 /* TarotCardResultTableViewController.swift */; };
+		F6D558452BF5F29F00021394 /* TarotCardResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D558442BF5F29F00021394 /* TarotCardResultTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		F6D558332BEDE76900021394 /* TarotCardReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotCardReadingViewController.swift; sourceTree = "<group>"; };
 		F6D558362BEE070F00021394 /* DecisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionViewController.swift; sourceTree = "<group>"; };
 		F6D5583C2BEE0B9800021394 /* MagicBallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicBallViewController.swift; sourceTree = "<group>"; };
+		F6D5583E2BF5D26800021394 /* TarotCardSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotCardSelectionDelegate.swift; sourceTree = "<group>"; };
+		F6D558422BF5DC8000021394 /* TarotCardResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotCardResultTableViewController.swift; sourceTree = "<group>"; };
+		F6D558442BF5F29F00021394 /* TarotCardResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarotCardResultTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,9 @@
 			children = (
 				F6D558312BEDE66700021394 /* ReadingViewController.swift */,
 				F6D558332BEDE76900021394 /* TarotCardReadingViewController.swift */,
+				F6D5583E2BF5D26800021394 /* TarotCardSelectionDelegate.swift */,
+				F6D558422BF5DC8000021394 /* TarotCardResultTableViewController.swift */,
+				F6D558442BF5F29F00021394 /* TarotCardResultTableViewCell.swift */,
 			);
 			path = Reading;
 			sourceTree = "<group>";
@@ -216,8 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6D5583F2BF5D26800021394 /* TarotCardSelectionDelegate.swift in Sources */,
 				F6D306A92BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift in Sources */,
 				F6D3066E2BE134CA00B0A096 /* ViewController.swift in Sources */,
+				F6D558432BF5DC8000021394 /* TarotCardResultTableViewController.swift in Sources */,
 				F6D306A62BE392E400B0A096 /* HoroscopeViewController.swift in Sources */,
 				F6D306AB2BE4D6A200B0A096 /* ZodiacSignViewController.swift in Sources */,
 				F6D5583D2BEE0B9800021394 /* MagicBallViewController.swift in Sources */,
@@ -231,6 +242,7 @@
 				F6D3069C2BE209E700B0A096 /* SignUpPageViewController.swift in Sources */,
 				F6D558342BEDE76900021394 /* TarotCardReadingViewController.swift in Sources */,
 				F6D3069E2BE2100300B0A096 /* NewUserPageViewController.swift in Sources */,
+				F6D558452BF5F29F00021394 /* TarotCardResultTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,11 @@
 import UIKit
 import QuartzCore
 
-class TarotCardReadingViewController: UIViewController {
+class TarotCardReadingViewController: UIViewController{
+    var delegate: TarotCardSelectionDelegate?
+    var selectionVC: TarotCardReadingViewController?
+    var resultVC: TarotCardResultTableViewController?
+    var cardNumbers: [Int] = []  // Array to store selected card numbers
     
     @IBOutlet weak var image1: UIImageView!
     
@@ -18,19 +22,18 @@ class TarotCardReadingViewController: UIViewController {
     
     @IBAction func getReadingBtn(_ sender: Any) {
         if cardCount == 3 {
-            // Proceed to show reading
-            print("Showing reading for selected cards")
+            resultVC?.cardNumbers = cardNumbers
+            print(cardNumbers)
+            performSegue(withIdentifier: "threeCardResultSegue", sender: (Any).self)
         } else {
-            print("Please select all cards first")
+            displayMessage(title: "Invalid Cards", message: "Need to select three cards")
         }
     }
     
     @IBAction func spinWheel(_ sender: Any) {
         //gives a card
-        
     }
     
-
     @IBOutlet weak var spinWheelBtn: UIButton!
     
     override func viewDidLoad() {
@@ -102,11 +105,15 @@ class TarotCardReadingViewController: UIViewController {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                    let cards = json["cards"] as? [[String: Any]],
                    let firstCard = cards.first,
-                   let name = firstCard["name"] as? String {
-                    completion(name)
-                } else {
-                    completion(nil)
-                }
+                   let name = firstCard["name"] as? String,
+                   let valueInt = firstCard["value_int"] as? Int {
+                       DispatchQueue.main.async {
+                           self.cardNumbers.append(valueInt)  // Append value_int to cardNumbers
+                       }
+                       completion(name)  // Return the name of the card
+                   } else {
+                       completion(nil)
+                   }
             } catch {
                 print("JSON error: \(error.localizedDescription)")
                 completion(nil)
@@ -120,10 +127,12 @@ class TarotCardReadingViewController: UIViewController {
 
     private func displayNextCard() {
         fetchRandomCard { [weak self] cardName in
-            guard let cardName = cardName, let image = UIImage(named: "The Fool") else {
+            guard let cardName = cardName, let image = UIImage(named: cardName) else {
                 print("Failed to load card image")
                 return
             }
+            
+            print(cardName)
             
             DispatchQueue.main.async {
                 switch self?.cardCount {
@@ -143,4 +152,19 @@ class TarotCardReadingViewController: UIViewController {
         }
     }
     
+    func displayMessage(title: String, message: String){
+            let alertController = UIAlertController(title: title, message: message,
+             preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default,
+             handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "threeCardResultSegue" {
+            if let destinationVC = segue.destination as? TarotCardResultTableViewController {
+                destinationVC.cardNumbers = self.cardNumbers
+            }
+        }
+    }
 }
