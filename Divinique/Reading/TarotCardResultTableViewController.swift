@@ -118,7 +118,7 @@ class TarotCardResultTableViewController: UITableViewController, TarotCardSelect
                    let firstCard = cards.first,
                    let name = firstCard["name"] as? String {
                     // Simulate fetching an image and reading
-                    let image = UIImage(named: name) // You would replace this with actual image fetching logic
+                    let image = UIImage(named: name.lowercased()) // You would replace this with actual image fetching logic
                     let reading = firstCard["desc"]// Simulate a reading
                     DispatchQueue.main.async {
                         completion(name, image, reading as! String)

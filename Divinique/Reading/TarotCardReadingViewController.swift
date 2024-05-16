@@ -127,7 +127,7 @@ class TarotCardReadingViewController: UIViewController{
 
     private func displayNextCard() {
         fetchRandomCard { [weak self] cardName in
-            guard let cardName = cardName, let image = UIImage(named: cardName) else {
+            guard let cardName = cardName, let image = UIImage(named: cardName.lowercased()) else {
                 print("Failed to load card image")
                 return
             }
