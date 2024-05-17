@@ -9,14 +9,39 @@ import UIKit
 
 class DecisionViewController: UIViewController {
     
+    
+    @IBOutlet weak var fortuneSticks: UIImageView!
+    
     @IBOutlet weak var magicOrbImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Magic Orb
         magicOrbImage.image = UIImage(named: "magicOrbDark.png")
         // Add tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         magicOrbImage.addGestureRecognizer(tapGesture)
+        
+        
+        //Fortune Sticks
+        fortuneSticks.image = UIImage(named: "FortuneBox")
+        fortuneSticks.isUserInteractionEnabled = true
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(fortuneBoxTapped))
+        fortuneSticks.addGestureRecognizer(tapGesture2)
+    }
+    
+    @objc func fortuneBoxTapped() {
+        // Create and start the shake animation using UIView animation
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.autoreverse, .repeat], animations: {
+            UIView.setAnimationRepeatCount(3)
+            self.fortuneSticks.transform = CGAffineTransform(translationX: 0, y: -10)
+        }) { [weak self] _ in
+            // Reset the transformation
+            self?.fortuneSticks.transform = .identity
+            
+            // Perform the segue after the animation is done
+            self?.performSegue(withIdentifier: "fortuneSticksSegue", sender: self)
+        }
     }
     
     @objc func imageTapped() {

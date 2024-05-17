@@ -8,12 +8,16 @@
 import UIKit
 
 class ReadingViewController: UIViewController {
+    var maxCard = 0
     
     @IBAction func threeCardsButton(_ sender: Any) {
+        maxCard = 3
         performSegue(withIdentifier: "tarotReadSegue", sender: (Any).self)
     }
     
     @IBAction func sixCardsButton(_ sender: Any) {
+        maxCard = 6
+        performSegue(withIdentifier: "tarotReadSegue", sender: (Any).self)
     }
     
     @IBAction func dailyTarotButton(_ sender: Any) {
@@ -30,5 +34,11 @@ class ReadingViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? TarotCardReadingViewController {
+            destinationVC.maxCard = self.maxCard
+        }
+    }
 
 }

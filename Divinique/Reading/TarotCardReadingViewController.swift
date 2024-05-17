@@ -8,22 +8,18 @@
 import UIKit
 import QuartzCore
 
-class TarotCardReadingViewController: UIViewController{
-    var delegate: TarotCardSelectionDelegate?
-    var selectionVC: TarotCardReadingViewController?
+class TarotCardReadingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var resultVC: TarotCardResultTableViewController?
-    var cardNumbers: [Int] = []  // Array to store selected card numbers
+    var cardFullNames: [String] = []
+    var cardNames: [String] = []  // Array to store selected card numbers
+    var maxCard: Int = 10
     
-    @IBOutlet weak var image1: UIImageView!
-    
-    @IBOutlet weak var image2: UIImageView!
-    
-    @IBOutlet weak var image3: UIImageView!
+    @IBOutlet weak var collectionTarotCards: UICollectionView!
     
     @IBAction func getReadingBtn(_ sender: Any) {
-        if cardCount == 3 {
-            resultVC?.cardNumbers = cardNumbers
-            print(cardNumbers)
+        if cardCount == maxCard {
+            resultVC?.cardNames = cardNames
+            print(cardNames)
             performSegue(withIdentifier: "threeCardResultSegue", sender: (Any).self)
         } else {
             displayMessage(title: "Invalid Cards", message: "Need to select three cards")
@@ -106,9 +102,10 @@ class TarotCardReadingViewController: UIViewController{
                    let cards = json["cards"] as? [[String: Any]],
                    let firstCard = cards.first,
                    let name = firstCard["name"] as? String,
-                   let valueInt = firstCard["value_int"] as? Int {
+                   let nameShort = firstCard["name_short"] as? String {
                        DispatchQueue.main.async {
-                           self.cardNumbers.append(valueInt)  // Append value_int to cardNumbers
+                           self.cardNames.append(nameShort)  // Append value_int to cardNumbers
+                           self.cardFullNames.append(name)
                        }
                        completion(name)  // Return the name of the card
                    } else {
@@ -127,7 +124,7 @@ class TarotCardReadingViewController: UIViewController{
 
     private func displayNextCard() {
         fetchRandomCard { [weak self] cardName in
-            guard let cardName = cardName, let image = UIImage(named: cardName.lowercased()) else {
+            guard let cardName = cardName else {
                 print("Failed to load card image")
                 return
             }
@@ -135,19 +132,11 @@ class TarotCardReadingViewController: UIViewController{
             print(cardName)
             
             DispatchQueue.main.async {
-                switch self?.cardCount {
-                case 0:
-                    self?.image1.image = image
-                case 1:
-                    self?.image2.image = image
-                case 2:
-                    self?.image3.image = image
-                default:
-                    print("All card slots are full")
-                    return
+                if self?.cardCount ?? 0 < self?.maxCard ?? 0 {
+                    self?.cardNames.append(cardName)
+                    self?.collectionTarotCards.reloadData()
+                    self?.cardCount += 1
                 }
-                self?.cardCount += 1
-                print(self?.cardCount)
             }
         }
     }
@@ -163,8 +152,19 @@ class TarotCardReadingViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "threeCardResultSegue" {
             if let destinationVC = segue.destination as? TarotCardResultTableViewController {
-                destinationVC.cardNumbers = self.cardNumbers
+                destinationVC.cardNames = self.cardNames
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cardNames.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TarotCardCell", for: indexPath) as! TarotCardCell
+        let cardName = cardFullNames[indexPath.item].lowercased()
+        cell.imageView.image = UIImage(named: cardName)
+        return cell
     }
 }

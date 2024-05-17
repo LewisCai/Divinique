@@ -8,7 +8,7 @@
 import UIKit
 
 class TarotCardResultTableViewController: UITableViewController, TarotCardSelectionDelegate{
-    var cardNumbers: [Int] = []; // Store card numbers
+    var cardNames: [String] = []; // Store card names
 
     func displaySelectCards(_ cardNumbers: [Int]) {
         print(cardNumbers, "1")
@@ -16,11 +16,6 @@ class TarotCardResultTableViewController: UITableViewController, TarotCardSelect
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -32,23 +27,22 @@ class TarotCardResultTableViewController: UITableViewController, TarotCardSelect
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return cardNumbers.count
+        return cardNames.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "tarotCardResultCell", for: indexPath) as? TarotCardResultTableViewCell else {
             fatalError("The dequeued cell is not an instance of TarotCardResultTableViewCell.")
         }
-        let cardNumber = cardNumbers[indexPath.row]
-        cell.tarotCardLabel.text = "Card Number: \(cardNumber)"
+        let cardName = cardNames[indexPath.row]
+        cell.tarotCardLabel.text = "Card Name: \(cardName)"
 
         // Fetch details asynchronously and configure the cell
-        fetchCardDetails(for: cardNumber) { name, image, reading in
+        fetchCardDetails(for: cardName) { name, image, reading in
             cell.tarotCardLabel.text = name ?? "Unknown"
             cell.tarotCardImage.image = image ?? UIImage(named: "default_image") // Provide a default image
             cell.tarotCardReading.text = reading ?? "No reading available"
         }
-
         return cell
     }
 
@@ -97,8 +91,8 @@ class TarotCardResultTableViewController: UITableViewController, TarotCardSelect
     }
     */
     
-    func fetchCardDetails(for cardNumber: Int, completion: @escaping (String?, UIImage?, String?) -> Void) {
-        let urlString = "https://tarotapi.dev/api/v1/cards/search?value=\(cardNumber)"
+    func fetchCardDetails(for cardName: String, completion: @escaping (String?, UIImage?, String?) -> Void) {
+        let urlString = "https://tarotapi.dev/api/v1/cards/search?name_short=\(cardName)"
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
             completion(nil, nil, nil)
