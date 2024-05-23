@@ -21,6 +21,7 @@ class ReadingViewController: UIViewController {
     }
     
     @IBAction func dailyTarotButton(_ sender: Any) {
+        performSegue(withIdentifier: "dailyTarotSegue", sender: (Any).self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

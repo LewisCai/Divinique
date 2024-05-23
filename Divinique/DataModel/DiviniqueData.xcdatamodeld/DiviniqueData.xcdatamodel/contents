@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23D60" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="HoroscopeData" representedClassName="HoroscopeData" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="starSign" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="TarotCardData" representedClassName="TarotCardData" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="tarotDesc" optional="YES" attributeType="String"/>
+        <attribute name="tarotMeaning" optional="YES" attributeType="String"/>
+        <attribute name="tarotName" optional="YES" attributeType="String"/>
+        <attribute name="tarotState" optional="YES" attributeType="String"/>
+    </entity>
+</model>

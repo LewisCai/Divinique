@@ -134,6 +134,7 @@
                     <tabBarItem key="tabBarItem" title="Reading" image="book.closed.fill" catalog="system" id="8Y7-i1-ZW5"/>
                     <connections>
                         <segue destination="cX1-re-kfI" kind="show" identifier="tarotReadSegue" id="eC5-W1-EfC"/>
+                        <segue destination="5hM-cz-A03" kind="show" identifier="dailyTarotSegue" id="8Uz-38-FJH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lS1-ie-43I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -268,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUk-wG-Vdk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6919.8473282442746" y="-161.26760563380282"/>
+            <point key="canvasLocation" x="6966" y="-376"/>
         </scene>
         <!--Tarot Card Result Table View Controller-->
         <scene sceneID="chc-3h-arn">
@@ -336,7 +337,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLy-OB-mv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7803.8167938931292" y="-161.26760563380282"/>
+            <point key="canvasLocation" x="7917" y="-376"/>
         </scene>
         <!--Decision-->
         <scene sceneID="pPL-XR-FFL">
@@ -439,6 +440,126 @@
             </objects>
             <point key="canvasLocation" x="5794.6564885496182" y="591.54929577464793"/>
         </scene>
+        <!--Daily Tarot View Controller-->
+        <scene sceneID="V6s-xL-KkP">
+            <objects>
+                <viewController id="5hM-cz-A03" customClass="DailyTarotViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n2L-F1-ZDs">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kg-iW-kVv">
+                                <rect key="frame" x="120" y="103" width="153" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j8A-js-mYY">
+                                <rect key="frame" x="70" y="134" width="253" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Mua-p8-6cz"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-RN-SX9">
+                                <rect key="frame" x="70" y="314" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUi-Ni-R0n">
+                                <rect key="frame" x="70" y="435" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bpN-74-AnO">
+                                <rect key="frame" x="70" y="476" width="253" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="sOt-Np-79I"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHl-k3-8t2">
+                                <rect key="frame" x="120" y="294" width="153" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4ER-0J-3aY">
+                                <rect key="frame" x="70" y="697" width="253" height="32"/>
+                                <segments>
+                                    <segment title="On"/>
+                                    <segment title="Off"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segControl:" destination="5hM-cz-A03" eventType="valueChanged" id="GP8-BE-tJG"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11j-lN-aEa">
+                                <rect key="frame" x="70" y="656" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N8M-q0-sej">
+                                <rect key="frame" x="70" y="355" width="253" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hyV-JG-gLb"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WQ9-p8-0yP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="N8M-q0-sej" firstAttribute="leading" secondItem="WQ9-p8-0yP" secondAttribute="leading" constant="70" id="3gW-SU-K5q"/>
+                            <constraint firstItem="N8M-q0-sej" firstAttribute="top" secondItem="SQL-RN-SX9" secondAttribute="bottom" constant="20" id="6DF-Zb-D5E"/>
+                            <constraint firstItem="bpN-74-AnO" firstAttribute="top" secondItem="CUi-Ni-R0n" secondAttribute="bottom" constant="20" id="8s0-hD-L4Z"/>
+                            <constraint firstItem="WQ9-p8-0yP" firstAttribute="trailing" secondItem="fHl-k3-8t2" secondAttribute="trailing" constant="120" id="CaZ-r4-ZLL"/>
+                            <constraint firstItem="7kg-iW-kVv" firstAttribute="leading" secondItem="WQ9-p8-0yP" secondAttribute="leading" constant="120" id="FMW-Pi-kmR"/>
+                            <constraint firstItem="4ER-0J-3aY" firstAttribute="top" secondItem="11j-lN-aEa" secondAttribute="bottom" constant="20" id="IiN-V3-NJG"/>
+                            <constraint firstItem="j8A-js-mYY" firstAttribute="leading" secondItem="WQ9-p8-0yP" secondAttribute="leading" constant="70" id="JqA-g4-XcB"/>
+                            <constraint firstItem="SQL-RN-SX9" firstAttribute="top" secondItem="j8A-js-mYY" secondAttribute="bottom" constant="30" id="LDX-X4-TAe"/>
+                            <constraint firstItem="CUi-Ni-R0n" firstAttribute="leading" secondItem="WQ9-p8-0yP" secondAttribute="leading" constant="70" id="ONJ-bl-WXs"/>
+                            <constraint firstItem="fHl-k3-8t2" firstAttribute="top" secondItem="j8A-js-mYY" secondAttribute="bottom" constant="10" id="QGN-Yd-2NY"/>
+                            <constraint firstItem="CUi-Ni-R0n" firstAttribute="top" secondItem="N8M-q0-sej" secondAttribute="bottom" constant="30" id="VQS-KX-uDg"/>
+                            <constraint firstItem="11j-lN-aEa" firstAttribute="leading" secondItem="WQ9-p8-0yP" secondAttribute="leading" constant="70" id="Zgq-Mo-tFJ"/>
+                            <constraint firstItem="4ER-0J-3aY" firstAttribute="leading" secondItem="WQ9-p8-0yP" secondAttribute="leading" constant="70" id="aMs-Bn-aP8"/>
+                            <constraint firstItem="WQ9-p8-0yP" firstAttribute="trailing" secondItem="N8M-q0-sej" secondAttribute="trailing" constant="70" id="bmq-9V-b8p"/>
+                            <constraint firstItem="WQ9-p8-0yP" firstAttribute="trailing" secondItem="bpN-74-AnO" secondAttribute="trailing" constant="70" id="crX-ms-fj1"/>
+                            <constraint firstItem="11j-lN-aEa" firstAttribute="top" secondItem="bpN-74-AnO" secondAttribute="bottom" constant="30" id="fnf-Ub-tSD"/>
+                            <constraint firstItem="WQ9-p8-0yP" firstAttribute="trailing" secondItem="j8A-js-mYY" secondAttribute="trailing" constant="70" id="gKe-ox-EmP"/>
+                            <constraint firstItem="SQL-RN-SX9" firstAttribute="leading" secondItem="WQ9-p8-0yP" secondAttribute="leading" constant="70" id="hbo-xf-Xxc"/>
+                            <constraint firstItem="WQ9-p8-0yP" firstAttribute="trailing" secondItem="7kg-iW-kVv" secondAttribute="trailing" constant="120" id="lNe-hu-nfk"/>
+                            <constraint firstItem="j8A-js-mYY" firstAttribute="top" secondItem="7kg-iW-kVv" secondAttribute="bottom" constant="10" id="pSi-Pe-rFU"/>
+                            <constraint firstItem="7kg-iW-kVv" firstAttribute="top" secondItem="WQ9-p8-0yP" secondAttribute="top" id="q1P-NT-IEP"/>
+                            <constraint firstItem="bpN-74-AnO" firstAttribute="leading" secondItem="WQ9-p8-0yP" secondAttribute="leading" constant="70" id="uox-yf-q9W"/>
+                            <constraint firstItem="fHl-k3-8t2" firstAttribute="leading" secondItem="WQ9-p8-0yP" secondAttribute="leading" constant="120" id="xvu-Q1-NVl"/>
+                            <constraint firstItem="WQ9-p8-0yP" firstAttribute="trailing" secondItem="4ER-0J-3aY" secondAttribute="trailing" constant="70" id="yFn-VS-LQk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KDc-Z4-iWK"/>
+                    <connections>
+                        <outlet property="segControl" destination="4ER-0J-3aY" id="mOy-ga-yQ4"/>
+                        <outlet property="tarotDescText" destination="bpN-74-AnO" id="PRj-XL-tJQ"/>
+                        <outlet property="tarotImage" destination="j8A-js-mYY" id="m5U-HK-U1i"/>
+                        <outlet property="tarotMeaningText" destination="N8M-q0-sej" id="R5w-dt-uFX"/>
+                        <outlet property="tarotNameLabel" destination="7kg-iW-kVv" id="P73-ML-9Fo"/>
+                        <outlet property="tarotStateLabel" destination="fHl-k3-8t2" id="eAg-43-NVS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wJ0-DK-Ijq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6965.6488549618316" y="267.6056338028169"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="wjY-g2-BTS">
             <objects>
@@ -453,7 +574,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tlb-9a-1s8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6966" y="892"/>
+            <point key="canvasLocation" x="6966" y="942"/>
         </scene>
         <!--Fortune Sticks View Controller-->
         <scene sceneID="oFV-pf-ItX">

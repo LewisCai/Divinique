@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F686D7652BFEFAB100D264EC /* DailyTarotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */; };
+		F686D7692BFEFFF000D264EC /* DiviniqueData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F686D7672BFEFFF000D264EC /* DiviniqueData.xcdatamodeld */; };
+		F686D77B2BFF043100D264EC /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */; };
+		F686D7822BFF05ED00D264EC /* HoroscopeData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D77E2BFF05ED00D264EC /* HoroscopeData+CoreDataClass.swift */; };
+		F686D7832BFF05ED00D264EC /* HoroscopeData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D77F2BFF05ED00D264EC /* HoroscopeData+CoreDataProperties.swift */; };
+		F686D7842BFF05ED00D264EC /* TarotCardData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7802BFF05ED00D264EC /* TarotCardData+CoreDataClass.swift */; };
+		F686D7852BFF05ED00D264EC /* TarotCardData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7812BFF05ED00D264EC /* TarotCardData+CoreDataProperties.swift */; };
+		F686D7872BFF070F00D264EC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7862BFF070F00D264EC /* CoreDataController.swift */; };
+		F686D7892BFF0DAB00D264EC /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7882BFF0DAB00D264EC /* MulticastDelegate.swift */; };
 		F6D3066A2BE134CA00B0A096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D306692BE134CA00B0A096 /* AppDelegate.swift */; };
 		F6D3066C2BE134CA00B0A096 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3066B2BE134CA00B0A096 /* SceneDelegate.swift */; };
 		F6D3066E2BE134CA00B0A096 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3066D2BE134CA00B0A096 /* ViewController.swift */; };
@@ -39,6 +48,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTarotViewController.swift; sourceTree = "<group>"; };
+		F686D7682BFEFFF000D264EC /* DiviniqueData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiviniqueData.xcdatamodel; sourceTree = "<group>"; };
+		F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseProtocol.swift; path = Database/DatabaseProtocol.swift; sourceTree = SOURCE_ROOT; };
+		F686D77E2BFF05ED00D264EC /* HoroscopeData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HoroscopeData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F686D77F2BFF05ED00D264EC /* HoroscopeData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HoroscopeData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F686D7802BFF05ED00D264EC /* TarotCardData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TarotCardData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F686D7812BFF05ED00D264EC /* TarotCardData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TarotCardData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F686D7862BFF070F00D264EC /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		F686D7882BFF0DAB00D264EC /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		F6D306662BE134CA00B0A096 /* Divinique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Divinique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D306692BE134CA00B0A096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6D3066B2BE134CA00B0A096 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,9 +101,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F686D7662BFEFFAE00D264EC /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				F686D77E2BFF05ED00D264EC /* HoroscopeData+CoreDataClass.swift */,
+				F686D77F2BFF05ED00D264EC /* HoroscopeData+CoreDataProperties.swift */,
+				F686D7802BFF05ED00D264EC /* TarotCardData+CoreDataClass.swift */,
+				F686D7812BFF05ED00D264EC /* TarotCardData+CoreDataProperties.swift */,
+				F686D7672BFEFFF000D264EC /* DiviniqueData.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		F686D77D2BFF048600D264EC /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */,
+				F686D7862BFF070F00D264EC /* CoreDataController.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		F6D3065D2BE134CA00B0A096 = {
 			isa = PBXGroup;
 			children = (
+				F686D7882BFF0DAB00D264EC /* MulticastDelegate.swift */,
+				F686D77D2BFF048600D264EC /* Database */,
+				F686D7662BFEFFAE00D264EC /* DataModel */,
 				F6D558352BEE06F300021394 /* Decision */,
 				F6D5582E2BEDE4A200021394 /* Reading */,
 				F6D306A72BE4D0F300B0A096 /* Horoscope */,
@@ -141,6 +183,7 @@
 				F6D558422BF5DC8000021394 /* TarotCardResultTableViewController.swift */,
 				F6D558442BF5F29F00021394 /* TarotCardResultTableViewCell.swift */,
 				F6D558572BF7573200021394 /* TarotCardCell.swift */,
+				F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */,
 			);
 			path = Reading;
 			sourceTree = "<group>";
@@ -239,6 +282,7 @@
 			files = (
 				F6D5583F2BF5D26800021394 /* TarotCardSelectionDelegate.swift in Sources */,
 				F6D306A92BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift in Sources */,
+				F686D7872BFF070F00D264EC /* CoreDataController.swift in Sources */,
 				F6D3066E2BE134CA00B0A096 /* ViewController.swift in Sources */,
 				F6D558432BF5DC8000021394 /* TarotCardResultTableViewController.swift in Sources */,
 				F6D558582BF7573200021394 /* TarotCardCell.swift in Sources */,
@@ -249,11 +293,19 @@
 				F6D558372BEE070F00021394 /* DecisionViewController.swift in Sources */,
 				F6D3067E2BE1388100B0A096 /* LoginPageViewController.swift in Sources */,
 				F6D5582D2BEDD68700021394 /* Horoscope.swift in Sources */,
+				F686D7892BFF0DAB00D264EC /* MulticastDelegate.swift in Sources */,
 				F6D558482BF637A000021394 /* FortuneSticksViewController.swift in Sources */,
 				F6D3066A2BE134CA00B0A096 /* AppDelegate.swift in Sources */,
 				F6D3066C2BE134CA00B0A096 /* SceneDelegate.swift in Sources */,
 				F6D306A42BE23FCE00B0A096 /* TabBarViewController.swift in Sources */,
 				F6D558322BEDE66700021394 /* ReadingViewController.swift in Sources */,
+				F686D7652BFEFAB100D264EC /* DailyTarotViewController.swift in Sources */,
+				F686D77B2BFF043100D264EC /* DatabaseProtocol.swift in Sources */,
+				F686D7692BFEFFF000D264EC /* DiviniqueData.xcdatamodeld in Sources */,
+				F686D7822BFF05ED00D264EC /* HoroscopeData+CoreDataClass.swift in Sources */,
+				F686D7832BFF05ED00D264EC /* HoroscopeData+CoreDataProperties.swift in Sources */,
+				F686D7842BFF05ED00D264EC /* TarotCardData+CoreDataClass.swift in Sources */,
+				F686D7852BFF05ED00D264EC /* TarotCardData+CoreDataProperties.swift in Sources */,
 				F6D3069C2BE209E700B0A096 /* SignUpPageViewController.swift in Sources */,
 				F6D558342BEDE76900021394 /* TarotCardReadingViewController.swift in Sources */,
 				F6D3069E2BE2100300B0A096 /* NewUserPageViewController.swift in Sources */,
@@ -508,6 +560,20 @@
 			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		F686D7672BFEFFF000D264EC /* DiviniqueData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F686D7682BFEFFF000D264EC /* DiviniqueData.xcdatamodel */,
+			);
+			currentVersion = F686D7682BFEFFF000D264EC /* DiviniqueData.xcdatamodel */;
+			name = DiviniqueData.xcdatamodeld;
+			path = /Users/lewis/PersonalProjects/Divinique/Divinique/DataModel/DiviniqueData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F6D3065E2BE134CA00B0A096 /* Project object */;
 }
