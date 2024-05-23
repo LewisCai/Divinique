@@ -12,12 +12,14 @@ import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var databaseController: DatabaseProtocol?
+    var readingController: ReadingProtocol?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         requestNotificationAuthorization()
         
         databaseController = CoreDataController()
+        readingController = ReadingController()
         return true
     }
 

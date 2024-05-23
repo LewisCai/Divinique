@@ -11,7 +11,7 @@ import CoreData
 class DailyTarotViewController: UIViewController {
     weak var databaseController: DatabaseProtocol?
     weak var coredataController: CoreDataController?
-    weak var readingController: ReadingController?
+    weak var readingController: ReadingProtocol?
     
     
     @IBOutlet weak var tarotNameLabel: UILabel!
@@ -32,6 +32,7 @@ class DailyTarotViewController: UIViewController {
         
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
+        readingController = appDelegate?.readingController
         displayTodayTarot()
         scheduleDailyNotification()
     }
@@ -44,8 +45,8 @@ class DailyTarotViewController: UIViewController {
         if let storedTarot = tarotCards.first(where: { $0.date == today }) {
             var newTarot = TarotCard(name: storedTarot.tarotName!, state: storedTarot.tarotState as! Int32, meaning: storedTarot.tarotMeaning!, desc: storedTarot.tarotDesc!, date: storedTarot.date!)
         } else {
-            print("No tarot card found for today's date, generating a new one.")
-            let newTarot = readingController?.fetchRandomCard(numOfCard: 1).first
+            print("No tarot card found for today's date, generating a new one.", readingController)
+            var newTarot = readingController?.fetchRandomCard(numOfCard: 1).first
             databaseController?.addTarotCardData(tarotName: newTarot?.name ?? "Unknown", tarotState: (newTarot?.state ?? 1) as Int32, tarotMeaning: newTarot?.meaning ?? "Unknown", tarotDesc: newTarot?.desc ?? "Unknown", date: today)
             updateUI(with: newTarot!)
         }

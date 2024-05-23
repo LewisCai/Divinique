@@ -10,6 +10,7 @@ import UIKit
 class ReadingController: NSObject, ReadingProtocol{
     func fetchRandomCard(numOfCard: Int) -> [TarotCard] {
         var TarotCards: [TarotCard] = []
+        print("Fetching random card")
 
         for _ in 0..<numOfCard {
             fetchRandomCards { cardName, cardMeaningUp, cardMeaningRev, cardDesc in
