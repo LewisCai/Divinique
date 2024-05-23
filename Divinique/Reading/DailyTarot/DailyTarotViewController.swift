@@ -33,20 +33,26 @@ class DailyTarotViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.databaseController
         readingController = appDelegate?.readingController
-        displayTodayTarot()
-        scheduleDailyNotification()
+        // Launch the async task
+        Task {
+            await displayTodayTarot()
+        }
+        
+        Task {
+            await scheduleDailyNotification()
+        }
     }
     
     // Display today's tarot card by searching for a card in the database that has today's date
-    func displayTodayTarot() {
+    func displayTodayTarot() async {
         let today = Date()
         let tarotCards = coredataController?.fetchAllTarotCards() ?? []
 
         if let storedTarot = tarotCards.first(where: { $0.date == today }) {
             var newTarot = TarotCard(name: storedTarot.tarotName!, state: storedTarot.tarotState as! Int32, meaning: storedTarot.tarotMeaning!, desc: storedTarot.tarotDesc!, date: storedTarot.date!)
         } else {
-            print("No tarot card found for today's date, generating a new one.", readingController)
-            var newTarot = readingController?.fetchRandomCard(numOfCard: 1).first
+            print("No tarot card found for today's date, generating a new one.")
+            var newTarot = await readingController?.fetchRandomCard(numOfCard: 1).first
             databaseController?.addTarotCardData(tarotName: newTarot?.name ?? "Unknown", tarotState: (newTarot?.state ?? 1) as Int32, tarotMeaning: newTarot?.meaning ?? "Unknown", tarotDesc: newTarot?.desc ?? "Unknown", date: today)
             updateUI(with: newTarot!)
         }
@@ -64,7 +70,7 @@ class DailyTarotViewController: UIViewController {
         tarotImage.image = UIImage(named: tarotName.lowercased())
     }
     
-    func scheduleDailyNotification() {
+    func scheduleDailyNotification() async {
         let center = UNUserNotificationCenter.current()
         
         // Calculate tomorrow's date
@@ -73,7 +79,7 @@ class DailyTarotViewController: UIViewController {
         // Check if there is already a tarot card for tomorrow
         if databaseController?.getDailyTarotCard(for: tomorrow) == nil {
             // Generate a new tarot card for tomorrow
-            let newTarot = readingController?.fetchRandomCard(numOfCard: 1)
+            let newTarot = await readingController?.fetchRandomCard(numOfCard: 1)
             
             // Schedule the notification
             let content = UNMutableNotificationContent()

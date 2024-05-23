@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ReadingProtocol: AnyObject{
-    func fetchRandomCard(numOfCard: Int) -> [TarotCard]
+    func fetchRandomCard(numOfCard: Int) async -> [TarotCard]
 }
