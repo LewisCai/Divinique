@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(TarotCardData)
+
 public class TarotCardData: NSManagedObject {
 
 }

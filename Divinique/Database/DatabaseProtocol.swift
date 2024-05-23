@@ -30,7 +30,7 @@ protocol DatabaseProtocol: AnyObject {
     func addListener(listener: DatabaseListener)
     func removeListener(listener: DatabaseListener)
     //Tarot card functions
-    func addTarotCardData(tarotName: String, tarotState: String, tarotMeaning: String, tarotDesc: String, date: Date)
+    func addTarotCardData(tarotName: String, tarotState: Int32, tarotMeaning: String, tarotDesc: String, date: Date)
     -> TarotCardData
     func getDailyTarotCard(for date: Date) -> TarotCardData? 
     func deleteTarotCardData(tarotCard: TarotCardData)

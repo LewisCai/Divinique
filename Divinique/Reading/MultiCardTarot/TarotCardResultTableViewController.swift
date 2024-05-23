@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TarotCardResultTableViewController: UITableViewController, TarotCardSelectionDelegate{
+class TarotCardResultTableViewController: UITableViewController{
     var cardNames: [String] = []; // Store card names
 
     func displaySelectCards(_ cardNumbers: [Int]) {

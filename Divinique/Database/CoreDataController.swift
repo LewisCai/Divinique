@@ -10,6 +10,7 @@ import CoreData
 
 class CoreDataController: NSObject, DatabaseProtocol {
     
+    
     var persistentContainer: NSPersistentContainer
     var listeners = MulticastDelegate<DatabaseListener>()
     
@@ -41,7 +42,7 @@ class CoreDataController: NSObject, DatabaseProtocol {
         listeners.removeDelegate(listener)
     }
 
-    func addTarotCardData(tarotName: String, tarotState: String, tarotMeaning: String, tarotDesc: String, date: Date) -> TarotCardData {
+    func addTarotCardData(tarotName: String, tarotState: Int32, tarotMeaning: String, tarotDesc: String, date: Date) -> TarotCardData {
         let context = persistentContainer.viewContext
         let tarotCard = TarotCardData(context: context)
         tarotCard.tarotName = tarotName

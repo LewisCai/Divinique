@@ -16,9 +16,9 @@ extension HoroscopeData {
         return NSFetchRequest<HoroscopeData>(entityName: "HoroscopeData")
     }
 
-    @NSManaged public var starSign: String?
     @NSManaged public var date: Date?
     @NSManaged public var desc: String?
+    @NSManaged public var starSign: String?
 
 }
 

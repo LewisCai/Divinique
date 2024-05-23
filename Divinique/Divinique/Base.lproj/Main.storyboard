@@ -548,7 +548,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="KDc-Z4-iWK"/>
                     <connections>
-                        <outlet property="segControl" destination="4ER-0J-3aY" id="mOy-ga-yQ4"/>
                         <outlet property="tarotDescText" destination="bpN-74-AnO" id="PRj-XL-tJQ"/>
                         <outlet property="tarotImage" destination="j8A-js-mYY" id="m5U-HK-U1i"/>
                         <outlet property="tarotMeaningText" destination="N8M-q0-sej" id="R5w-dt-uFX"/>

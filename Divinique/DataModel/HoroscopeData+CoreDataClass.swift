@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(HoroscopeData)
+
 public class HoroscopeData: NSManagedObject {
 
 }

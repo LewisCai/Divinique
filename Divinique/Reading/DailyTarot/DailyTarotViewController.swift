@@ -11,6 +11,7 @@ import CoreData
 class DailyTarotViewController: UIViewController {
     weak var databaseController: DatabaseProtocol?
     weak var coredataController: CoreDataController?
+    weak var readingController: ReadingController?
     
     
     @IBOutlet weak var tarotNameLabel: UILabel!
@@ -41,44 +42,25 @@ class DailyTarotViewController: UIViewController {
         let tarotCards = coredataController?.fetchAllTarotCards() ?? []
 
         if let storedTarot = tarotCards.first(where: { $0.date == today }) {
-            updateUI(with: storedTarot)
+            var newTarot = TarotCard(name: storedTarot.tarotName!, state: storedTarot.tarotState as! Int32, meaning: storedTarot.tarotMeaning!, desc: storedTarot.tarotDesc!, date: storedTarot.date!)
         } else {
             print("No tarot card found for today's date, generating a new one.")
-            let newTarot = generateTarotForToday()
-            databaseController?.addTarotCardData(tarotName: newTarot.tarotName ?? "Unknown", tarotState: newTarot.tarotState ?? "Unknown", tarotMeaning: newTarot.tarotMeaning ?? "Unknown", tarotDesc: newTarot.tarotDesc ?? "Unknown", date: today)
-            updateUI(with: newTarot)
+            let newTarot = readingController?.fetchRandomCard(numOfCard: 1).first
+            databaseController?.addTarotCardData(tarotName: newTarot?.name ?? "Unknown", tarotState: (newTarot?.state ?? 1) as Int32, tarotMeaning: newTarot?.meaning ?? "Unknown", tarotDesc: newTarot?.desc ?? "Unknown", date: today)
+            updateUI(with: newTarot!)
         }
     }
 
     // Update the UI with the tarot card data
-    func updateUI(with tarotCard: TarotCardData) {
-        tarotNameLabel.text = tarotCard.tarotName
-        tarotStateLabel.text = tarotCard.tarotState
-        tarotMeaningText.text = tarotCard.tarotMeaning
-        tarotDescText.text = tarotCard.tarotDesc
+    func updateUI(with tarotCard: TarotCard) {
+        tarotNameLabel.text = tarotCard.name
+        tarotStateLabel.text = tarotCard.state == 1 ? "Up" : "Reverse"
+        tarotMeaningText.text = tarotCard.meaning
+        tarotDescText.text = tarotCard.desc
         
         // Set an image for the tarot card
-        if let tarotName = tarotCard.tarotName {
-            tarotImage.image = UIImage(named: tarotName.lowercased())
-        } else {
-            tarotImage.image = nil
-        }
-    }
-    
-    func generateTarotForToday() -> TarotCardData {
-        // Implement the logic to generate a tarot card
-        let tarotName = "HI"
-        let tarotState = "UP"
-        let tarotMeaning = "Good"
-        let tarotDesc = "Very Good"
-        let date = Date()
-        
-        // Add the generated tarot card to the database
-        guard let tarotCard = databaseController?.addTarotCardData(tarotName: tarotName, tarotState: tarotState, tarotMeaning: tarotMeaning, tarotDesc: tarotDesc, date: date) else {
-            fatalError("Failed to generate tarot card")
-        }
-        
-        return tarotCard
+        let tarotName = tarotCard.name
+        tarotImage.image = UIImage(named: tarotName.lowercased())
     }
     
     func scheduleDailyNotification() {
@@ -90,12 +72,12 @@ class DailyTarotViewController: UIViewController {
         // Check if there is already a tarot card for tomorrow
         if databaseController?.getDailyTarotCard(for: tomorrow) == nil {
             // Generate a new tarot card for tomorrow
-            let newTarot = generateTarotForToday()
+            let newTarot = readingController?.fetchRandomCard(numOfCard: 1)
             
             // Schedule the notification
             let content = UNMutableNotificationContent()
             content.title = "Your Daily Tarot"
-            content.body = newTarot.tarotMeaning ?? "error"
+            content.body = newTarot?.first?.desc ?? "error"
             content.sound = .default
             
             // Configure the recurring date
