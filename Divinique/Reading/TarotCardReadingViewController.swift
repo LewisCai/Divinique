@@ -19,7 +19,7 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
     @IBAction func getReadingBtn(_ sender: Any) {
         if cardCount == maxCard {
             resultVC?.cardNames = cardNames
-            print(cardNames)
+            print(cardNames, cardFullNames)
             performSegue(withIdentifier: "threeCardResultSegue", sender: (Any).self)
         } else {
             displayMessage(title: "Invalid Cards", message: "Need to select three cards")
@@ -35,6 +35,7 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWheelButton()
+        setupCollectionView()
     }
     
     private func setupWheelButton() {
@@ -43,6 +44,12 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
         spinWheelBtn.imageView?.contentMode = .scaleAspectFit
         spinWheelBtn.addTarget(self, action: #selector(buttonDown(_:)), for: .touchDown)
         spinWheelBtn.addTarget(self, action: #selector(buttonUp(_:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
+    }
+    
+    private func setupCollectionView() {
+        print("Setting up collection view")
+        collectionTarotCards.dataSource = self
+        collectionTarotCards.delegate = self
     }
     
     @objc func buttonDown(_ sender: UIButton) {
@@ -54,10 +61,14 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
 
     @objc func buttonUp(_ sender: UIButton) {
         UIView.animate(withDuration: 0.2, animations: {
-            sender.transform = CGAffineTransform.identity
+            sender.transform = .identity
         }) { [weak self] _ in
             self?.spinWheel(sender)
-            self?.displayNextCard()  // Call after spinning for better UX
+            if let self = self, self.cardCount < self.maxCard {
+                self.displayNextCard()
+            } else {
+                self?.displayMessage(title: "Max Cards Reached", message: "You have reached the maximum number of cards.")
+            }
         }
     }
 
@@ -105,7 +116,6 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
                    let nameShort = firstCard["name_short"] as? String {
                        DispatchQueue.main.async {
                            self.cardNames.append(nameShort)  // Append value_int to cardNumbers
-                           self.cardFullNames.append(name)
                        }
                        completion(name)  // Return the name of the card
                    } else {
@@ -133,9 +143,10 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
             
             DispatchQueue.main.async {
                 if self?.cardCount ?? 0 < self?.maxCard ?? 0 {
-                    self?.cardNames.append(cardName)
+                    self?.cardFullNames.append(cardName)
                     self?.collectionTarotCards.reloadData()
                     self?.cardCount += 1
+                    print("Card added: \(cardName)")
                 }
             }
         }
@@ -157,14 +168,17 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
         }
     }
     
+    // MARK: - UICollectionViewDataSource methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cardNames.count
+        print("Number of items: \(cardFullNames.count)")
+        return cardFullNames.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TarotCardCell", for: indexPath) as! TarotCardCell
+        print("full names:", cardFullNames)
         let cardName = cardFullNames[indexPath.item].lowercased()
-        cell.imageView.image = UIImage(named: cardName)
+        cell.imageView.image = UIImage(named: cardName) ?? UIImage(named: "the fool") // Provide a default image if not found
         return cell
     }
 }

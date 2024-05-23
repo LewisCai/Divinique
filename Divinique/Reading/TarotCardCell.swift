@@ -11,4 +11,5 @@ class TarotCardCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    
 }

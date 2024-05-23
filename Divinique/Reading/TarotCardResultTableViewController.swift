@@ -16,6 +16,7 @@ class TarotCardResultTableViewController: UITableViewController, TarotCardSelect
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(cardNames)
     }
 
     // MARK: - Table view data source
@@ -39,9 +40,11 @@ class TarotCardResultTableViewController: UITableViewController, TarotCardSelect
 
         // Fetch details asynchronously and configure the cell
         fetchCardDetails(for: cardName) { name, image, reading in
-            cell.tarotCardLabel.text = name ?? "Unknown"
-            cell.tarotCardImage.image = image ?? UIImage(named: "default_image") // Provide a default image
-            cell.tarotCardReading.text = reading ?? "No reading available"
+            DispatchQueue.main.async {
+                cell.tarotCardLabel.text = name ?? "Unknown"
+                cell.tarotCardImage.image = image ?? UIImage(named: "default_image") // Provide a default image
+                cell.tarotCardReading.text = reading ?? "No reading available"
+            }
         }
         return cell
     }
