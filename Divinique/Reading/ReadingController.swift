@@ -19,6 +19,8 @@ class ReadingController: NSObject, ReadingProtocol{
                 }
                 let state = Int32.random(in: 0...1)
                 
+                print("generated this card:", cardName)
+                
                 var tarotCard = TarotCard(name: cardName, state: state, meaning: state == 1 ? cardMeaningUp : cardMeaningRev, desc: cardDesc, date: Date())
                 
                 TarotCards.append(tarotCard)

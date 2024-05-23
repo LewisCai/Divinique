@@ -15,7 +15,7 @@ class CoreDataController: NSObject, DatabaseProtocol {
     var listeners = MulticastDelegate<DatabaseListener>()
     
     override init() {
-        persistentContainer = NSPersistentContainer(name: "DiviniqueData")
+        persistentContainer = NSPersistentContainer(name: "DiviniqueModel")
         persistentContainer.loadPersistentStores { (description, error) in
             if let error = error {
                 fatalError("Failed to load Core Data Stack with error: \(error)")
