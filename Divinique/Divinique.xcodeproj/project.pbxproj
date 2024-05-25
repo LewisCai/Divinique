@@ -19,6 +19,9 @@
 		F686D7C62C0071E600D264EC /* HoroscopeData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7C22C0071E600D264EC /* HoroscopeData+CoreDataProperties.swift */; };
 		F686D7C72C0071E600D264EC /* TarotCardData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7C32C0071E600D264EC /* TarotCardData+CoreDataClass.swift */; };
 		F686D7C82C0071E600D264EC /* TarotCardData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7C42C0071E600D264EC /* TarotCardData+CoreDataProperties.swift */; };
+		F686D7CA2C018ACA00D264EC /* YesNoTarotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7C92C018ACA00D264EC /* YesNoTarotViewController.swift */; };
+		F686D7CC2C01BBB200D264EC /* FortuneCookieOpenedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7CB2C01BBB200D264EC /* FortuneCookieOpenedViewController.swift */; };
+		F686D7CE2C01DF2900D264EC /* YesNoTarotResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7CD2C01DF2900D264EC /* YesNoTarotResultViewController.swift */; };
 		F6D3066A2BE134CA00B0A096 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D306692BE134CA00B0A096 /* AppDelegate.swift */; };
 		F6D3066C2BE134CA00B0A096 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3066B2BE134CA00B0A096 /* SceneDelegate.swift */; };
 		F6D3066E2BE134CA00B0A096 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3066D2BE134CA00B0A096 /* ViewController.swift */; };
@@ -62,6 +65,9 @@
 		F686D7C22C0071E600D264EC /* HoroscopeData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HoroscopeData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F686D7C32C0071E600D264EC /* TarotCardData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TarotCardData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F686D7C42C0071E600D264EC /* TarotCardData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TarotCardData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F686D7C92C018ACA00D264EC /* YesNoTarotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesNoTarotViewController.swift; sourceTree = "<group>"; };
+		F686D7CB2C01BBB200D264EC /* FortuneCookieOpenedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneCookieOpenedViewController.swift; sourceTree = "<group>"; };
+		F686D7CD2C01DF2900D264EC /* YesNoTarotResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesNoTarotResultViewController.swift; sourceTree = "<group>"; };
 		F6D306662BE134CA00B0A096 /* Divinique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Divinique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D306692BE134CA00B0A096 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6D3066B2BE134CA00B0A096 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +224,9 @@
 				F6D558472BF637A000021394 /* FortuneSticksViewController.swift */,
 				F6D558492BF7456700021394 /* FortuneStickViewController.swift */,
 				F6D5584B2BF74B9100021394 /* FortuneCookiesViewController.swift */,
+				F686D7CB2C01BBB200D264EC /* FortuneCookieOpenedViewController.swift */,
+				F686D7C92C018ACA00D264EC /* YesNoTarotViewController.swift */,
+				F686D7CD2C01DF2900D264EC /* YesNoTarotResultViewController.swift */,
 			);
 			path = Decision;
 			sourceTree = "<group>";
@@ -310,10 +319,12 @@
 				F6D306A62BE392E400B0A096 /* HoroscopeViewController.swift in Sources */,
 				F6D306AB2BE4D6A200B0A096 /* ZodiacSignViewController.swift in Sources */,
 				F6D5583D2BEE0B9800021394 /* MagicBallViewController.swift in Sources */,
+				F686D7CA2C018ACA00D264EC /* YesNoTarotViewController.swift in Sources */,
 				F6D5584C2BF74B9100021394 /* FortuneCookiesViewController.swift in Sources */,
 				F6D558372BEE070F00021394 /* DecisionViewController.swift in Sources */,
 				F6D3067E2BE1388100B0A096 /* LoginPageViewController.swift in Sources */,
 				F6D5582D2BEDD68700021394 /* Horoscope.swift in Sources */,
+				F686D7CC2C01BBB200D264EC /* FortuneCookieOpenedViewController.swift in Sources */,
 				F686D7892BFF0DAB00D264EC /* MulticastDelegate.swift in Sources */,
 				F6D558482BF637A000021394 /* FortuneSticksViewController.swift in Sources */,
 				F6D3066A2BE134CA00B0A096 /* AppDelegate.swift in Sources */,
@@ -325,6 +336,7 @@
 				F686D7B82C006F9400D264EC /* DiviniqueCoreDataModel.xcdatamodeld in Sources */,
 				F686D78D2BFF37A000D264EC /* ReadingController.swift in Sources */,
 				F6D306A42BE23FCE00B0A096 /* TabBarViewController.swift in Sources */,
+				F686D7CE2C01DF2900D264EC /* YesNoTarotResultViewController.swift in Sources */,
 				F6D558322BEDE66700021394 /* ReadingViewController.swift in Sources */,
 				F686D7652BFEFAB100D264EC /* DailyTarotViewController.swift in Sources */,
 				F686D7912BFF38D700D264EC /* TarotCard.swift in Sources */,
@@ -486,6 +498,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2FP7RXW88X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Divinique/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -513,6 +526,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2FP7RXW88X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Divinique/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

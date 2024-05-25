@@ -9,21 +9,20 @@ import UIKit
 
 class FortuneCookiesViewController: UIViewController {
 
+    
+    @IBOutlet weak var fortuneCookieImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        fortuneCookieImage.image = UIImage(named: "FortuneCookie")
+        // Create a swipe gesture recognizer
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
+        swipeGesture.direction = .down // or you can set it to .right, .up, or .down based on your requirement
+        fortuneCookieImage.addGestureRecognizer(swipeGesture)
+        fortuneCookieImage.isUserInteractionEnabled = true // Enable user interaction
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func handleSwipe(_ gesture: UISwipeGestureRecognizer) {
+        performSegue(withIdentifier: "cookieOpenedSegue", sender: self)
     }
-    */
-
 }

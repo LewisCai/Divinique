@@ -34,6 +34,7 @@ class ReadingController: NSObject, ReadingProtocol{
     
 
     func fetchRandomCards() async -> (name: String, meaningUp: String, meaningRev: String, desc: String)? {
+        print("Fetching a random card")
         guard let url = URL(string: "https://tarotapi.dev/api/v1/cards/random?n=1") else {
             print("Invalid URL")
             return nil

@@ -14,6 +14,10 @@ class DecisionViewController: UIViewController {
     
     @IBOutlet weak var magicOrbImage: UIImageView!
     
+    @IBOutlet weak var fortuneCookieImage: UIImageView!
+    
+    @IBOutlet weak var yesNoTarotImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Magic Orb
@@ -28,6 +32,31 @@ class DecisionViewController: UIViewController {
         fortuneSticks.isUserInteractionEnabled = true
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(fortuneBoxTapped))
         fortuneSticks.addGestureRecognizer(tapGesture2)
+        
+        //Fortune Cookie
+        fortuneCookieImage.image = UIImage(named: "FortuneCookie")
+        fortuneCookieImage.isUserInteractionEnabled = true
+        let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(fortuneCookieTapped))
+        fortuneCookieImage.addGestureRecognizer(tapGesture3)
+        
+        //YesNoTarot
+        yesNoTarotImage.image = UIImage(named: "yesNoTarot")
+        yesNoTarotImage.isUserInteractionEnabled = true
+        let tapGesture4 = UITapGestureRecognizer(target: self, action: #selector(yesNoTarotTapped))
+        yesNoTarotImage.addGestureRecognizer(tapGesture4)
+
+    }
+    
+    @objc func yesNoTarotTapped(){
+        UIView.transition(with: yesNoTarotImage, duration: 0.6, options: .transitionFlipFromRight, animations: {
+            self.yesNoTarotImage.image = UIImage(named: "yesNoTarot")
+        }, completion: { _ in
+            self.performSegue(withIdentifier: "yesNoTarotSegue", sender: self)
+        })
+    }
+    
+    @objc func fortuneCookieTapped(){
+        self.performSegue(withIdentifier: "fortuneCookieSegue", sender: self)
     }
     
     @objc func fortuneBoxTapped() {
