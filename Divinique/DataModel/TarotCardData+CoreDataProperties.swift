@@ -2,7 +2,7 @@
 //  TarotCardData+CoreDataProperties.swift
 //  Divinique
 //
-//  Created by LinjunCai on 23/5/2024.
+//  Created by LinjunCai on 24/5/2024.
 //
 //
 
@@ -16,7 +16,7 @@ extension TarotCardData {
         return NSFetchRequest<TarotCardData>(entityName: "TarotCardData")
     }
 
-    @NSManaged public var date: Date?
+    @NSManaged public var date: String?
     @NSManaged public var tarotDesc: String?
     @NSManaged public var tarotMeaning: String?
     @NSManaged public var tarotName: String?

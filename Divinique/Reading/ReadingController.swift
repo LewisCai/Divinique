@@ -8,13 +8,23 @@
 import UIKit
 
 class ReadingController: NSObject, ReadingProtocol{
+    func dateFormatter(date: Date) -> String {
+        let formatter = DateFormatter()
+        // Set the desired date format for year, month, and day
+        formatter.dateFormat = "yyyy-MM-dd"
+        // Convert the date to a string
+        let dateString = formatter.string(from: date)
+        return dateString
+    }
+    
     func fetchRandomCard(numOfCard: Int) async -> [TarotCard] {
         var tarotCards: [TarotCard] = []
 
         for _ in 0..<numOfCard {
             if let card = await fetchRandomCards() {
                 let state = Int32.random(in: 0...1)
-                let tarotCard = TarotCard(name: card.name, state: state, meaning: state == 1 ? card.meaningUp : card.meaningRev, desc: card.desc, date: Date())
+                let today = dateFormatter(date: Date())
+                let tarotCard = TarotCard(name: card.name, state: state, meaning: state == 1 ? card.meaningUp : card.meaningRev, desc: card.desc, date: today)
                 tarotCards.append(tarotCard)
             }
         }

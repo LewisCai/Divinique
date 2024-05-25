@@ -2,7 +2,7 @@
 //  HoroscopeData+CoreDataProperties.swift
 //  Divinique
 //
-//  Created by LinjunCai on 23/5/2024.
+//  Created by LinjunCai on 24/5/2024.
 //
 //
 
@@ -16,7 +16,7 @@ extension HoroscopeData {
         return NSFetchRequest<HoroscopeData>(entityName: "HoroscopeData")
     }
 
-    @NSManaged public var date: Date?
+    @NSManaged public var date: String?
     @NSManaged public var desc: String?
     @NSManaged public var starSign: String?
 

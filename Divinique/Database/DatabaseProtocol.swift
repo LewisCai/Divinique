@@ -21,8 +21,8 @@ enum ListenerType {
 
 protocol DatabaseListener: AnyObject {
     var listenerType: ListenerType {get set}
-    func onTarotChange(change: DatabaseChange, dailyTarot: TarotCardData)
-    func onHoroScopeChange(change: DatabaseChange, dailyHoroscope: HoroscopeData )
+    func onTarotChange(change: DatabaseChange, dailyTarot: [TarotCardData])
+    func onHoroScopeChange(change: DatabaseChange, dailyHoroscope: [TarotCardData] )
 }
 
 protocol DatabaseProtocol: AnyObject {
@@ -30,11 +30,11 @@ protocol DatabaseProtocol: AnyObject {
     func addListener(listener: DatabaseListener)
     func removeListener(listener: DatabaseListener)
     //Tarot card functions
-    func addTarotCardData(tarotName: String, tarotState: Int32, tarotMeaning: String, tarotDesc: String, date: Date)
+    func addTarotCardData(tarotName: String, tarotState: Int32, tarotMeaning: String, tarotDesc: String, date: String)
     -> TarotCardData
-    func getDailyTarotCard(for date: Date) -> TarotCardData? 
+    func getDailyTarotCard(for date: String) -> TarotCardData? 
     func deleteTarotCardData(tarotCard: TarotCardData)
     //Horoscope functions
-    func addHoroscopeData(starSign: String, date: Date, desc: String) -> HoroscopeData
+    func addHoroscopeData(starSign: String, date: String, desc: String) -> HoroscopeData
     func deleteHoroscopeData(horoscope: HoroscopeData)
 }

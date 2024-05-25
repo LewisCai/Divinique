@@ -2,7 +2,7 @@
 //  TarotCardData+CoreDataClass.swift
 //  Divinique
 //
-//  Created by LinjunCai on 23/5/2024.
+//  Created by LinjunCai on 24/5/2024.
 //
 //
 

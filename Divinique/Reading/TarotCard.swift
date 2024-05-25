@@ -12,5 +12,5 @@ struct TarotCard {
     var state: Int32
     var meaning: String
     var desc: String
-    var date: Date
+    var date: String
 }
