@@ -84,8 +84,9 @@ class YesNoTarotViewController: UIViewController {
         image3.isUserInteractionEnabled = false
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = YesNoTarotResultViewController()
-        destinationVC.tarotCard = newTarotCard
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
+        if let destinationVC = segue.destination as? YesNoTarotResultViewController {
+            destinationVC.tarotCard = newTarotCard
+        }
     }
 }
