@@ -41,7 +41,9 @@ class NewUserPageViewController: UIViewController {
             "name": name,
             "date": dateString,
             "userId": userID,
-            "sign": sign
+            "sign": sign,
+            "latitude": "",
+            "longitude": "",
         ]) { error in
             if let error = error {
                 self.displayMessage(title: "Error", message: "Something went wrong with database, try again later")

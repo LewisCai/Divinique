@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F66EA9C52C1019F8005EAC40 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9C42C1019F8005EAC40 /* MapViewController.swift */; };
 		F686D7652BFEFAB100D264EC /* DailyTarotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */; };
 		F686D77B2BFF043100D264EC /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */; };
 		F686D7872BFF070F00D264EC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7862BFF070F00D264EC /* CoreDataController.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F66EA9C42C1019F8005EAC40 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTarotViewController.swift; sourceTree = "<group>"; };
 		F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseProtocol.swift; path = Database/DatabaseProtocol.swift; sourceTree = SOURCE_ROOT; };
 		F686D7862BFF070F00D264EC /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F66EA9C72C101A4B005EAC40 /* SoulMate */ = {
+			isa = PBXGroup;
+			children = (
+				F66EA9C42C1019F8005EAC40 /* MapViewController.swift */,
+			);
+			path = SoulMate;
+			sourceTree = "<group>";
+		};
 		F686D7662BFEFFAE00D264EC /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +164,7 @@
 		F6D3065D2BE134CA00B0A096 = {
 			isa = PBXGroup;
 			children = (
-				F686D7882BFF0DAB00D264EC /* MulticastDelegate.swift */,
+				F66EA9C72C101A4B005EAC40 /* SoulMate */,
 				F686D77D2BFF048600D264EC /* Database */,
 				F686D7662BFEFFAE00D264EC /* DataModel */,
 				F6D558352BEE06F300021394 /* Decision */,
@@ -165,6 +175,7 @@
 				F6D3069D2BE2100300B0A096 /* NewUserPageViewController.swift */,
 				F6D306992BE206E800B0A096 /* GoogleService-Info.plist */,
 				F6D3067D2BE1388100B0A096 /* LoginPageViewController.swift */,
+				F686D7882BFF0DAB00D264EC /* MulticastDelegate.swift */,
 				F6D306682BE134CA00B0A096 /* Divinique */,
 				F6D306672BE134CA00B0A096 /* Products */,
 			);
@@ -338,6 +349,7 @@
 				F6D306A42BE23FCE00B0A096 /* TabBarViewController.swift in Sources */,
 				F686D7CE2C01DF2900D264EC /* YesNoTarotResultViewController.swift in Sources */,
 				F6D558322BEDE66700021394 /* ReadingViewController.swift in Sources */,
+				F66EA9C52C1019F8005EAC40 /* MapViewController.swift in Sources */,
 				F686D7652BFEFAB100D264EC /* DailyTarotViewController.swift in Sources */,
 				F686D7912BFF38D700D264EC /* TarotCard.swift in Sources */,
 				F686D77B2BFF043100D264EC /* DatabaseProtocol.swift in Sources */,

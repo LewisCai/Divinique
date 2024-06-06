@@ -17,7 +17,6 @@ class FortuneSticksViewController: UIViewController {
         super.viewDidLoad()
         fortuneBox.image = UIImage(named: "FortuneBox")
 
-        // Additional setup if needed
     }
     
     override var canBecomeFirstResponder: Bool {
