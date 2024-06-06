@@ -6,40 +6,84 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
-class FriendsTableViewController: UITableViewController {
-
+class FriendsTableViewController: UITableViewController{
+    var friends: [String] = []
+    var friendDetails: [User] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        fetchFriends()
+    }
+    
+    func fetchFriends() {
+        guard let currentUserId = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        
+        // Find the current user's document based on the userId field
+        db.collection("users").whereField("userId", isEqualTo: currentUserId).getDocuments { (snapshot, error) in
+            guard let document = snapshot?.documents.first else {
+                print("User document not found: \(String(describing: error))")
+                return
+            }
+            
+            if let friendsArray = document.data()["friends"] as? [String] {
+                self.friends = friendsArray
+                self.fetchFriendDetails()
+            }
+        }
+    }
+    
+    func fetchFriendDetails() {
+        let db = Firestore.firestore()
+        let group = DispatchGroup()
+        
+        for friendId in friends {
+            group.enter()
+            db.collection("users").whereField("userId", isEqualTo: friendId).getDocuments { (snapshot, error) in
+                if let document = snapshot?.documents.first {
+                    do {
+                        let user = try document.data(as: User.self)
+                        self.friendDetails.append(user)
+                    } catch let error {
+                        print("Error decoding user: \(error)")
+                    }
+                }
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: .main) {
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return friendDetails.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath)
+        let friend = friendDetails[indexPath.row]
+        cell.textLabel?.text = friend.name
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let friend = friendDetails[indexPath.row]
+        print("Selected friend: \(friend.name)")
+        // Perform segue or other actions here
+    }
 
     /*
     // Override to support conditional editing of the table view.

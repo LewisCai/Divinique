@@ -18,19 +18,27 @@ class NearbyUserProfileViewController: UIViewController {
     @IBOutlet weak var userBioText: UITextView!
     
     @IBAction func addFriendBtn(_ sender: Any) {
-        var userId = annotation?.userId
-        var currentUserId = (annotation?.currentUserId)!
+        let userId = annotation?.userId
+        let currentUserId = (annotation?.currentUserId)!
         
         let db = Firestore.firestore()
         let currentUserDocRef = db.collection("users").document(currentUserId)
         
-        currentUserDocRef.updateData([
-            "friends": FieldValue.arrayUnion([userId])
-        ]) { error in
-            if let error = error {
-                self.displayMessage(title: "Error", message: "Error adding friend: \(error.localizedDescription)")
-            } else {
-                self.displayMessage(title: "Success", message: "Friend added successfully")
+        db.collection("users").whereField("userId", isEqualTo: currentUserId).getDocuments { (snapshot, error) in
+            guard let document = snapshot?.documents.first else {
+                print("User document not found: \(String(describing: error))")
+                return
+            }
+            
+            // Update the friends array in the user's document
+            document.reference.updateData([
+                "friends": FieldValue.arrayUnion([userId!])
+            ]) { error in
+                if let error = error {
+                    self.displayMessage(title: "Error", message: "Error adding friend: \(error.localizedDescription)")
+                } else {
+                    self.displayMessage(title: "Success", message: "Friend added successfully")
+                }
             }
         }
     }

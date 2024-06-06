@@ -176,7 +176,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // Add current user's location as an annotation
     func addCurrentUserAnnotation(at location: CLLocation) {
         guard let currentUserID = Auth.auth().currentUser?.uid else { return }
-        
+        self.currentUser = currentUserID
+
         let db = Firestore.firestore()
         db.collection("users").whereField("userId", isEqualTo: currentUserID).getDocuments { (snapshot, error) in
             guard let document = snapshot?.documents.first else {
@@ -185,7 +186,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
             
             let data = document.data()
-            self.currentUser = data["userId"] as? String
             if let name = data["name"] as? String,
                let date = data["date"] as? String,
                let sign = data["sign"] as? String,
