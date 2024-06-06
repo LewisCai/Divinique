@@ -12,6 +12,7 @@ import FirebaseFirestore
 class FriendsTableViewController: UITableViewController{
     var friends: [String] = []
     var friendDetails: [User] = []
+    var friend: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,9 +81,18 @@ class FriendsTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let friend = friendDetails[indexPath.row]
+        friend = friendDetails[indexPath.row]
         print("Selected friend: \(friend.name)")
         // Perform segue or other actions here
+        performSegue(withIdentifier: "chatSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "chatSegue" {
+            if let destinationVC = segue.destination as? FriendChatViewController{
+                destinationVC.secondUser = self.friend
+            }
+        }
     }
 
     /*

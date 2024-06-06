@@ -926,6 +926,75 @@
             </objects>
             <point key="canvasLocation" x="7917" y="1134"/>
         </scene>
+        <!--Friend Chat View Controller-->
+        <scene sceneID="ug6-Yo-XCW">
+            <objects>
+                <viewController id="yLN-S1-gCg" customClass="FriendChatViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kew-be-DbT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tw-lP-pHI">
+                                <rect key="frame" x="130" y="103" width="133" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HSs-Vq-8kh">
+                                <rect key="frame" x="0.0" y="124" width="393" height="610"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" id="jMF-sQ-63e" customClass="MessageCell" customModule="Divinique" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jMF-sQ-63e" id="QTT-x8-Cpr">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nNn-Ii-M03">
+                                <rect key="frame" x="0.0" y="734" width="318" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdE-r3-BX5">
+                                <rect key="frame" x="318" y="734" width="75" height="35"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                                <connections>
+                                    <action selector="sendBtnTapped:" destination="yLN-S1-gCg" eventType="touchUpInside" id="gHL-8j-HK0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qu8-kk-uuu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qu8-kk-uuu" firstAttribute="trailing" secondItem="gdE-r3-BX5" secondAttribute="trailing" id="2Rc-57-KRy"/>
+                            <constraint firstItem="2tw-lP-pHI" firstAttribute="leading" secondItem="Qu8-kk-uuu" secondAttribute="leading" constant="130" id="7zb-J2-ssC"/>
+                            <constraint firstItem="gdE-r3-BX5" firstAttribute="leading" secondItem="nNn-Ii-M03" secondAttribute="trailing" id="Ixs-pV-81L"/>
+                            <constraint firstItem="nNn-Ii-M03" firstAttribute="leading" secondItem="Qu8-kk-uuu" secondAttribute="leading" id="Qv4-FR-mhG"/>
+                            <constraint firstItem="HSs-Vq-8kh" firstAttribute="top" secondItem="2tw-lP-pHI" secondAttribute="bottom" id="TNh-UM-msd"/>
+                            <constraint firstItem="HSs-Vq-8kh" firstAttribute="trailing" secondItem="Qu8-kk-uuu" secondAttribute="trailing" id="cfd-Fy-TBK"/>
+                            <constraint firstItem="Qu8-kk-uuu" firstAttribute="bottom" secondItem="nNn-Ii-M03" secondAttribute="bottom" constant="50" id="dl4-tS-DQr"/>
+                            <constraint firstItem="Qu8-kk-uuu" firstAttribute="trailing" secondItem="2tw-lP-pHI" secondAttribute="trailing" constant="130" id="gBX-1z-4p2"/>
+                            <constraint firstItem="gdE-r3-BX5" firstAttribute="top" secondItem="HSs-Vq-8kh" secondAttribute="bottom" id="gdf-iG-YHF"/>
+                            <constraint firstItem="nNn-Ii-M03" firstAttribute="top" secondItem="HSs-Vq-8kh" secondAttribute="bottom" id="hjA-xl-0b0"/>
+                            <constraint firstItem="2tw-lP-pHI" firstAttribute="top" secondItem="Qu8-kk-uuu" secondAttribute="top" id="hvG-6O-Gua"/>
+                            <constraint firstItem="HSs-Vq-8kh" firstAttribute="leading" secondItem="Qu8-kk-uuu" secondAttribute="leading" id="tsD-al-KRN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="u2L-gl-x2k"/>
+                    <connections>
+                        <outlet property="msgInputField" destination="nNn-Ii-M03" id="ZHW-or-8Z6"/>
+                        <outlet property="sendButton" destination="gdE-r3-BX5" id="9Sl-7l-St3"/>
+                        <outlet property="tableView" destination="HSs-Vq-8kh" id="SXr-sR-kWu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9z9-Ak-xDk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2907.6335877862593" y="3052.816901408451"/>
+        </scene>
         <!--Friends Table View Controller-->
         <scene sceneID="Y0r-vD-wGC">
             <objects>
@@ -950,6 +1019,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="KDf-zZ-dIM"/>
+                    <connections>
+                        <segue destination="yLN-S1-gCg" kind="show" identifier="chatSegue" id="rgx-GT-ZEn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ldv-Vh-fRc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

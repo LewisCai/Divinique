@@ -12,6 +12,9 @@
 		F66EA9CB2C1199C6005EAC40 /* NearbyUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9CA2C1199C6005EAC40 /* NearbyUserProfileViewController.swift */; };
 		F66EA9CD2C11B401005EAC40 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9CC2C11B401005EAC40 /* FriendsTableViewController.swift */; };
 		F66EA9CF2C11C4B5005EAC40 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9CE2C11C4B5005EAC40 /* User.swift */; };
+		F66EA9D12C11EEB3005EAC40 /* FriendChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9D02C11EEB3005EAC40 /* FriendChatViewController.swift */; };
+		F66EA9D32C11F22C005EAC40 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9D22C11F22C005EAC40 /* Message.swift */; };
+		F66EA9D72C120864005EAC40 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9D62C120864005EAC40 /* MessageCell.swift */; };
 		F686D7652BFEFAB100D264EC /* DailyTarotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */; };
 		F686D77B2BFF043100D264EC /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */; };
 		F686D7872BFF070F00D264EC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7862BFF070F00D264EC /* CoreDataController.swift */; };
@@ -63,6 +66,9 @@
 		F66EA9CA2C1199C6005EAC40 /* NearbyUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyUserProfileViewController.swift; sourceTree = "<group>"; };
 		F66EA9CC2C11B401005EAC40 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		F66EA9CE2C11C4B5005EAC40 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F66EA9D02C11EEB3005EAC40 /* FriendChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendChatViewController.swift; sourceTree = "<group>"; };
+		F66EA9D22C11F22C005EAC40 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		F66EA9D62C120864005EAC40 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTarotViewController.swift; sourceTree = "<group>"; };
 		F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseProtocol.swift; path = Database/DatabaseProtocol.swift; sourceTree = SOURCE_ROOT; };
 		F686D7862BFF070F00D264EC /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
@@ -128,7 +134,10 @@
 				F66EA9C82C118B09005EAC40 /* CustomAnnotation.swift */,
 				F66EA9CA2C1199C6005EAC40 /* NearbyUserProfileViewController.swift */,
 				F66EA9CC2C11B401005EAC40 /* FriendsTableViewController.swift */,
+				F66EA9D02C11EEB3005EAC40 /* FriendChatViewController.swift */,
 				F66EA9CE2C11C4B5005EAC40 /* User.swift */,
+				F66EA9D22C11F22C005EAC40 /* Message.swift */,
+				F66EA9D62C120864005EAC40 /* MessageCell.swift */,
 			);
 			path = SoulMate;
 			sourceTree = "<group>";
@@ -344,12 +353,14 @@
 				F6D306AB2BE4D6A200B0A096 /* ZodiacSignViewController.swift in Sources */,
 				F6D5583D2BEE0B9800021394 /* MagicBallViewController.swift in Sources */,
 				F686D7CA2C018ACA00D264EC /* YesNoTarotViewController.swift in Sources */,
+				F66EA9D32C11F22C005EAC40 /* Message.swift in Sources */,
 				F6D5584C2BF74B9100021394 /* FortuneCookiesViewController.swift in Sources */,
 				F6D558372BEE070F00021394 /* DecisionViewController.swift in Sources */,
 				F6D3067E2BE1388100B0A096 /* LoginPageViewController.swift in Sources */,
 				F6D5582D2BEDD68700021394 /* Horoscope.swift in Sources */,
 				F686D7CC2C01BBB200D264EC /* FortuneCookieOpenedViewController.swift in Sources */,
 				F686D7892BFF0DAB00D264EC /* MulticastDelegate.swift in Sources */,
+				F66EA9D12C11EEB3005EAC40 /* FriendChatViewController.swift in Sources */,
 				F6D558482BF637A000021394 /* FortuneSticksViewController.swift in Sources */,
 				F6D3066A2BE134CA00B0A096 /* AppDelegate.swift in Sources */,
 				F66EA9CF2C11C4B5005EAC40 /* User.swift in Sources */,
@@ -365,6 +376,7 @@
 				F686D7CE2C01DF2900D264EC /* YesNoTarotResultViewController.swift in Sources */,
 				F6D558322BEDE66700021394 /* ReadingViewController.swift in Sources */,
 				F66EA9C52C1019F8005EAC40 /* MapViewController.swift in Sources */,
+				F66EA9D72C120864005EAC40 /* MessageCell.swift in Sources */,
 				F686D7652BFEFAB100D264EC /* DailyTarotViewController.swift in Sources */,
 				F686D7912BFF38D700D264EC /* TarotCard.swift in Sources */,
 				F686D77B2BFF043100D264EC /* DatabaseProtocol.swift in Sources */,
