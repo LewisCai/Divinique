@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F66EA9C52C1019F8005EAC40 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9C42C1019F8005EAC40 /* MapViewController.swift */; };
+		F66EA9C92C118B09005EAC40 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9C82C118B09005EAC40 /* CustomAnnotation.swift */; };
+		F66EA9CB2C1199C6005EAC40 /* NearbyUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9CA2C1199C6005EAC40 /* NearbyUserProfileViewController.swift */; };
+		F66EA9CD2C11B401005EAC40 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9CC2C11B401005EAC40 /* FriendsTableViewController.swift */; };
 		F686D7652BFEFAB100D264EC /* DailyTarotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */; };
 		F686D77B2BFF043100D264EC /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */; };
 		F686D7872BFF070F00D264EC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7862BFF070F00D264EC /* CoreDataController.swift */; };
@@ -55,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		F66EA9C42C1019F8005EAC40 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F66EA9C82C118B09005EAC40 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		F66EA9CA2C1199C6005EAC40 /* NearbyUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyUserProfileViewController.swift; sourceTree = "<group>"; };
+		F66EA9CC2C11B401005EAC40 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTarotViewController.swift; sourceTree = "<group>"; };
 		F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseProtocol.swift; path = Database/DatabaseProtocol.swift; sourceTree = SOURCE_ROOT; };
 		F686D7862BFF070F00D264EC /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
@@ -117,6 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				F66EA9C42C1019F8005EAC40 /* MapViewController.swift */,
+				F66EA9C82C118B09005EAC40 /* CustomAnnotation.swift */,
+				F66EA9CA2C1199C6005EAC40 /* NearbyUserProfileViewController.swift */,
+				F66EA9CC2C11B401005EAC40 /* FriendsTableViewController.swift */,
 			);
 			path = SoulMate;
 			sourceTree = "<group>";
@@ -325,6 +334,7 @@
 				F6D306A92BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift in Sources */,
 				F686D7872BFF070F00D264EC /* CoreDataController.swift in Sources */,
 				F6D3066E2BE134CA00B0A096 /* ViewController.swift in Sources */,
+				F66EA9C92C118B09005EAC40 /* CustomAnnotation.swift in Sources */,
 				F6D558432BF5DC8000021394 /* TarotCardResultTableViewController.swift in Sources */,
 				F6D558582BF7573200021394 /* TarotCardCell.swift in Sources */,
 				F6D306A62BE392E400B0A096 /* HoroscopeViewController.swift in Sources */,
@@ -340,6 +350,7 @@
 				F6D558482BF637A000021394 /* FortuneSticksViewController.swift in Sources */,
 				F6D3066A2BE134CA00B0A096 /* AppDelegate.swift in Sources */,
 				F6D3066C2BE134CA00B0A096 /* SceneDelegate.swift in Sources */,
+				F66EA9CB2C1199C6005EAC40 /* NearbyUserProfileViewController.swift in Sources */,
 				F686D7C52C0071E600D264EC /* HoroscopeData+CoreDataClass.swift in Sources */,
 				F686D7C62C0071E600D264EC /* HoroscopeData+CoreDataProperties.swift in Sources */,
 				F686D7C72C0071E600D264EC /* TarotCardData+CoreDataClass.swift in Sources */,
@@ -354,6 +365,7 @@
 				F686D7912BFF38D700D264EC /* TarotCard.swift in Sources */,
 				F686D77B2BFF043100D264EC /* DatabaseProtocol.swift in Sources */,
 				F686D78B2BFF371300D264EC /* ReadingProtocol.swift in Sources */,
+				F66EA9CD2C11B401005EAC40 /* FriendsTableViewController.swift in Sources */,
 				F6D3069C2BE209E700B0A096 /* SignUpPageViewController.swift in Sources */,
 				F6D558342BEDE76900021394 /* TarotCardReadingViewController.swift in Sources */,
 				F6D3069E2BE2100300B0A096 /* NewUserPageViewController.swift in Sources */,

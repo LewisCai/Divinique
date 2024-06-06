@@ -14,24 +14,21 @@ import FirebaseAuth
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBAction func friendsBtn(_ sender: Any) {
+        performSegue(withIdentifier: "friendsSegue", sender: (Any).self)
+    }
+    var currentUser: String?
+    // Declare the location manager
     var locationManager: CLLocationManager!
+    
+    // Declare the selected annotation
+    var selectedAnnotation: CustomAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setup background image
-        navigationController?.navigationBar.titleTextAttributes = [
-            .font: UIFont(name: "HelveticaNeue-Bold", size: 20)!,
-            .foregroundColor: UIColor.white
-        ]
-        
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "LoginBackground")
-        backgroundImage.contentMode = .scaleAspectFill
-        view.addSubview(backgroundImage)
-        view.sendSubviewToBack(backgroundImage)
-        
-        // Setup map view
+        // Setup map view delegate
         mapView.delegate = self
         
         // Setup location manager
@@ -41,53 +38,65 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.startUpdatingLocation()
     }
     
+    // Handle location updates
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.first else { return }
-        let region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
+        
+        // Adjust the region to make sure annotations are visible
+        let region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
         
+        // Debugging: Print the current location
+        print("Current location: \(currentLocation.coordinate)")
+        
+        // Update user location in Firestore
         updateUserLocation { result in
             switch result {
             case .success:
                 print("User location updated successfully.")
+                // Add current user's location as an annotation
+                self.addCurrentUserAnnotation(at: currentLocation)
+                // Fetch other users after updating the current user's location
+                self.fetchClosestUsers(currentLocation: currentLocation) { closestUsers in
+                    for user in closestUsers {
+                        let coordinate = user.location.coordinate
+                        let name = user.name
+                        let date = user.date
+                        let star = user.sign
+                        let userId = user.userId
+                        print("current user:", self.currentUser)
+                        let annotation = CustomAnnotation(coordinate: coordinate, name: name, date: date, star: star, userId: userId, currentUserId: self.currentUser)
+                        print("Adding annotation at: \(coordinate)") // Debug print
+                        self.mapView.addAnnotation(annotation)
+                    }
+                    // Debug print to verify annotations added to the map
+                    print("Total annotations added: \(self.mapView.annotations.count)")
+                }
             case .failure(let error):
                 print("Failed to update user location: \(error.localizedDescription)")
             }
         }
-        
-        fetchClosestUsers(currentLocation: currentLocation) { closestCoordinates in
-            for coordinate in closestCoordinates {
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                print("Adding annotation at: \(coordinate)") // Debug print
-                self.mapView.addAnnotation(annotation)
+    }
+    
+    // Handle annotation selection
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotation = view.annotation as? CustomAnnotation {
+            selectedAnnotation = annotation
+            performSegue(withIdentifier: "profileSegue", sender: self)
+        }
+    }
+    
+    // Prepare for the segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "profileSegue" {
+            if let destinationVC = segue.destination as? NearbyUserProfileViewController {
+                destinationVC.annotation = selectedAnnotation
             }
         }
     }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            return nil
-        }
-        
-        let annotationIdentifier = "UserAnnotation"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) as? MKMarkerAnnotationView
-        
-        if annotationView == nil {
-            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-            annotationView?.canShowCallout = true
-            
-            // Add a detail button to the callout
-            let detailButton = UIButton(type: .detailDisclosure)
-            annotationView?.rightCalloutAccessoryView = detailButton
-        } else {
-            annotationView?.annotation = annotation
-        }
-        
-        return annotationView
-    }
-    
-    func fetchClosestUsers(currentLocation: CLLocation, completion: @escaping ([CLLocationCoordinate2D]) -> Void) {
+    // Fetch the closest users' locations from Firestore
+    func fetchClosestUsers(currentLocation: CLLocation, completion: @escaping ([(location: CLLocation, name: String, date: String, sign: String, userId: String)]) -> Void) {
         let db = Firestore.firestore()
         db.collection("users").getDocuments { (snapshot, error) in
             guard let documents = snapshot?.documents else {
@@ -95,26 +104,35 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 return
             }
             
-            var userLocations: [(location: CLLocation, distance: CLLocationDistance)] = []
+            var userLocations: [(location: CLLocation, name: String, date: String, sign: String, distance: CLLocationDistance, userId: String)] = []
             
             for document in documents {
                 let data = document.data()
                 if let latitude = data["latitude"] as? CLLocationDegrees,
-                   let longitude = data["longitude"] as? CLLocationDegrees {
+                   let longitude = data["longitude"] as? CLLocationDegrees,
+                   let name = data["name"] as? String,
+                   let date = data["date"] as? String,
+                   let sign = data["sign"] as? String,
+                   let userId = data["userId"] as? String,
+                   userId != Auth.auth().currentUser?.uid { // Exclude current user
                     let location = CLLocation(latitude: latitude, longitude: longitude)
                     let distance = currentLocation.distance(from: location)
-                    userLocations.append((location, distance))
+                    userLocations.append((location, name, date, sign, distance, userId))
                 }
             }
             
             // Sort by distance and get the closest 5 users
             let closestUsers = userLocations.sorted { $0.distance < $1.distance }.prefix(5)
-            let closestCoordinates = closestUsers.map { $0.location.coordinate }
+            let closestUserDetails = closestUsers.map { (location: $0.location, name: $0.name, date: $0.date, sign: $0.sign, userId: $0.userId) }
             
-            completion(closestCoordinates)
+            // Debug print to verify number of annotations
+            print("Number of closest user coordinates: \(closestUserDetails.count)")
+            
+            completion(closestUserDetails)
         }
     }
     
+    // Update the user's location in Firestore
     func updateUserLocation(completion: @escaping (Result<Void, Error>) -> Void) {
         guard let currentUserID = Auth.auth().currentUser?.uid else {
             completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
@@ -151,6 +169,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                         completion(.success(()))
                     }
                 }
+            }
+        }
+    }
+    
+    // Add current user's location as an annotation
+    func addCurrentUserAnnotation(at location: CLLocation) {
+        guard let currentUserID = Auth.auth().currentUser?.uid else { return }
+        
+        let db = Firestore.firestore()
+        db.collection("users").whereField("userId", isEqualTo: currentUserID).getDocuments { (snapshot, error) in
+            guard let document = snapshot?.documents.first else {
+                print("Error fetching current user document: \(String(describing: error))")
+                return
+            }
+            
+            let data = document.data()
+            self.currentUser = data["userId"] as? String
+            if let name = data["name"] as? String,
+               let date = data["date"] as? String,
+               let sign = data["sign"] as? String,
+               let userId = data["userId"] as? String{
+                let annotation = CustomAnnotation(coordinate: location.coordinate, name: name, date: date, star: sign, userId: userId, currentUserId: self.currentUser)
+                self.mapView.addAnnotation(annotation)
             }
         }
     }
