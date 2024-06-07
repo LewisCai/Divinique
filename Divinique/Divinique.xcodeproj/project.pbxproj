@@ -15,6 +15,7 @@
 		F66EA9D12C11EEB3005EAC40 /* FriendChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9D02C11EEB3005EAC40 /* FriendChatViewController.swift */; };
 		F66EA9D32C11F22C005EAC40 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9D22C11F22C005EAC40 /* Message.swift */; };
 		F66EA9D72C120864005EAC40 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9D62C120864005EAC40 /* MessageCell.swift */; };
+		F66EA9DC2C12FDF7005EAC40 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9DB2C12FDF7005EAC40 /* SettingTableViewController.swift */; };
 		F686D7652BFEFAB100D264EC /* DailyTarotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */; };
 		F686D77B2BFF043100D264EC /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */; };
 		F686D7872BFF070F00D264EC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7862BFF070F00D264EC /* CoreDataController.swift */; };
@@ -69,6 +70,7 @@
 		F66EA9D02C11EEB3005EAC40 /* FriendChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendChatViewController.swift; sourceTree = "<group>"; };
 		F66EA9D22C11F22C005EAC40 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F66EA9D62C120864005EAC40 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		F66EA9DB2C12FDF7005EAC40 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTarotViewController.swift; sourceTree = "<group>"; };
 		F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseProtocol.swift; path = Database/DatabaseProtocol.swift; sourceTree = SOURCE_ROOT; };
 		F686D7862BFF070F00D264EC /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 			path = SoulMate;
 			sourceTree = "<group>";
 		};
+		F66EA9DA2C12FDAD005EAC40 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				F66EA9DB2C12FDF7005EAC40 /* SettingTableViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		F686D7662BFEFFAE00D264EC /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +195,7 @@
 		F6D3065D2BE134CA00B0A096 = {
 			isa = PBXGroup;
 			children = (
+				F66EA9DA2C12FDAD005EAC40 /* Setting */,
 				F66EA9C72C101A4B005EAC40 /* SoulMate */,
 				F686D77D2BFF048600D264EC /* Database */,
 				F686D7662BFEFFAE00D264EC /* DataModel */,
@@ -367,6 +378,7 @@
 				F6D3066C2BE134CA00B0A096 /* SceneDelegate.swift in Sources */,
 				F66EA9CB2C1199C6005EAC40 /* NearbyUserProfileViewController.swift in Sources */,
 				F686D7C52C0071E600D264EC /* HoroscopeData+CoreDataClass.swift in Sources */,
+				F66EA9DC2C12FDF7005EAC40 /* SettingTableViewController.swift in Sources */,
 				F686D7C62C0071E600D264EC /* HoroscopeData+CoreDataProperties.swift in Sources */,
 				F686D7C72C0071E600D264EC /* TarotCardData+CoreDataClass.swift in Sources */,
 				F686D7C82C0071E600D264EC /* TarotCardData+CoreDataProperties.swift in Sources */,

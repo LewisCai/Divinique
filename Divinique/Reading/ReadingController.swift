@@ -28,6 +28,7 @@ class ReadingController: NSObject, ReadingProtocol {
                     let today = dateFormatter(date: Date())
                     let tarotCard = TarotCard(name: card.name, state: state, meaning: state == 1 ? card.meaningUp : card.meaningRev, desc: card.desc, date: today)
                     tarotCards.append(tarotCard)
+                    print(card.name)
                     displayedCards.insert(card.name)
                 }
             }

@@ -23,9 +23,6 @@ class DailyTarotViewController: UIViewController {
     @IBOutlet weak var tarotMeaningText: UITextView!
     
     @IBOutlet weak var tarotDescText: UITextView!
-        
-    @IBAction func segControl(_ sender: Any) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

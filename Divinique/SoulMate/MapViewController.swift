@@ -64,7 +64,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                         let date = user.date
                         let star = user.sign
                         let userId = user.userId
-                        print("current user:", self.currentUser)
                         let annotation = CustomAnnotation(coordinate: coordinate, name: name, date: date, star: star, userId: userId, currentUserId: self.currentUser)
                         print("Adding annotation at: \(coordinate)") // Debug print
                         self.mapView.addAnnotation(annotation)

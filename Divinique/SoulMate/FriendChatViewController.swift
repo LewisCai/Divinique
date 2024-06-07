@@ -194,7 +194,6 @@ class FriendChatViewController: UIViewController, UITableViewDelegate, UITableVi
         let isFromCurrentUser = message.sender != self.secondUser.userId
         
         cell.configure(with: message, isFromCurrentUser: isFromCurrentUser)
-        
         return cell
     }
     

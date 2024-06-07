@@ -1,10 +1,3 @@
-//
-//  MessageCell.swift
-//  Divinique
-//
-//  Created by LinjunCai on 7/6/2024.
-//
-
 import UIKit
 
 class MessageCell: UITableViewCell {
@@ -27,6 +20,12 @@ class MessageCell: UITableViewCell {
         bubbleView.translatesAutoresizingMaskIntoConstraints = false
         bubbleView.layer.cornerRadius = 15
         bubbleView.clipsToBounds = true
+        
+        // Constraints for bubbleView
+        NSLayoutConstraint.activate([
+            bubbleView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            bubbleView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+        ])
     }
     
     private func setupMessageLabel() {
@@ -46,11 +45,19 @@ class MessageCell: UITableViewCell {
         bubbleView.backgroundColor = isFromCurrentUser ? UIColor.green.withAlphaComponent(0.5) : UIColor.blue.withAlphaComponent(0.5)
         
         if isFromCurrentUser {
+            NSLayoutConstraint.deactivate([
+                bubbleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+                bubbleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50)
+            ])
             NSLayoutConstraint.activate([
                 bubbleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
                 bubbleView.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: 50)
             ])
         } else {
+            NSLayoutConstraint.deactivate([
+                bubbleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+                bubbleView.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: 50)
+            ])
             NSLayoutConstraint.activate([
                 bubbleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
                 bubbleView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -50)
