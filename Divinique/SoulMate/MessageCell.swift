@@ -10,9 +10,11 @@ import UIKit
 class MessageCell: UITableViewCell {
     
     let messageLabel = UILabel()
-    
+    let bubbleView = UIView()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupBubbleView()
         setupMessageLabel()
     }
     
@@ -20,21 +22,46 @@ class MessageCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupBubbleView() {
+        contentView.addSubview(bubbleView)
+        bubbleView.translatesAutoresizingMaskIntoConstraints = false
+        bubbleView.layer.cornerRadius = 15
+        bubbleView.clipsToBounds = true
+    }
+    
     private func setupMessageLabel() {
-        contentView.addSubview(messageLabel)
+        bubbleView.addSubview(messageLabel)
         messageLabel.numberOfLines = 0
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            messageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            messageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            messageLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            messageLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+            messageLabel.topAnchor.constraint(equalTo: bubbleView.topAnchor, constant: 10),
+            messageLabel.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: -10),
+            messageLabel.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 10),
+            messageLabel.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -10)
         ])
     }
     
     func configure(with message: Message, isFromCurrentUser: Bool) {
         messageLabel.text = message.text
-        messageLabel.textAlignment = isFromCurrentUser ? .right : .left
-        messageLabel.backgroundColor = isFromCurrentUser ? UIColor.lightGray.withAlphaComponent(0.5) : UIColor.blue.withAlphaComponent(0.2)
+        bubbleView.backgroundColor = isFromCurrentUser ? UIColor.green.withAlphaComponent(0.5) : UIColor.blue.withAlphaComponent(0.5)
+        
+        if isFromCurrentUser {
+            NSLayoutConstraint.activate([
+                bubbleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+                bubbleView.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: 50)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                bubbleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+                bubbleView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -50)
+            ])
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        NSLayoutConstraint.deactivate(bubbleView.constraints)
+        setupBubbleView()
+        setupMessageLabel()
     }
 }

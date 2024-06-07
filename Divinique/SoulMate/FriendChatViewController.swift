@@ -50,6 +50,8 @@ class FriendChatViewController: UIViewController, UITableViewDelegate, UITableVi
         // Register the UITableViewCell class for use in creating new table cells
         tableView.register(MessageCell.self, forCellReuseIdentifier: "MessageCell")
         
+        tableView.separatorStyle = .none
+        
         // Fetch existing messages from Firestore
         fetchMessages()
     }
