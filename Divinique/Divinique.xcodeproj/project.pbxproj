@@ -16,6 +16,9 @@
 		F66EA9D32C11F22C005EAC40 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9D22C11F22C005EAC40 /* Message.swift */; };
 		F66EA9D72C120864005EAC40 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9D62C120864005EAC40 /* MessageCell.swift */; };
 		F66EA9DC2C12FDF7005EAC40 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9DB2C12FDF7005EAC40 /* SettingTableViewController.swift */; };
+		F66EA9E02C13032C005EAC40 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9DF2C13032C005EAC40 /* ProfileViewController.swift */; };
+		F66EA9E22C130338005EAC40 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9E12C130338005EAC40 /* NotificationViewController.swift */; };
+		F66EA9E42C13034C005EAC40 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EA9E32C13034C005EAC40 /* AboutViewController.swift */; };
 		F686D7652BFEFAB100D264EC /* DailyTarotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */; };
 		F686D77B2BFF043100D264EC /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */; };
 		F686D7872BFF070F00D264EC /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F686D7862BFF070F00D264EC /* CoreDataController.swift */; };
@@ -71,6 +74,9 @@
 		F66EA9D22C11F22C005EAC40 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F66EA9D62C120864005EAC40 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		F66EA9DB2C12FDF7005EAC40 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		F66EA9DF2C13032C005EAC40 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F66EA9E12C130338005EAC40 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		F66EA9E32C13034C005EAC40 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F686D7642BFEFAB100D264EC /* DailyTarotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTarotViewController.swift; sourceTree = "<group>"; };
 		F686D77A2BFF043100D264EC /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseProtocol.swift; path = Database/DatabaseProtocol.swift; sourceTree = SOURCE_ROOT; };
 		F686D7862BFF070F00D264EC /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
@@ -148,6 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				F66EA9DB2C12FDF7005EAC40 /* SettingTableViewController.swift */,
+				F66EA9DF2C13032C005EAC40 /* ProfileViewController.swift */,
+				F66EA9E12C130338005EAC40 /* NotificationViewController.swift */,
+				F66EA9E32C13034C005EAC40 /* AboutViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -354,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66EA9E22C130338005EAC40 /* NotificationViewController.swift in Sources */,
 				F6D306A92BE4D10A00B0A096 /* ChineseZodiacSignViewController.swift in Sources */,
 				F686D7872BFF070F00D264EC /* CoreDataController.swift in Sources */,
 				F6D3066E2BE134CA00B0A096 /* ViewController.swift in Sources */,
@@ -383,6 +393,7 @@
 				F686D7C72C0071E600D264EC /* TarotCardData+CoreDataClass.swift in Sources */,
 				F686D7C82C0071E600D264EC /* TarotCardData+CoreDataProperties.swift in Sources */,
 				F686D7B82C006F9400D264EC /* DiviniqueCoreDataModel.xcdatamodeld in Sources */,
+				F66EA9E42C13034C005EAC40 /* AboutViewController.swift in Sources */,
 				F686D78D2BFF37A000D264EC /* ReadingController.swift in Sources */,
 				F6D306A42BE23FCE00B0A096 /* TabBarViewController.swift in Sources */,
 				F686D7CE2C01DF2900D264EC /* YesNoTarotResultViewController.swift in Sources */,
@@ -392,6 +403,7 @@
 				F686D7652BFEFAB100D264EC /* DailyTarotViewController.swift in Sources */,
 				F686D7912BFF38D700D264EC /* TarotCard.swift in Sources */,
 				F686D77B2BFF043100D264EC /* DatabaseProtocol.swift in Sources */,
+				F66EA9E02C13032C005EAC40 /* ProfileViewController.swift in Sources */,
 				F686D78B2BFF371300D264EC /* ReadingProtocol.swift in Sources */,
 				F66EA9CD2C11B401005EAC40 /* FriendsTableViewController.swift in Sources */,
 				F6D3069C2BE209E700B0A096 /* SignUpPageViewController.swift in Sources */,

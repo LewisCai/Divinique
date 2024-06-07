@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SettingTableViewController: UITableViewController {
 
@@ -47,6 +48,32 @@ class SettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // Handle cell tap, navigate to different settings pages
+        if indexPath.section == 0 && indexPath.row == 0 {
+            performSegue(withIdentifier: "userProfileSegue", sender: self)
+        } else if indexPath.section == 1 && indexPath.row == 0 {
+            performSegue(withIdentifier: "notificationSegue", sender: self)
+        } else if indexPath.section == 2 && indexPath.row == 0 {
+            performSegue(withIdentifier: "aboutSegue", sender: self)
+        } else if indexPath.section == 2 && indexPath.row == 1{
+            //Log out
+            logout()
+        }
+    }
+    
+    // Logout function
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            // Redirect to login screen
+            if let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginPageViewController") {
+                navigationController?.setViewControllers([loginViewController], animated: true)
+            }
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+            let alertController = UIAlertController(title: "Error", message: "Failed to sign out. Please try again.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alertController, animated: true, completion: nil)
+        }
     }
 
 }

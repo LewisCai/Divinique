@@ -13,7 +13,7 @@
         <!--Welcome to Divinique-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginPageViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginPageViewController" id="BYZ-38-t0r" customClass="LoginPageViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1202,26 +1202,111 @@
             </objects>
             <point key="canvasLocation" x="2908" y="2306"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="KJT-vz-KsO">
             <objects>
-                <viewController id="fes-Wx-3QT" sceneMemberID="viewController">
+                <viewController id="fes-Wx-3QT" customClass="ProfileViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pTZ-9D-m5F">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9OH-RL-Jfk">
+                                <rect key="frame" x="70" y="123" width="253" height="206"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLX-VJ-ral">
+                                <rect key="frame" x="100" y="339" width="193" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Change Profile Photo"/>
+                                <connections>
+                                    <action selector="profileChangeBtn:" destination="fes-Wx-3QT" eventType="touchUpInside" id="0lL-SL-HKp"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRb-jY-qmB">
+                                <rect key="frame" x="70" y="394" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pz1-Ve-Elw">
+                                <rect key="frame" x="70" y="425" width="253" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vq1-WR-njJ">
+                                <rect key="frame" x="100" y="461" width="193" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Edit Name"/>
+                                <connections>
+                                    <action selector="changeNameBtn:" destination="fes-Wx-3QT" eventType="touchUpInside" id="pK3-ie-S8e"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfu-Vo-mjQ">
+                                <rect key="frame" x="70" y="516" width="69" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uA-dD-wtS">
+                                <rect key="frame" x="70" y="547" width="253" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geK-KV-NfD">
+                                <rect key="frame" x="100" y="583" width="193" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Edit Birthday"/>
+                                <connections>
+                                    <action selector="changeBirthdayBtn:" destination="fes-Wx-3QT" eventType="touchUpInside" id="b3N-Gf-oc8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="un0-F2-eUw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9OH-RL-Jfk" firstAttribute="top" secondItem="un0-F2-eUw" secondAttribute="top" constant="20" id="2qJ-sr-Wza"/>
+                            <constraint firstItem="Bfu-Vo-mjQ" firstAttribute="leading" secondItem="un0-F2-eUw" secondAttribute="leading" constant="70" id="34F-8X-GiS"/>
+                            <constraint firstItem="un0-F2-eUw" firstAttribute="trailing" secondItem="hLX-VJ-ral" secondAttribute="trailing" constant="100" id="82L-1h-JRh"/>
+                            <constraint firstItem="Vq1-WR-njJ" firstAttribute="leading" secondItem="un0-F2-eUw" secondAttribute="leading" constant="100" id="DfJ-xN-X3N"/>
+                            <constraint firstItem="geK-KV-NfD" firstAttribute="top" secondItem="0uA-dD-wtS" secondAttribute="bottom" constant="15" id="EF2-sv-Mlm"/>
+                            <constraint firstItem="pz1-Ve-Elw" firstAttribute="leading" secondItem="un0-F2-eUw" secondAttribute="leading" constant="70" id="KXS-Ic-Gim"/>
+                            <constraint firstItem="9OH-RL-Jfk" firstAttribute="leading" secondItem="un0-F2-eUw" secondAttribute="leading" constant="70" id="MI2-4N-oKH"/>
+                            <constraint firstItem="ZRb-jY-qmB" firstAttribute="top" secondItem="hLX-VJ-ral" secondAttribute="bottom" constant="20" id="N4p-0u-O2m"/>
+                            <constraint firstItem="un0-F2-eUw" firstAttribute="trailing" secondItem="pz1-Ve-Elw" secondAttribute="trailing" constant="70" id="NEz-hd-gNg"/>
+                            <constraint firstItem="un0-F2-eUw" firstAttribute="trailing" secondItem="0uA-dD-wtS" secondAttribute="trailing" constant="70" id="Nih-RC-LOl"/>
+                            <constraint firstItem="0uA-dD-wtS" firstAttribute="leading" secondItem="un0-F2-eUw" secondAttribute="leading" constant="70" id="S0S-TK-J1P"/>
+                            <constraint firstItem="un0-F2-eUw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZRb-jY-qmB" secondAttribute="trailing" symbolic="YES" id="T7A-rB-NEt"/>
+                            <constraint firstItem="Bfu-Vo-mjQ" firstAttribute="top" secondItem="Vq1-WR-njJ" secondAttribute="bottom" constant="20" id="V3v-bI-FNE"/>
+                            <constraint firstItem="pz1-Ve-Elw" firstAttribute="top" secondItem="ZRb-jY-qmB" secondAttribute="bottom" constant="10" id="ZjU-uE-Qw7"/>
+                            <constraint firstItem="hLX-VJ-ral" firstAttribute="top" secondItem="9OH-RL-Jfk" secondAttribute="bottom" constant="10" id="bOk-VX-rJQ"/>
+                            <constraint firstItem="un0-F2-eUw" firstAttribute="trailing" secondItem="9OH-RL-Jfk" secondAttribute="trailing" constant="70" id="c56-GW-aoz"/>
+                            <constraint firstItem="un0-F2-eUw" firstAttribute="trailing" secondItem="geK-KV-NfD" secondAttribute="trailing" constant="100" id="cuc-ZV-cz5"/>
+                            <constraint firstItem="un0-F2-eUw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Bfu-Vo-mjQ" secondAttribute="trailing" symbolic="YES" id="iQA-GW-UMN"/>
+                            <constraint firstItem="un0-F2-eUw" firstAttribute="trailing" secondItem="Vq1-WR-njJ" secondAttribute="trailing" constant="100" id="jVO-OY-LT3"/>
+                            <constraint firstItem="ZRb-jY-qmB" firstAttribute="leading" secondItem="un0-F2-eUw" secondAttribute="leading" constant="70" id="klt-zC-ci0"/>
+                            <constraint firstItem="geK-KV-NfD" firstAttribute="leading" secondItem="un0-F2-eUw" secondAttribute="leading" constant="100" id="nYD-vW-cEL"/>
+                            <constraint firstItem="un0-F2-eUw" firstAttribute="bottom" secondItem="geK-KV-NfD" secondAttribute="bottom" constant="200" id="qUX-fg-tJg"/>
+                            <constraint firstItem="hLX-VJ-ral" firstAttribute="leading" secondItem="un0-F2-eUw" secondAttribute="leading" constant="100" id="rT7-wF-ZOR"/>
+                            <constraint firstItem="0uA-dD-wtS" firstAttribute="top" secondItem="Bfu-Vo-mjQ" secondAttribute="bottom" constant="10" id="u3b-I9-l4L"/>
+                            <constraint firstItem="Vq1-WR-njJ" firstAttribute="top" secondItem="pz1-Ve-Elw" secondAttribute="bottom" constant="15" id="vXi-00-jzZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eTg-rE-xee"/>
+                    <connections>
+                        <outlet property="birthdayLabel" destination="0uA-dD-wtS" id="JkE-2R-e1c"/>
+                        <outlet property="nameLabel" destination="pz1-Ve-Elw" id="QJu-Y8-2eq"/>
+                        <outlet property="profileImage" destination="9OH-RL-Jfk" id="Y6F-YC-rUN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xcb-6z-JJw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3966" y="2267"/>
+            <point key="canvasLocation" x="3965.6488549618321" y="2266.9014084507044"/>
         </scene>
-        <!--View Controller-->
+        <!--Notification View Controller-->
         <scene sceneID="0sU-ZG-WvL">
             <objects>
-                <viewController id="cBH-6P-4bY" sceneMemberID="viewController">
+                <viewController id="cBH-6P-4bY" customClass="NotificationViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wn5-fV-eGk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1234,10 +1319,10 @@
             </objects>
             <point key="canvasLocation" x="4691" y="2267"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="KOX-oN-59M">
             <objects>
-                <viewController id="lMR-gc-1bl" sceneMemberID="viewController">
+                <viewController id="lMR-gc-1bl" customClass="AboutViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lPE-Lr-KhC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
