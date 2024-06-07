@@ -12,6 +12,9 @@ import FirebaseAuth
 class FriendChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var secondUser: User!
     
+    @IBOutlet weak var chatTitleText: UILabel!
+    
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var msgInputField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
@@ -32,9 +35,13 @@ class FriendChatViewController: UIViewController, UITableViewDelegate, UITableVi
     // viewDidLoad is called when the view is first loaded into memory
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        chatTitleText.text = secondUser.name
         // Initialize Firestore database
         db = Firestore.firestore()
+        
+        // Enable automatic dimension for row height
+        tableView.estimatedRowHeight = 44.0
+        tableView.rowHeight = UITableView.automaticDimension
         
         // Set the table view's delegate and data source to the current view controller
         tableView.delegate = self

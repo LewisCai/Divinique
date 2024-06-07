@@ -18,26 +18,46 @@ class NearbyUserProfileViewController: UIViewController {
     @IBOutlet weak var userBioText: UITextView!
     
     @IBAction func addFriendBtn(_ sender: Any) {
-        let userId = annotation?.userId
-        let currentUserId = (annotation?.currentUserId)!
+        guard let userId = annotation?.userId,
+              let currentUserId = annotation?.currentUserId else {
+            print("User ID or Current User ID is missing")
+            return
+        }
         
         let db = Firestore.firestore()
-        let currentUserDocRef = db.collection("users").document(currentUserId)
         
+        // Update current user's friend list
         db.collection("users").whereField("userId", isEqualTo: currentUserId).getDocuments { (snapshot, error) in
-            guard let document = snapshot?.documents.first else {
-                print("User document not found: \(String(describing: error))")
+            guard let currentUserDocument = snapshot?.documents.first else {
+                print("Current user document not found: \(String(describing: error))")
                 return
             }
             
-            // Update the friends array in the user's document
-            document.reference.updateData([
-                "friends": FieldValue.arrayUnion([userId!])
+            currentUserDocument.reference.updateData([
+                "friends": FieldValue.arrayUnion([userId])
             ]) { error in
                 if let error = error {
                     self.displayMessage(title: "Error", message: "Error adding friend: \(error.localizedDescription)")
                 } else {
-                    self.displayMessage(title: "Success", message: "Friend added successfully")
+                    print("Friend added to current user's friend list")
+                    
+                    // Update the other user's friend list
+                    db.collection("users").whereField("userId", isEqualTo: userId).getDocuments { (snapshot, error) in
+                        guard let userDocument = snapshot?.documents.first else {
+                            print("User document not found: \(String(describing: error))")
+                            return
+                        }
+                        
+                        userDocument.reference.updateData([
+                            "friends": FieldValue.arrayUnion([currentUserId])
+                        ]) { error in
+                            if let error = error {
+                                self.displayMessage(title: "Error", message: "Error adding friend: \(error.localizedDescription)")
+                            } else {
+                                self.displayMessage(title: "Success", message: "Friend added successfully to both users' friend lists")
+                            }
+                        }
+                    }
                 }
             }
         }
