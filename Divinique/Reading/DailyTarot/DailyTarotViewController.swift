@@ -34,10 +34,6 @@ class DailyTarotViewController: UIViewController {
         Task {
             await displayTodayTarot()
         }
-        
-        Task {
-            await scheduleDailyNotification()
-        }
     }
     
     // Display today's tarot card by searching for a card in the database that has today's date
@@ -59,46 +55,6 @@ class DailyTarotViewController: UIViewController {
             let newTarot = await readingController?.fetchRandomCard(numOfCard: 1).first
             let _ = databaseController?.addTarotCardData(tarotName: newTarot?.name ?? "Unknown", tarotState: (newTarot?.state ?? 1) as Int32, tarotMeaning: newTarot?.meaning ?? "Unknown", tarotDesc: newTarot?.desc ?? "Unknown", date: today_string ?? "Unknown")
             updateUI(with: newTarot!)
-        }
-    }
-    
-    func scheduleDailyNotification() async {
-        let center = UNUserNotificationCenter.current()
-        
-        // Calculate tomorrow's date
-        let tomorrow_date = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-        let tomorrow_string = readingController?.dateFormatter(date: tomorrow_date)
-        
-        
-        // Check if there is already a tarot card for tomorrow
-        if databaseController?.getDailyTarotCard(for: tomorrow_string!) == nil {
-            // Generate a new tarot card for tomorrow
-            let newTarot = await readingController?.fetchRandomCard(numOfCard: 1)
-            
-            // Schedule the notification
-            let content = UNMutableNotificationContent()
-            content.title = "Your Daily Tarot"
-            content.body = newTarot?.first?.desc ?? "error"
-            content.sound = .default
-            
-            // Configure the recurring date
-            var dateComponents = DateComponents()
-            dateComponents.hour = 9 // 9:00 AM
-
-            // Create the trigger as a repeating event
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-            
-            // Create the request
-            let request = UNNotificationRequest(identifier: "dailyTarotNotification", content: content, trigger: trigger)
-            
-            // Schedule the request with the notification center
-            center.add(request) { error in
-                if let error = error {
-                    print("Error scheduling notification: \(error)")
-                } else {
-                    print("Daily tarot notification scheduled for 9:00 AM every day.")
-                }
-            }
         }
     }
     

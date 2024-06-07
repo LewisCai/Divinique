@@ -1310,14 +1310,59 @@
                     <view key="view" contentMode="scaleToFill" id="wn5-fV-eGk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn On/Off Daily Notification for Daily Tarot" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnR-aH-vfz">
+                                <rect key="frame" x="30" y="273" width="234" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="dxB-6N-aZT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn On/Off Daily Notification for Daily Horoscope" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBS-Eo-0jn">
+                                <rect key="frame" x="30" y="400" width="281" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="d8s-bC-Bul">
+                                <rect key="frame" x="314" y="424" width="51" height="31"/>
+                                <connections>
+                                    <action selector="horoscopeNotificationSwitchToggled:" destination="cBH-6P-4bY" eventType="valueChanged" id="NLO-Bv-NmD"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oNy-Mv-xSN">
+                                <rect key="frame" x="314" y="303" width="51" height="31"/>
+                                <connections>
+                                    <action selector="tarotNotificationSwitchToggled:" destination="cBH-6P-4bY" eventType="valueChanged" id="jav-6X-U6F"/>
+                                </connections>
+                            </switch>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MFQ-DX-RsJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tBS-Eo-0jn" firstAttribute="top" secondItem="rnR-aH-vfz" secondAttribute="bottom" constant="47" id="0pa-G0-RZa"/>
+                            <constraint firstItem="d8s-bC-Bul" firstAttribute="top" secondItem="oNy-Mv-xSN" secondAttribute="bottom" constant="90" id="1pZ-s4-2Bs"/>
+                            <constraint firstItem="rnR-aH-vfz" firstAttribute="leading" secondItem="tBS-Eo-0jn" secondAttribute="leading" id="7fw-IM-lT6"/>
+                            <constraint firstItem="rnR-aH-vfz" firstAttribute="leading" secondItem="MFQ-DX-RsJ" secondAttribute="leading" constant="30" id="C2N-Pa-0JB"/>
+                            <constraint firstItem="rnR-aH-vfz" firstAttribute="top" secondItem="MFQ-DX-RsJ" secondAttribute="top" constant="170" id="JQx-PZ-fBO"/>
+                            <constraint firstItem="d8s-bC-Bul" firstAttribute="leading" secondItem="tBS-Eo-0jn" secondAttribute="trailing" constant="3" id="Xnh-Mu-WfJ"/>
+                            <constraint firstItem="oNy-Mv-xSN" firstAttribute="leading" secondItem="d8s-bC-Bul" secondAttribute="leading" id="iZD-2v-U8X"/>
+                            <constraint firstItem="oNy-Mv-xSN" firstAttribute="leading" secondItem="rnR-aH-vfz" secondAttribute="trailing" constant="50" id="qbU-SY-5IX"/>
+                            <constraint firstItem="MFQ-DX-RsJ" firstAttribute="trailing" secondItem="oNy-Mv-xSN" secondAttribute="trailing" constant="30" id="uH2-ep-6Ew"/>
+                            <constraint firstItem="oNy-Mv-xSN" firstAttribute="top" secondItem="MFQ-DX-RsJ" secondAttribute="top" constant="200" id="zik-tV-s4G"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uvR-4X-QjU"/>
+                    <connections>
+                        <outlet property="horoscopeNotificationSwitch" destination="d8s-bC-Bul" id="KDG-Dl-var"/>
+                        <outlet property="tarotNotificationSwitch" destination="oNy-Mv-xSN" id="U83-tE-V1m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pch-34-hrF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4691" y="2267"/>
+            <point key="canvasLocation" x="4690.8396946564881" y="2266.9014084507044"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="KOX-oN-59M">
