@@ -1372,10 +1372,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YK6-NH-U8V">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YK6-NH-U8V">
                                 <rect key="frame" x="10" y="113" width="373" height="695"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <mutableString key="text">Libraries and API used  Libraries: 
+1.	Firebase Libraries:
+2.	UIKit:
+3.	MapKit
+4.	CoreLocation
+5.	UserNotifications
+6.	CoreData   
+API Calls: 
+1.	Firebase Firestore: a. db.collection() b. document.reference 
+2.	Firebase Auth: a.Auth.auth().currentUser?.uid 
+3.	Other:  a. https://newastro.vercel.app
+b.https://api.quotable.io
+c. https://tarotapi.dev.api
+</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1803,11 +1816,11 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Icon" width="341.33334350585938" height="341.33334350585938"/>
-        <image name="book.closed.fill" catalog="system" width="115" height="128"/>
-        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
-        <image name="moon.stars.fill" catalog="system" width="125" height="128"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
-        <image name="person.2.fill" catalog="system" width="128" height="86"/>
+        <image name="book.closed.fill" catalog="system" width="32" height="32"/>
+        <image name="gearshape.fill" catalog="system" width="32" height="32"/>
+        <image name="moon.stars.fill" catalog="system" width="32" height="32"/>
+        <image name="pencil" catalog="system" width="32" height="32"/>
+        <image name="person.2.fill" catalog="system" width="32" height="32"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
