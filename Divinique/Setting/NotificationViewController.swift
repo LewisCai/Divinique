@@ -165,6 +165,7 @@ class NotificationViewController: UIViewController {
         }
     }
     
+    //Get user's sign from database
     func fetchUserSign(currentUserId: String, completion: @escaping (String?) -> Void) {
         let db = Firestore.firestore()
         db.collection("users").whereField("userId", isEqualTo: currentUserId).getDocuments { (snapshot, error) in
@@ -188,6 +189,7 @@ class NotificationViewController: UIViewController {
         print("Daily horoscope notification removed.")
     }
     
+    //fetch horoscope info from API
     func fetchHoroscope(for sign: String, date: String, lang: String) async -> Horoscope? {
         let baseURLString = "https://newastro.vercel.app/\(sign)?date=\(date)&lang=\(lang)"
         
