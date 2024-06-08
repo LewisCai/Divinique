@@ -17,6 +17,8 @@ class TarotCardResultTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         print(cardNames)
+        
+        
     }
 
     // MARK: - Table view data source
@@ -46,6 +48,7 @@ class TarotCardResultTableViewController: UITableViewController{
                 cell.tarotCardReading.text = reading ?? "No reading available"
             }
         }
+        
         return cell
     }
 
