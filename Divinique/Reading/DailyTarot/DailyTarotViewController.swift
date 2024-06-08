@@ -34,6 +34,18 @@ class DailyTarotViewController: UIViewController {
         Task {
             await displayTodayTarot()
         }
+        
+        // Create the background image view
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Background3")
+        
+        // Set the content mode
+        backgroundImage.contentMode = .scaleAspectFill  // This will cover the entire screen without distorting the aspect ratio
+        
+        // Add the image view to the view and send it to the back
+        view.addSubview(backgroundImage)
+        view.sendSubviewToBack(backgroundImage)
+
     }
     
     // Display today's tarot card by searching for a card in the database that has today's date

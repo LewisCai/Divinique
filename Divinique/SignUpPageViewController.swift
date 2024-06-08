@@ -34,6 +34,7 @@ class SignUpPageViewController: UIViewController {
     }
     
     private func signUpUser() {
+        //Check for valid email
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty,
               let confirmPassword = passwordTextField2.text, !confirmPassword.isEmpty else {
@@ -41,11 +42,13 @@ class SignUpPageViewController: UIViewController {
             return
         }
         
+        //check for valid password
         guard password == confirmPassword else {
             displayMessage(title: "Password not match", message: "Please make sure you have entered the same password")
             return
         }
         
+        //create user with firebase
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("Error signing up: \(error.localizedDescription)")

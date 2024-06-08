@@ -58,6 +58,7 @@ class NewUserPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Hide naviagtion bar
         self.navigationItem.hidesBackButton = true
     }
     
@@ -69,6 +70,7 @@ class NewUserPageViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
     }
     
+    //This function is used to give the star sign based on ur birthday
     func astrologicalSign(from date: Date) -> String {
         let zodiacSigns = [
             "capricorn", "aquarius", "pisces", "aries", "taurus", "gemini",
@@ -89,6 +91,7 @@ class NewUserPageViewController: UIViewController {
         let day = components.day!
         
         var index = month - 1
+        //if user born before this day at this month then its the same index of star sign in zodiacSigns
         if day < cutoffDates[index].day {
             index = index == 0 ? 11 : index - 1
         }

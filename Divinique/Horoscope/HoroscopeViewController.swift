@@ -47,6 +47,7 @@ class HoroscopeViewController: UIViewController {
         let image2 = UIImage(named: "zodiac.png")
         zodiacBtn.setImage(image2, for: .normal)
         
+        //Add button interaction 
         zodiacBtn.addTarget(self, action: #selector(buttonDown(_:)), for: .touchDown)
         zodiacBtn.addTarget(self, action: #selector(buttonUp(_:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
         

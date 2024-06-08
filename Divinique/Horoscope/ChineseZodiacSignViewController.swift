@@ -41,6 +41,7 @@ class ChineseZodiacSignViewController: UIViewController {
         }
     }
     
+    //Get user document
     func fetchUserData(completion: @escaping (Result<Date, Error>) -> Void) {
         guard let userID = Auth.auth().currentUser?.uid else {
             completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "User not logged in"])))
@@ -50,7 +51,7 @@ class ChineseZodiacSignViewController: UIViewController {
         let db = Firestore.firestore()
         let usersCollection = db.collection("users")
         let query = usersCollection.whereField("userId", isEqualTo: userID)
-
+        //Get user birtday 
         query.getDocuments { querySnapshot, error in
             if let error = error {
                 completion(.failure(error))
@@ -69,6 +70,7 @@ class ChineseZodiacSignViewController: UIViewController {
         }
     }
     
+    //Get the sign from user birth year
     func chineseZodiacSign(from date: Date) -> String {
         let zodiacSigns = [
             "Dragon", "Snake",
@@ -77,10 +79,11 @@ class ChineseZodiacSignViewController: UIViewController {
         
         let calendar = Calendar.current
         let year = calendar.component(.year, from: date)
-        let index = (year - 4) % 12
+        let index = (year - 8) % 12
         return zodiacSigns[index]
     }
     
+    //Update the view
     func updateUI(with sign: String?) {
         guard let sign = sign else {
             displayMessage(title: "Error", message: "Unable to determine zodiac sign")
@@ -91,6 +94,8 @@ class ChineseZodiacSignViewController: UIViewController {
         zodiacText.text = getDesc(for: sign)
     }
     
+    //IMPORTANT the following text is generate by CHATGPT
+    //Prompt: Generate a small paragraph of text to describe each chinese zodiac sign and the personality of people who has those signs.
     func getDesc(for sign: String) -> String {
         switch sign.lowercased() {
         case "rat":
