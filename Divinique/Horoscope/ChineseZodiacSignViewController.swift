@@ -19,6 +19,17 @@ class ChineseZodiacSignViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Create the image view
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Background")
+        
+        // Set the content mode
+        backgroundImage.contentMode = .scaleAspectFill  // This will cover the entire screen without distorting the aspect ratio
+        
+        // Add the image view to the view and send it to the back
+        view.addSubview(backgroundImage)
+        view.sendSubviewToBack(backgroundImage)
+        
         fetchUserData { [weak self] result in
             switch result {
             case .success(let date):

@@ -93,26 +93,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfA-rg-sgT">
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfA-rg-sgT">
                                 <rect key="frame" x="100" y="303" width="193" height="35"/>
+                                <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="3 Cards"/>
+                                <buttonConfiguration key="configuration" style="filled" title="3 Cards">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="threeCardsButton:" destination="w8d-cu-nHw" eventType="touchUpInside" id="Qce-cH-4PZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kt4-Os-IeA">
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kt4-Os-IeA">
                                 <rect key="frame" x="100" y="453" width="193" height="35"/>
+                                <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Daily Tarot"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Daily Tarot">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="dailyTarotButton:" destination="w8d-cu-nHw" eventType="touchUpInside" id="pk2-mi-eok"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKv-9k-8dM">
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKv-9k-8dM">
                                 <rect key="frame" x="100" y="378" width="193" height="35"/>
+                                <color key="tintColor" systemColor="tertiarySystemBackgroundColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="6 Cards"/>
+                                <buttonConfiguration key="configuration" style="filled" title="6 Cards">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="sixCardsButton:" destination="w8d-cu-nHw" eventType="touchUpInside" id="hwn-Cs-tqy"/>
                                 </connections>
@@ -1417,13 +1438,10 @@ c. https://tarotapi.dev.api
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eJ-c2-FNe">
-                                <rect key="frame" x="70" y="143" width="253" height="250"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eJ-c2-FNe">
+                                <rect key="frame" x="70" y="154" width="253" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="50E-ON-a9k"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="Jwh-rJ-VrT"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="bYi-bh-GQs"/>
-                                    <constraint firstAttribute="height" constant="250" id="v2P-db-fzv"/>
+                                    <constraint firstAttribute="height" constant="250" id="mn3-Of-nAj"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="" buttonSize="medium"/>
@@ -1431,11 +1449,22 @@ c. https://tarotapi.dev.api
                                     <action selector="chineseZodiacButton:" destination="EBI-Vr-dQj" eventType="touchUpInside" id="bFz-ox-DW2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chinese Zodiac Sign" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiT-K6-nWG">
+                                <rect key="frame" x="100" y="113" width="193" height="11"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Zodiac Sign" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOV-0P-0vG">
+                                <rect key="frame" x="100" y="444" width="193" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJh-NQ-sED">
-                                <rect key="frame" x="70" y="458" width="253" height="250"/>
+                                <rect key="frame" x="70" y="494" width="253" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="WYZ-St-FMt"/>
-                                    <constraint firstAttribute="height" constant="250" id="tRd-FE-wKw"/>
+                                    <constraint firstAttribute="height" constant="250" id="O1t-CE-2bL"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
@@ -1443,34 +1472,23 @@ c. https://tarotapi.dev.api
                                     <action selector="zodiacButton:" destination="EBI-Vr-dQj" eventType="touchUpInside" id="OlT-61-ZrR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chinese Zodiac Sign" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiT-K6-nWG">
-                                <rect key="frame" x="110" y="113" width="173" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zodiac Sign" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOV-0P-0vG">
-                                <rect key="frame" x="150" y="429" width="93" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gN8-Ol-LDZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uiT-K6-nWG" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="110" id="2gY-XU-PQY"/>
-                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="cOV-0P-0vG" secondAttribute="trailing" constant="150" id="Gjz-ui-wSF"/>
-                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="uiT-K6-nWG" secondAttribute="trailing" constant="110" id="Wqj-M1-eVk"/>
-                            <constraint firstItem="5eJ-c2-FNe" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="70" id="Ykb-TY-RJT"/>
-                            <constraint firstItem="TJh-NQ-sED" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="70" id="cdo-zN-Alv"/>
-                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="5eJ-c2-FNe" secondAttribute="trailing" constant="70" id="cgD-KL-KeV"/>
-                            <constraint firstItem="TJh-NQ-sED" firstAttribute="top" secondItem="5eJ-c2-FNe" secondAttribute="bottom" constant="65" id="dmY-30-KB5"/>
-                            <constraint firstItem="uiT-K6-nWG" firstAttribute="top" secondItem="gN8-Ol-LDZ" secondAttribute="top" constant="10" id="eUh-xa-GPp"/>
-                            <constraint firstItem="cOV-0P-0vG" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="150" id="gc3-Ht-dBs"/>
-                            <constraint firstItem="cOV-0P-0vG" firstAttribute="top" secondItem="5eJ-c2-FNe" secondAttribute="bottom" constant="36" id="hYb-lb-o8W"/>
-                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="TJh-NQ-sED" secondAttribute="trailing" constant="70" id="vrW-BJ-e6f"/>
-                            <constraint firstItem="5eJ-c2-FNe" firstAttribute="top" secondItem="gN8-Ol-LDZ" secondAttribute="top" constant="40" id="wgC-kG-cNt"/>
+                            <constraint firstItem="5eJ-c2-FNe" firstAttribute="top" secondItem="uiT-K6-nWG" secondAttribute="bottom" constant="30" id="8D1-YL-ghK"/>
+                            <constraint firstItem="TJh-NQ-sED" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="70" id="A0T-Dw-Y6u"/>
+                            <constraint firstItem="TJh-NQ-sED" firstAttribute="bottom" secondItem="gN8-Ol-LDZ" secondAttribute="bottom" constant="-25" id="CZz-ge-BQr"/>
+                            <constraint firstItem="TJh-NQ-sED" firstAttribute="top" secondItem="cOV-0P-0vG" secondAttribute="bottom" constant="29" id="DXR-HZ-fkN"/>
+                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="5eJ-c2-FNe" secondAttribute="trailing" constant="70" id="EiP-IV-Yr4"/>
+                            <constraint firstItem="uiT-K6-nWG" firstAttribute="top" secondItem="gN8-Ol-LDZ" secondAttribute="top" constant="10" id="ITU-Wu-WDw"/>
+                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="TJh-NQ-sED" secondAttribute="trailing" constant="70" id="Ofk-mb-HLX"/>
+                            <constraint firstItem="cOV-0P-0vG" firstAttribute="top" secondItem="5eJ-c2-FNe" secondAttribute="bottom" constant="40" id="Zj7-UD-8aa"/>
+                            <constraint firstItem="5eJ-c2-FNe" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="70" id="bXH-e4-YbE"/>
+                            <constraint firstItem="cOV-0P-0vG" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="100" id="ddb-IG-Ntf"/>
+                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="uiT-K6-nWG" secondAttribute="trailing" constant="100" id="fhL-CR-h9p"/>
+                            <constraint firstItem="uiT-K6-nWG" firstAttribute="leading" secondItem="gN8-Ol-LDZ" secondAttribute="leading" constant="100" id="xrD-Cb-MmT"/>
+                            <constraint firstItem="gN8-Ol-LDZ" firstAttribute="trailing" secondItem="cOV-0P-0vG" secondAttribute="trailing" constant="100" id="zTV-SM-ie2"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Horoscope" image="moon.stars.fill" catalog="system" id="Hxf-gf-myK"/>
@@ -1495,7 +1513,6 @@ c. https://tarotapi.dev.api
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Co-eb-J46">
                                 <rect key="frame" x="75" y="414.33333333333326" width="243" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="cXm-2t-Jzb"/>
                                 </constraints>
@@ -1516,8 +1533,8 @@ c. https://tarotapi.dev.api
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73A-oE-1HK">
-                                <rect key="frame" x="175" y="193" width="43" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73A-oE-1HK">
+                                <rect key="frame" x="70" y="193" width="253" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1532,12 +1549,12 @@ c. https://tarotapi.dev.api
                             <constraint firstItem="73A-oE-1HK" firstAttribute="top" secondItem="F8n-Rh-Dzs" secondAttribute="top" constant="90" id="MKY-vk-QGK"/>
                             <constraint firstItem="F8n-Rh-Dzs" firstAttribute="trailing" secondItem="5Co-eb-J46" secondAttribute="trailing" constant="75" id="SiD-pv-DZF"/>
                             <constraint firstItem="2pB-lz-YZV" firstAttribute="leading" secondItem="F8n-Rh-Dzs" secondAttribute="leading" constant="100" id="X6D-5J-Ji1"/>
-                            <constraint firstItem="F8n-Rh-Dzs" firstAttribute="trailing" secondItem="73A-oE-1HK" secondAttribute="trailing" constant="175" id="ehF-i8-obA"/>
-                            <constraint firstItem="73A-oE-1HK" firstAttribute="leading" secondItem="F8n-Rh-Dzs" secondAttribute="leading" constant="175" id="fPZ-V8-jkk"/>
                             <constraint firstItem="Pao-zJ-Pa4" firstAttribute="top" secondItem="2pB-lz-YZV" secondAttribute="bottom" constant="20" id="fku-t6-jo2"/>
+                            <constraint firstItem="73A-oE-1HK" firstAttribute="leading" secondItem="F8n-Rh-Dzs" secondAttribute="leading" constant="70" id="jiP-eO-hVT"/>
                             <constraint firstItem="5Co-eb-J46" firstAttribute="top" secondItem="Pao-zJ-Pa4" secondAttribute="bottom" constant="50" id="uM8-zJ-UJe"/>
                             <constraint firstItem="F8n-Rh-Dzs" firstAttribute="trailing" secondItem="Pao-zJ-Pa4" secondAttribute="trailing" constant="75" id="x8i-Js-Td3"/>
                             <constraint firstItem="Pao-zJ-Pa4" firstAttribute="leading" secondItem="F8n-Rh-Dzs" secondAttribute="leading" constant="75" id="xmk-d1-009"/>
+                            <constraint firstItem="F8n-Rh-Dzs" firstAttribute="trailing" secondItem="73A-oE-1HK" secondAttribute="trailing" constant="70" id="y2J-ry-vvX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tLp-d6-dmT"/>
@@ -1572,9 +1589,9 @@ c. https://tarotapi.dev.api
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cy9-p3-4Kc">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cy9-p3-4Kc">
                                 <rect key="frame" x="70" y="459" width="253" height="200"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="nw2-rx-Sfl"/>
                                 </constraints>
@@ -1614,10 +1631,12 @@ c. https://tarotapi.dev.api
             <objects>
                 <tabBarController id="cSG-qz-WjY" customClass="TabBarViewController" customModule="Divinique" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="nie-wZ-1fc"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vQ1-UZ-HQh">
+                    <tabBar key="tabBar" alpha="0.80000000000000004" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vQ1-UZ-HQh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="tableCellGroupedBackgroundColor"/>
+                        <color key="barTintColor" systemColor="systemIndigoColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="EBI-Vr-dQj" kind="relationship" relationship="viewControllers" id="sqr-th-7Ch"/>
@@ -1832,6 +1851,18 @@ c. https://tarotapi.dev.api
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tableCellGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
