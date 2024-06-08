@@ -18,6 +18,7 @@ class NearbyUserProfileViewController: UIViewController {
     @IBOutlet weak var userBioText: UITextView!
     
     @IBAction func addFriendBtn(_ sender: Any) {
+        // add a friend
         guard let userId = annotation?.userId,
               let currentUserId = annotation?.currentUserId else {
             print("User ID or Current User ID is missing")
@@ -33,6 +34,7 @@ class NearbyUserProfileViewController: UIViewController {
                 return
             }
             
+            //update
             currentUserDocument.reference.updateData([
                 "friends": FieldValue.arrayUnion([userId])
             ]) { error in
@@ -47,7 +49,7 @@ class NearbyUserProfileViewController: UIViewController {
                             print("User document not found: \(String(describing: error))")
                             return
                         }
-                        
+                        //update
                         userDocument.reference.updateData([
                             "friends": FieldValue.arrayUnion([currentUserId])
                         ]) { error in

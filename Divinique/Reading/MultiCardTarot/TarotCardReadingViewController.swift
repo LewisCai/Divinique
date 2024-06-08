@@ -50,9 +50,11 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
     }
     
     private func setupWheelButton() {
-        let image = UIImage(named: "tarotWheel.png") // Ensure the image name is correct
+        //set the image for spinwheel
+        let image = UIImage(named: "tarotWheel.png")
         spinWheelBtn.setImage(image, for: .normal)
         spinWheelBtn.imageView?.contentMode = .scaleAspectFit
+        //actions and animation for when touch and release
         spinWheelBtn.addTarget(self, action: #selector(buttonDown(_:)), for: .touchDown)
         spinWheelBtn.addTarget(self, action: #selector(buttonUp(_:)), for: [.touchUpInside, .touchUpOutside, .touchCancel])
     }
@@ -71,10 +73,12 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
     }
 
     @objc func buttonUp(_ sender: UIButton) {
+        //spin the wheel
         UIView.animate(withDuration: 0.2, animations: {
             sender.transform = .identity
         }) { [weak self] _ in
             self?.spinWheel(sender)
+            //check if user reached the max cards
             if let self = self, self.cardCount < self.maxCard {
                 self.displayNextCard()
             } else {
@@ -84,12 +88,12 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
     }
 
     private func spinWheel(_ sender: UIButton) {
-        // Duration and rotations can be adjusted for desired effect
         let rotationDuration = 2.0 // Duration in seconds
         let rotations = 3.0 // Number of full rotations
         let fullRotation = CGFloat.pi * 2
         let animation = CABasicAnimation(keyPath: "transform.rotation")
         
+        //config the animation
         animation.fromValue = 0
         animation.toValue = fullRotation * rotations
         animation.duration = rotationDuration
@@ -98,6 +102,7 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
     }
     
     func fetchRandomCard(completion: @escaping (String?) -> Void) {
+        //get a random card when spin the wheel
         guard let url = URL(string: "https://tarotapi.dev/api/v1/cards/random?n=1") else {
             print("Invalid URL")
             completion(nil)
@@ -144,6 +149,7 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
     private var cardCount = 0
 
     private func displayNextCard() {
+        //get the card when spined wheel
         fetchRandomCard { [weak self] cardName in
             guard let cardName = cardName else {
                 print("Failed to load card image")
@@ -151,7 +157,7 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
             }
             
             print(cardName)
-            
+            //display the card at collection view
             DispatchQueue.main.async {
                 if self?.cardCount ?? 0 < self?.maxCard ?? 0 {
                     self?.cardFullNames.append(cardName)
@@ -173,6 +179,7 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "threeCardResultSegue" {
+            //the next view is the result of the taort card got, pass the cards from this view to the next view
             if let destinationVC = segue.destination as? TarotCardResultTableViewController {
                 destinationVC.cardNames = self.cardNames
             }
@@ -186,10 +193,12 @@ class TarotCardReadingViewController: UIViewController, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //display each image with the same name as card in assests in the cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TarotCardCell", for: indexPath) as! TarotCardCell
         print("full names:", cardFullNames)
+        //check for same name
         let cardName = cardFullNames[indexPath.item].lowercased()
-        cell.imageView.image = UIImage(named: cardName) ?? UIImage(named: "the fool") // Provide a default image if not found
+        cell.imageView.image = UIImage(named: cardName) ?? UIImage(named: "the fool") // Provided a default image if not found, sometime API gives a card thats not in the proper tarot set 
         return cell
     }
 }

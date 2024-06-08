@@ -21,11 +21,11 @@ class YesNoTarotResultViewController: UIViewController {
         super.viewDidLoad()
         tarotCardName.text = tarotCard?.name
         cardImage.image = UIImage(named: tarotCard?.name.lowercased() ?? "the fool")
+        //randomly gives a value 
         if Int32.random(in: 0...1) == 1{
             resultText.text = "YES"
         }else{
             resultText.text = "NO"
         }
-        // Do any additional setup after loading the view.
     }
 }

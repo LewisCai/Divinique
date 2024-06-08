@@ -59,6 +59,7 @@ class DecisionViewController: UIViewController {
     }
     
     @objc func yesNoTarotTapped(){
+        //do flip animation when pressed, and used completion because i dont wnat segue to perform untill the animation is done
         UIView.transition(with: yesNoTarotImage, duration: 0.6, options: .transitionFlipFromRight, animations: {
             self.yesNoTarotImage.image = UIImage(named: "yesNoTarot")
         }, completion: { _ in

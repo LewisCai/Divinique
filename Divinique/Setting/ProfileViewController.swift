@@ -20,10 +20,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBAction func changeNameBtn(_ sender: Any) {
+        //show a alert box, where user can input a new name
         let alertController = UIAlertController(title: "Change Name", message: "Enter your new name", preferredStyle: .alert)
         alertController.addTextField { textField in
             textField.placeholder = "New Name"
         }
+        //update name
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             if let nameField = alertController.textFields?.first, let newName = nameField.text, !newName.isEmpty {
                 self.updateUserName(newName)
@@ -42,6 +44,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         alertController.addTextField { textField in
             textField.placeholder = "dd/MM/yyyy"
         }
+        //convert user input in the the one we want in database
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             if let birthdayField = alertController.textFields?.first, let newBirthday = birthdayField.text, !newBirthday.isEmpty {
                 let formatter = DateFormatter()
@@ -73,6 +76,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     }
     
     // MARK: - Load Profile Data
+    //the function of Profile photo is not implemented yet
     func loadProfileData() {
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
         
@@ -94,6 +98,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                let image = UIImage(data: imageData) {
                 self.profileImage.image = image
             }
+            //display name and birthday
             self.nameLabel.text = data["name"] as? String
             
             if let birthdayString = data["date"] as? String {
@@ -103,6 +108,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         }
     }
     
+    
+    //format the birthday string into a readable one
     func formatBirthdayString(_ birthdayString: String) -> String {
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -116,6 +123,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         }
     }
     
+    //Change the user name into the one user want in database and in current view
     func updateUserName(_ newName: String) {
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
         
@@ -137,6 +145,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                 if let error = error {
                     print("Error updating name: \(error.localizedDescription)")
                 } else {
+                    //update in view
                     self.nameLabel.text = newName
                     print("Name successfully updated")
                 }
@@ -144,6 +153,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         }
     }
     
+    //update the birthday in database and in current view
     func updateUserBirthday(_ newBirthday: String, displayFormat: String) {
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
         
@@ -165,6 +175,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                 if let error = error {
                     print("Error updating birthday: \(error.localizedDescription)")
                 } else {
+                    //update in view
                     self.birthdayLabel.text = displayFormat
                     print("Birthday successfully updated")
                 }

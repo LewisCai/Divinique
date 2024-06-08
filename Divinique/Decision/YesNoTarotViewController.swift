@@ -18,13 +18,14 @@ class YesNoTarotViewController: UIViewController {
     
     var newCardName:String = ""
     var newTarotCard: TarotCard?
-    var hasTapped: Bool = false
+    var hasTapped: Bool = false//this is used to make sure that the user only fliped one card
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         readingController = appDelegate?.readingController
-
+        
+        //set up image
         image1.image = UIImage(named: "tarotback")
         image2.image = UIImage(named: "tarotback")
         image3.image = UIImage(named: "tarotback")
@@ -49,7 +50,7 @@ class YesNoTarotViewController: UIViewController {
             newTarotCard = newCard
         }
     }
-    
+    //check if user has already fliped a card, if not then flip it
     @objc func image1Tapped() {
         if !hasTapped {
             hasTapped = true
@@ -71,7 +72,9 @@ class YesNoTarotViewController: UIViewController {
         }
     }
     
+    //animation for fliping
     func flipCard(imageView: UIImageView) {
+        //go to the result view 
         UIView.transition(with: imageView, duration: 0.6, options: .transitionFlipFromRight, animations: {
             imageView.image = UIImage(named: self.newCardName)
         }, completion: { _ in

@@ -15,7 +15,9 @@ class FortuneCookieOpenedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //set image
         cookieOpenedImage.image = UIImage(named: "FortuneCookie1")
+        //call api to get a quote
         getRandomQuote { quote in
             DispatchQueue.main.async {
                 self.cookieQuoteText.text = quote
@@ -23,6 +25,7 @@ class FortuneCookieOpenedViewController: UIViewController {
         }
     }
 
+    //API call
     func getRandomQuote(completion: @escaping (String) -> Void) {
         let urlString = "https://api.quotable.io/quotes/random"
         guard let url = URL(string: urlString) else {
@@ -42,6 +45,7 @@ class FortuneCookieOpenedViewController: UIViewController {
             }
             
             do {
+                //decode the call result 
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]],
                    let firstQuote = json.first,
                    let content = firstQuote["content"] as? String,

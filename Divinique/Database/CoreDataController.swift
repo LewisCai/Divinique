@@ -13,6 +13,7 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
     var persistentContainer: NSPersistentContainer
     var listeners = MulticastDelegate<DatabaseListener>()
     
+    // Initialize the Core Data stack
     override init() {
         persistentContainer = NSPersistentContainer(name: "DiviniqueCoreDataModel")
         persistentContainer.loadPersistentStores { (description, error) in
@@ -23,6 +24,7 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         super.init()
     }
 
+    // Save any changes in the context
     func cleanup() {
         if persistentContainer.viewContext.hasChanges {
             do {
@@ -33,6 +35,7 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         }
     }
 
+    // Add a listener to the multicast delegate
     func addListener(listener: DatabaseListener) {
         listeners.addDelegate(listener)
         
@@ -41,14 +44,15 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         }
     }
 
+    // Remove a listener from the multicast delegate
     func removeListener(listener: DatabaseListener) {
         listeners.removeDelegate(listener)
     }
 
+    // Add a new TarotCardData entry to Core Data
     func addTarotCardData(tarotName: String, tarotState: Int32, tarotMeaning: String, tarotDesc: String, date: String) -> TarotCardData {
         print("adding a card")
-        let tarotCard = NSEntityDescription.insertNewObject(forEntityName:
-        "TarotCardData", into: persistentContainer.viewContext) as! TarotCardData
+        let tarotCard = NSEntityDescription.insertNewObject(forEntityName: "TarotCardData", into: persistentContainer.viewContext) as! TarotCardData
         tarotCard.tarotName = tarotName
         tarotCard.tarotState = tarotState
         tarotCard.tarotMeaning = tarotMeaning
@@ -59,12 +63,14 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         return tarotCard
     }
 
+    // Delete a TarotCardData entry from Core Data
     func deleteTarotCardData(tarotCard: TarotCardData) {
         let context = persistentContainer.viewContext
         context.delete(tarotCard)
         saveContext()
     }
 
+    // Add a new HoroscopeData entry to Core Data
     func addHoroscopeData(starSign: String, date: String, desc: String) -> HoroscopeData {
         let context = persistentContainer.viewContext
         let horoscope = HoroscopeData(context: context)
@@ -76,12 +82,14 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         return horoscope
     }
 
+    // Delete a HoroscopeData entry from Core Data
     func deleteHoroscopeData(horoscope: HoroscopeData) {
         let context = persistentContainer.viewContext
         context.delete(horoscope)
         saveContext()
     }
 
+    // Save changes to the context if there are any
     func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -93,11 +101,12 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         }
     }
     
+    // Fetch the daily tarot card for a specific date
     func getDailyTarotCard(for date: String) -> TarotCardData? {
-        print("get card",date)
+        print("get card", date)
         let context = persistentContainer.viewContext
         let request = NSFetchRequest<TarotCardData>(entityName: "TarotCardData")
-        request.predicate = NSPredicate(format: "date == %@", date as String)
+        request.predicate = NSPredicate(format: "date == %@", date)
         do {
             return try context.fetch(request).first
         } catch {
@@ -106,18 +115,20 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         }
     }
 
+    // Fetch all TarotCardData entries from Core Data
     func fetchAllTarotCards() -> [TarotCardData] {
         print("fetching")
         var cards = [TarotCardData]()
         let request: NSFetchRequest<TarotCardData> = TarotCardData.fetchRequest()
         do {
-        try cards = persistentContainer.viewContext.fetch(request)
+            cards = try persistentContainer.viewContext.fetch(request)
         } catch {
-        print("Fetch Request failed with error: \(error)")
+            print("Fetch Request failed with error: \(error)")
         }
         return cards
     }
 
+    // Fetch all HoroscopeData entries from Core Data
     func fetchAllHoroscopes() -> [HoroscopeData] {
         let context = persistentContainer.viewContext
         let request: NSFetchRequest<HoroscopeData> = HoroscopeData.fetchRequest()

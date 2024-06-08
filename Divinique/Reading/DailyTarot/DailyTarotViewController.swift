@@ -54,6 +54,7 @@ class DailyTarotViewController: UIViewController {
         let today_date = Calendar.current.date(byAdding: .day, value: 0, to: Date())!
         let today_string = readingController?.dateFormatter(date: today_date)
         
+        //use function from another file with delegation 
         if let tarotCard = databaseController?.getDailyTarotCard(for: today_string!){
             print("found")
             let newTarot = TarotCard(name: tarotCard.tarotName!,
@@ -64,7 +65,9 @@ class DailyTarotViewController: UIViewController {
             updateUI(with: newTarot)
         } else {
             print("No tarot card found for today's date, generating a new one.")
+            //use function from another file via delegation
             let newTarot = await readingController?.fetchRandomCard(numOfCard: 1).first
+            //add it to local database 
             let _ = databaseController?.addTarotCardData(tarotName: newTarot?.name ?? "Unknown", tarotState: (newTarot?.state ?? 1) as Int32, tarotMeaning: newTarot?.meaning ?? "Unknown", tarotDesc: newTarot?.desc ?? "Unknown", date: today_string ?? "Unknown")
             updateUI(with: newTarot!)
         }

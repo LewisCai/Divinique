@@ -33,6 +33,7 @@ class NotificationViewController: UIViewController {
     }
     
     @IBAction func tarotNotificationSwitchToggled(_ sender: UISwitch) {
+        //turn on and off notification
         if sender.isOn {
             Task {
                 await scheduleDailyNotification()
@@ -52,7 +53,7 @@ class NotificationViewController: UIViewController {
         }
     }
     
-    
+    //check if ther eis a notification pending
     func checkNotificationStatus() {
         let center = UNUserNotificationCenter.current()
         center.getPendingNotificationRequests { (requests) in
@@ -72,7 +73,7 @@ class NotificationViewController: UIViewController {
         
         // Check if there is already a tarot card for tomorrow
         if databaseController?.getDailyTarotCard(for: tomorrow_string!) == nil {
-            // Generate a new tarot card for tomorrow
+            // Generate a new tarot card for tomorrow if not
             let newTarot = await readingController?.fetchRandomCard(numOfCard: 1)
             
             // Schedule the notification
@@ -112,9 +113,9 @@ class NotificationViewController: UIViewController {
         let center = UNUserNotificationCenter.current()
         
         // Get current user ID
-        // Get current user ID
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
         
+        //get sign of user
         fetchUserSign(currentUserId: currentUserId) { userSign in
             guard let userSign = userSign else {
                 print("User sign not found")

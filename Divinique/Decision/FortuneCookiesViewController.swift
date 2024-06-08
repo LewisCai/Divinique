@@ -17,12 +17,13 @@ class FortuneCookiesViewController: UIViewController {
         fortuneCookieImage.image = UIImage(named: "FortuneCookie")
         // Create a swipe gesture recognizer
         let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
-        swipeGesture.direction = .down // or you can set it to .right, .up, or .down based on your requirement
+        swipeGesture.direction = .down // swipe down
         fortuneCookieImage.addGestureRecognizer(swipeGesture)
         fortuneCookieImage.isUserInteractionEnabled = true // Enable user interaction
     }
     
     @objc func handleSwipe(_ gesture: UISwipeGestureRecognizer) {
+        //swipe trigger segue 
         performSegue(withIdentifier: "cookieOpenedSegue", sender: self)
     }
 }

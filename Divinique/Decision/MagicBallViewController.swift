@@ -15,12 +15,10 @@ class MagicBallViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        magicOrbImage.image = UIImage(named: "magicOrbDark") // Replace 'initialImage' with your initial image name
-        magicOrbImage.isUserInteractionEnabled = true // Important: UIImageView by default is not interactive
-        addLongPressGesture()
-
-        // Do any additional setup after loading the view.
-    }
+        //image set up
+        magicOrbImage.image = UIImage(named: "magicOrbDark")
+        magicOrbImage.isUserInteractionEnabled = true
+        addLongPressGesture()    }
     
     func addLongPressGesture() {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
@@ -29,11 +27,15 @@ class MagicBallViewController: UIViewController {
     }
 
     @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        //change the magic orb image after long press
         if gesture.state == .began {
             magicOrbImage.image = UIImage(named: "magicOrbBright")
             answerText.text = randomResponse()
         }
     }
+    
+    //the response is gotten from
+    //https://github.com/amberkakkar01/Magic-Ball/tree/master
     
     func randomResponse() -> String {
         let choice = Int.random(in: 1...20)  // Randomly generates a number from 1 to 20

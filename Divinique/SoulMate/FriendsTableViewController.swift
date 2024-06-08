@@ -10,8 +10,8 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class FriendsTableViewController: UITableViewController{
-    var friends: [String] = []
-    var friendDetails: [User] = []
+    var friends: [String] = [] //store all the friend's user id
+    var friendDetails: [User] = [] //store allthe friends in here
     var friend: User!
     
     override func viewDidLoad() {
@@ -37,6 +37,7 @@ class FriendsTableViewController: UITableViewController{
         }
     }
     
+    //get the friends from the friends array in the databse
     func fetchFriendDetails() {
         let db = Firestore.firestore()
         let group = DispatchGroup()
@@ -64,16 +65,15 @@ class FriendsTableViewController: UITableViewController{
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return friendDetails.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //for each cell display friend's name
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath)
         let friend = friendDetails[indexPath.row]
         cell.textLabel?.text = friend.name
@@ -81,14 +81,16 @@ class FriendsTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //user clicked on one of the cell
         friend = friendDetails[indexPath.row]
         print("Selected friend: \(friend.name)")
-        // Perform segue or other actions here
+        //go to the chat page
         performSegue(withIdentifier: "chatSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "chatSegue" {
+            //pass the user to next view
             if let destinationVC = segue.destination as? FriendChatViewController{
                 destinationVC.secondUser = self.friend
             }

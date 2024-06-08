@@ -13,6 +13,7 @@ class FortuneStickViewController: UIViewController {
     
     @IBOutlet weak var stickDesc: UITextView!
     
+    //result for the sticks 
     let fortuneSticks = [
         (imageName: "FortuneStick", description: "上上签: Great fortune"),
         (imageName: "FortuneStick", description: "上签: Good fortune"),

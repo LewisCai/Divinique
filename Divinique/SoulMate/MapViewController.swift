@@ -57,7 +57,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
         
-        // Debugging: Print the current location
         print("Current location: \(currentLocation.coordinate)")
         
         // Update user location in Firestore
@@ -108,6 +107,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // Fetch the closest users' locations from Firestore
     func fetchClosestUsers(currentLocation: CLLocation, completion: @escaping ([(location: CLLocation, name: String, date: String, sign: String, userId: String)]) -> Void) {
         let db = Firestore.firestore()
+        //loop throught every user in databse
         db.collection("users").getDocuments { (snapshot, error) in
             guard let documents = snapshot?.documents else {
                 print("Error fetching documents: \(String(describing: error))")
@@ -194,7 +194,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 print("Error fetching current user document: \(String(describing: error))")
                 return
             }
-            
+            //make it into annotation for making it easier to add 
             let data = document.data()
             if let name = data["name"] as? String,
                let date = data["date"] as? String,

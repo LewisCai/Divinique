@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class SettingTableViewController: UITableViewController {
-
+    //setting cells elements
     let settings = [
         ["Profile"],
         ["Notifications"],
@@ -29,14 +29,17 @@ class SettingTableViewController: UITableViewController {
         return settings[section].count
     }
     
+    //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath)
+        // Set the text of the cell's textLabel to the value from the settings array for the given section and row
         cell.textLabel?.text = settings[indexPath.section][indexPath.row]
         cell.accessoryType = .disclosureIndicator // Show an arrow for navigation
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        //set header for each section 
         switch section {
         case 0: return "General"
         case 1: return "Preferences"

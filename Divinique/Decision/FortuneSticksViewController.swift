@@ -11,10 +11,12 @@ class FortuneSticksViewController: UIViewController {
 
     @IBOutlet weak var fortuneBox: UIImageView!
     
+    //count the shakes, shake 4 times to get a sticks
     private var shakeCounter: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //set image
         fortuneBox.image = UIImage(named: "FortuneBox")
 
     }
@@ -46,7 +48,7 @@ class FortuneSticksViewController: UIViewController {
         if motion == .motionShake {
             print("Shake ended")
         }
-        
+        //if user done shake and shaked more than 4 times 
         if shakeCounter >= 4 {
             performSegue(withIdentifier: "fortuneStickSegue", sender: self)
         }
