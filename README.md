@@ -11,5 +11,6 @@ Utilized:
 * Chat function
 * Firebase database and authentication
 
-Login Page
-![login](https://github.com/LewisCai/Divinique/assets/161551044/e33c8c5f-45b0-4d02-bcdc-285410a5195b)
+Login Page:
+
+<img src="https://github.com/LewisCai/Divinique/assets/161551044/e33c8c5f-45b0-4d02-bcdc-285410a5195b" alt="login" width="400"/>
